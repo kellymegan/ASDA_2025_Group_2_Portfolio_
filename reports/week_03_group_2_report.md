@@ -6,13 +6,13 @@
 
 ## 1.  **Dataset Overview**
 
-| > Item | > Description |
+|  Item |  Description |
 |--------|----------------|
-| > Dataset name | Lego_Database1-11-2025.xlsx |
-| > Authors | Leuphana Applied Statistical Data Analysis students of WiSe2025 |
-| > Number of entries | 204 |
-| > Number of features/variables | 12 |
-| > Format file (.csv, .txt, etc) | .xlsx (clean exported to .csv) |
+|  Dataset name | Lego_Database1-11-2025.xlsx |
+|  Authors | Leuphana Applied Statistical Data Analysis students of WiSe2025 |
+|  Number of entries | 204 |
+|  Number of features/variables | 12 |
+|  Format file (.csv, .txt, etc) | .xlsx (clean exported to .csv) |
 
 ---
 ## 2. Dataset Structure (of the clean version)
