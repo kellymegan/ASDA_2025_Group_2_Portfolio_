@@ -15,44 +15,58 @@
 | > Format file (.csv, .txt, etc) | .xlsx (clean exported to .csv) |
 
 ---
+## 2. Dataset Structure (of the clean version)
 
-## 2.  **Dataset Structure**
+| Feature/variable | Data type | Description | Number of Unique values | Example values |
+| :---- | :---- | :---- | :---- | :---- |
+| Color | Object | The color of the piece. | 12 | Blue, green, red, yellow, orange |
+| Is Duplo? | Object | If the piece is duple or not. | 2 | 1, 0 |
+| Size type | Object | The type of the piece, brick or plate. | 2 | Brick, plate |
+| Base shape | object | The shape of the piece. | 8 | Rectangle, square, circle, triangle, trapezoid. |
+| Base dimensions | object | Dimensions of the base. Counted using the number of studs. | 13 | 2x4, 2x2, 2x8, 1x4, 1x3 |
+| Number of studs | float64 | The number of studs per piece. | 10 | 1, 3, 4, 6, 8 |
+| Has slope? | Object | If the piece has slope | 2 | 1, 0 |
+| Slope degree | float64 | Degree of the slope if has. | 4 | 0, 15, 30, 45 |
+| In stock | Object | If the piece is in the bag. | 2 | 1, 0 |
+| Transparent | Object | If the piece is transparent or not. | 2 | 1, 0 |
+| Base color shade | Object | The base color of the piece | 12 | Green, blue, red, yellow, orange |
 
-| > Feature/variable | > Data type | > Description | > Number of unique values | > Example values |
-|---------------------|-------------|---------------|----------------------------|------------------|
-|                     |             |               |                            |                  |
-|                     |             |               |                            |                  |
-|                     |             |               |                            |                  |
+## 3. Descriptive statistics (of the clean version)
+
+#### Numeric columns
+
+| Metric | id | number of studs | slope degree | in stock |
+|:--|--:|--:|--:|--:|
+| **Count** | 204 | 204 | 204 | 204 |
+| **Mean** | 102.50 | 4.9069 | 5.0735 | 1.0000 |
+| **Standard deviation** | 59.0339 | 4.9962 | 14.1114 | 0.0000 |
+| **Min** | 1.0 | 0.0 | 0.0 | 1.0 |
+| **25%** | 51.75 | 2.00 | 0.00 | 1.0 |
+| **50%** | 102.5 | 4.0 | 0.00 | 1.0 |
+| **75%** | 153.25 | 6.0 | 0.00 | 1.0 |
+| **Max** | 204.0 | 24.0 | 45.0 | 1.0 |
 
 ---
 
-## **3. Descriptive statistics**
+#### Categorical/object columns
 
-### Numeric columns
+| Metric | color | color base shade | is duplo? | size type | base shape | transparent |
+|:--|--:|--:|--:|--:|--:|--:|
+| **Count** | 204 | 204 | 204 | 204 | 204 | 204 |
+| **Number of unique values** | 63 | 12 | 2 | 2 | 5 | 2 |
+| **Most frequent value** | yellow | blue | False | plate | rectangle | False |
+| **Most frequent value (frequency)** | 16 | 39 | 171 | 108 | 109 | 200 |
+| **Least frequent value** | transparentskyblue | transparent | True | brick | triangle | True |
+| **Least frequent value (frequency)** | 1 | 1 | 33 | 96 | 3 | 4 |
 
-|              | > Column 1 | > Column 2 | > Column 3 |
-|--------------|------------|------------|------------|
-| > Count      |            |            |            |
-| > Mean       |            |            |            |
-| > Standard deviation |    |            |            |
-| > Min        |            |            |            |
-| > 25%        |            |            |            |
-| > 50%        |            |            |            |
-| > 75%        |            |            |            |
-| > Max        |            |            |            |
 
----
-
-### Categorical/object columns
-
-|               | > Column 1 | > Column 2 | > Column 3 |
-|---------------|------------|------------|------------|
-| > Count       |            |            |            |
-| > Number of unique values | |           |            |
-| > Most frequent value |    |            |            |
-| > Most frequent value (frequency) | |    |            |
-| > Least frequent value |   |            |            |
-| > Least frequent value (frequency) | |   |            |
+## Visualizations
+[![Screenshot-2025-11-03-at-7-04-28-PM.png](https://i.postimg.cc/FKWfP9P7/Screenshot-2025-11-03-at-7-04-28-PM.png)](https://postimg.cc/hJmPvqRB)
+[![Screenshot-2025-11-03-at-7-06-04-PM.png](https://i.postimg.cc/HnCTzRC1/Screenshot-2025-11-03-at-7-06-04-PM.png)](https://postimg.cc/Pp2Gr6xS)
+[![Screenshot-2025-11-03-at-7-07-03-PM.png](https://i.postimg.cc/YCVK8Z1D/Screenshot-2025-11-03-at-7-07-03-PM.png)](https://postimg.cc/SnWvxZ1c)
+[![Screenshot-2025-11-03-at-7-08-22-PM.png](https://i.postimg.cc/QtJzLyTZ/Screenshot-2025-11-03-at-7-08-22-PM.png)](https://postimg.cc/MMX5Vt59)
+[![Screenshot-2025-11-03-at-7-09-17-PM.png](https://i.postimg.cc/B64hCBwB/Screenshot-2025-11-03-at-7-09-17-PM.png)](https://postimg.cc/t1vtqWbs)
+[![Screenshot-2025-11-03-at-7-10-42-PM.png](https://i.postimg.cc/j53zJ6V4/Screenshot-2025-11-03-at-7-10-42-PM.png)](https://postimg.cc/r0WdBrwD)
 
 ---
 
