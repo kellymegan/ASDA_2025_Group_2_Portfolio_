@@ -9,6 +9,7 @@
 |  Item |  Description |
 |--------|----------------|
 |  Dataset name | Lego_Database1-11-2025.xlsx |
+|  Date of Download | 1.11.2025 |
 |  Authors | Leuphana Applied Statistical Data Analysis students of WiSe2025 |
 |  Number of entries | 204 |
 |  Number of features/variables | 12 |
@@ -103,4 +104,4 @@ In addition to major cleaning efforts, minor issues included potential outliers 
 ---
 
 ## 6\. AI Disclaimer
-Partially AI-generated code was for creation of the new column base shade.
+Partially AI-generated code was for creation of the new column base shade and to normalize the base dimensions so that order doesn't matter.
