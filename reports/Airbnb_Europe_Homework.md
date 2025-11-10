@@ -6,8 +6,8 @@
 |------|---------------|
 |   Ayush   |       Analysis with Visualisations       |
 |   Onkar   |       Summarising and Report Creation    |
-|   Anna    |       Statistical tests                  |
-|      |               |
+|   Anna    |       Statistical tests and Analysis     |
+|   Megan   |       Data cleaning and Analysis         |
 |      |               |
 
 ---
