@@ -119,7 +119,7 @@ This exploratory analysis aims to:
 [![Screenshot-2025-11-10-at-10-49-40-PM](https://i.postimg.cc/0QBsdSSP/Screenshot-2025-11-10-at-10-49-40-PM.png)](https://postimg.cc/dkrpJLnx)
 ## Insights from City-Level Price and Satisfaction Comparison
 
-- **Inverse Relationship Between Price and Satisfaction**  
+- **Inverse Relationship Between Price and Satisfaction(excluding Amstradam here to visualise trend)**  
   Cities with **higher median prices (Paris, London)** generally show **lower guest satisfaction**, indicating diminishing perceived value at higher cost levels.  
 
 - **High Satisfaction in Lower-Priced Markets**  
