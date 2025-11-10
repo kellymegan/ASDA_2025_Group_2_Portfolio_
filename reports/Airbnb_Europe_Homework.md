@@ -4,7 +4,7 @@
 
 | Name | Contribution |
 |------|---------------|
-|      |               |
+|   Ayush   |       Analysis with Visualisations       |
 |      |               |
 |      |               |
 |      |               |
