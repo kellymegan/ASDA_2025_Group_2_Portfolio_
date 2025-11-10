@@ -85,6 +85,12 @@
 
 ## 5. Analysis – Research Question
 
+This exploratory analysis aims to:
+- Compare Airbnb price distributions across major European cities.  
+- Assess whether distance from the city center correlates with price or satisfaction.  
+- Explore whether Superhost status, room type, and capacity influence listing prices.  
+- Identify potential signs of gentrification by examining pricing and availability patterns near city centers.
+
 > *How do Airbnb listings, prices, and guest satisfaction differ across European cities, and do any of these patterns suggest housing pressure or early signs of gentrification?*
 
 [![Screenshot-2025-11-10-at-10-49-03-PM](https://i.postimg.cc/DZZhX6S7/Screenshot-2025-11-10-at-10-49-03-PM.png)](https://postimg.cc/wtSnKh5r)
@@ -150,20 +156,18 @@
 
 [![Screenshot-2025-11-10-at-10-50-57-PM](https://i.postimg.cc/Y9sHfFFG/Screenshot-2025-11-10-at-10-50-57-PM.png)](https://postimg.cc/ygct7kvs)
 
+> *Statistical tests*
+Statistical tests confirmed significant difference of guest satisfaction across cities and established that:
+-  guest satisfaction depends strongly on whether the host is super-host or not.
+-  guest satisfaction depends significantly on whether the booking is managed by business or not.
+-  guest satisfaction depends to a much smaller extent on the type of the booking (shared/individual),
+-  guest satisfaction does not depend on the time of week of the stay.
 
-This exploratory analysis aims to:
-- Compare Airbnb price distributions across major European cities.  
-- Assess whether distance from the city center correlates with price or satisfaction.  
-- Explore whether Superhost status, room type, and capacity influence listing prices.  
-- Identify potential signs of gentrification by examining pricing and availability patterns near city centers.
-
+ 
 ---
 
 ### Notes
-- Statistical tests confirmed significant difference of the factors described in the report.
 - All code and figures supporting this report are included in the accompanying Jupyter Notebook.  
-- The goal is to provide insights for policymakers focused on sustainable urban housing.
-
 ---
 
 *Prepared for the European Commission for Sustainable Cities*  
