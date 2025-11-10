@@ -156,8 +156,8 @@ This exploratory analysis aims to:
 
 [![Screenshot-2025-11-10-at-10-50-57-PM](https://i.postimg.cc/Y9sHfFFG/Screenshot-2025-11-10-at-10-50-57-PM.png)](https://postimg.cc/ygct7kvs)
 
-## Do hosts of all levels provide similiar Guest experience?
-Statistical tests confirmed significant difference of guest satisfaction across cities and established that:
+## Statistical tests
+Tests confirmed significant difference of guest satisfaction across cities and established that:
 -  guest satisfaction depends strongly on whether the host is super-host or not.
 -  guest satisfaction depends significantly on whether the booking is managed by business or not.
 -  guest satisfaction depends to a much smaller extent on the type of the booking (shared/individual),
