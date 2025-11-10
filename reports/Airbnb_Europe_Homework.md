@@ -5,7 +5,7 @@
 | Name | Contribution |
 |------|---------------|
 |   Ayush   |       Analysis with Visualisations       |
-|      |               |
+|   Onkar   |       Summarising and Report Creation    |
 |      |               |
 |      |               |
 
