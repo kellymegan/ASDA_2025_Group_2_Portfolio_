@@ -6,6 +6,7 @@
 |------|---------------|
 |   Ayush   |       Analysis with Visualisations       |
 |   Onkar   |       Summarising and Report Creation    |
+|   Anna    |       Statistical tests                  |
 |      |               |
 |      |               |
 
@@ -159,7 +160,7 @@ This exploratory analysis aims to:
 ---
 
 ### Notes
-- The analysis is descriptive — no predictive modeling or statistical testing was performed.  
+- Statistical tests confirmed significant difference of the factors described in the report.
 - All code and figures supporting this report are included in the accompanying Jupyter Notebook.  
 - The goal is to provide insights for policymakers focused on sustainable urban housing.
 
