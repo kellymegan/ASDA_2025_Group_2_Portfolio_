@@ -8,6 +8,7 @@
 |   Onkar   |       Summarising and Report Creation    |
 |   Anna    |       Statistical tests and Analysis     |
 |   Megan   |       Data cleaning and Analysis         |
+|   Tuar   |       Data cleaning and Analysis         |
 |      |               |
 
 ---
