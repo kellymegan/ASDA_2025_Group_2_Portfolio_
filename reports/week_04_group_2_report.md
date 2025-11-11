@@ -9,7 +9,7 @@
 |   Anna    |       Statistical tests and Analysis     |
 |   Megan   |       Data cleaning and Analysis         |
 |   Tusar   |       Data cleaning and Analysis         |
-|      |               |
+|   Kush    |       Data preprocessing, cleaning and Analysis        |
 
 ---
 
