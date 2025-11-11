@@ -24,7 +24,7 @@
 | **Authors of the dataset** | Publicly compiled dataset |
 | **Source name** | Airbnb Prices in European Cities Data |
 | **Source link** | [Google Sheets - Airbnb Prices Dataset](https://docs.google.com/spreadsheets/d/1ecopK6oyyb4d_7-QLrCr8YlgFrCetHU7-VQfnYej7JY/export?format=xlsx) |
-| **Date of download** | 06.11.2025 |
+| **Date of download/analysis** | 06.11.2025 |
 
 ---
 
