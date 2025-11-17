@@ -5,7 +5,7 @@
 | Name | Contribution |
 | :---- | :---- |
 | Megan Kelly-Ortiz | Data Cleaning, Group Comparison (Life Expectancy), Report |
-|  |   |
+| Ayush Singh | Data Cleaning, Group Comparision (GDP, Inflation, Tax revenue)  |
 |  |   |
 |  |   |
 |  |   |
@@ -209,7 +209,77 @@ Governance and institutional quality:
 Environmental sustainability:
 
 
-Economic performance and poverty reduction:
+### Global Inflation & GDP Analysis (2000–2019)
+
+---
+
+#### How Did GDP Differ Across Regions and Decades?
+<a href="https://postimg.cc/18rkW5N7" target="_blank"><img src="https://i.postimg.cc/7ZFqZ5P4/Screenshot-2025-11-17-at-9-34-49-PM.png" alt="Screenshot-2025-11-17-at-9-34-49-PM"></a><br><br>
+- The **2010–2019 decade shows higher median GDP** across most regions, suggesting broad global economic expansion.
+- **Emerging regions (South Asia, Sub-Saharan Africa)** show the strongest relative gains, while advanced economies show slower growth.
+
+---
+
+#### What Do the ANOVA Tests Tell Us? Is there a significant difference between the means of the regions?
+<a href="https://postimg.cc/mcZ0KfQJ" target="_blank"><img src="https://i.postimg.cc/8CLNJTsp/Screenshot-2025-11-17-at-9-39-33-PM.png" alt="Screenshot-2025-11-17-at-9-39-33-PM"></a><br><br>
+
+- **Region is a statistically significant factor** influencing GDP in both decades (p < 0.0001).
+- Regional income groups remain **highly stratified**, reflecting persistent structural differences.
+
+---
+
+#### Something really interesting about North America which might be deceptive:
+- In the box plot it may look like it would be wise to run Anova on North America to see if there is a significant difference between the means of the two time periods.
+[![Screenshot-2025-11-17-at-10-42-11-PM.png](https://i.postimg.cc/GtwLg9NF/Screenshot-2025-11-17-at-10-42-11-PM.png)](https://postimg.cc/WF8chpsz)
+
+- **However** Our residual plot tells us something else
+[![Screenshot-2025-11-17-at-10-37-22-PM.png](https://i.postimg.cc/3xgwsj7C/Screenshot-2025-11-17-at-10-37-22-PM.png)](https://postimg.cc/75ZD725f)
+
+#### So what exactly is wrong here?
+- The U.S. consistently remains **far above Canada** in GDP levels.
+<a href="https://postimg.cc/MnmCsKQJ" target="_blank"><img src="https://i.postimg.cc/wjC9j1xM/Screenshot-2025-11-17-at-9-40-47-PM.png" alt="Screenshot-2025-11-17-at-9-40-47-PM"></a><br><br>
+
+<a href="https://postimg.cc/QBNRvGQD" target="_blank"><img src="https://i.postimg.cc/Pq1TpdNC/Screenshot-2025-11-17-at-9-41-29-PM.png" alt="Screenshot-2025-11-17-at-9-41-29-PM"></a><br><br>
+ ####  Reasons for Anova not performing well here:
+- Canada has too few data points
+
+- USA dominates the region, breaking assumptions
+
+- Within-decade variance is imbalanced
+
+- Distributions are not comparable
+
+
+
+
+---
+
+#### How Did Inflation Change in South Asia?
+<a href="https://postimg.cc/Jy79SVNm" target="_blank"><img src="https://i.postimg.cc/bv1pDqdG/Screenshot-2025-11-17-at-9-42-13-PM.png" alt="Screenshot-2025-11-17-at-9-42-13-PM"></a><br><br>
+- Post‑2010, most countries show **greater inflation stability**, reflecting improved fiscal discipline.
+- Maldives and Bhutan show **early‑decade volatility spikes**, suggesting structural vulnerabilities.
+
+---
+
+#### Tax Revenue and Population Patterns
+<a href="https://postimg.cc/QBNRvGQX" target="_blank"><img src="https://i.postimg.cc/Pq1TpdN8/Screenshot-2025-11-17-at-9-42-27-PM.png" alt="Screenshot-2025-11-17-at-9-42-27-PM"></a><br><br>
+- Europe & Central Asia maintain **higher tax‑to‑GDP ratios**, enabling stronger public institutions.
+- South Asia’s **population boom** increases pressure on fiscal capacity despite economic gains.
+
+---
+
+#### Where Is Inflation Most Volatile Globally?
+<a href="https://postimg.cc/VSs32Qq6" target="_blank"><img src="https://i.postimg.cc/d0GwkJD8/Screenshot-2025-11-17-at-9-42-48-PM.png" alt="Screenshot-2025-11-17-at-9-42-48-PM"></a><br><br>
+<a href="https://postimg.cc/McshSP5K" target="_blank"><img src="https://i.postimg.cc/bJ88142b/Screenshot-2025-11-17-at-9-43-02-PM.png" alt="Screenshot-2025-11-17-at-9-43-02-PM"></a><br><br>
+- Sub‑Saharan Africa and MENA show the **highest inflation volatility**, driven by political and commodity‑price instability.
+- Advanced economies maintain **stable, predictable inflation**, reflecting strong monetary frameworks.
+
+---
+
+#### Why Is Angola an Outlier?
+<a href="https://postimg.cc/NyNWcJDG" target="_blank"><img src="https://i.postimg.cc/26mmngBW/Screenshot-2025-11-17-at-9-43-16-PM.png" alt="Screenshot-2025-11-17-at-9-43-16-PM"></a><br><br>
+- Angola’s early‑2000s inflation exceeds **300%**, driven by war‑related disruptions and currency instability.
+- Inflation stabilizes significantly post‑2005, aligning with oil‑sector recovery and political stabilization.
 
 
 
