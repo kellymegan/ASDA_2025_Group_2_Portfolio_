@@ -4,7 +4,7 @@
 
 | Name | Contribution |
 | :---- | :---- |
-| Megan Kelly-Ortiz | Data Cleaning, Group Comparison (Life Expectancy) |
+| Megan Kelly-Ortiz | Data Cleaning, Group Comparison (Life Expectancy), Report |
 |  |   |
 |  |   |
 |  |   |
@@ -79,7 +79,7 @@
 | voice_and_accountability_std              | float64     |               |                      2329 | 0.26, 0.26, 0.25, 0.19, 0.21                                                                                                                 |
 | intentional_homicides                     | float64     |               |                      3702 | 4.07, 3.49, 4.21, 6.39, 9.98                                                                                                                 |
 | Income_group                              | object      |               |                         4 | Low income, Upper middle income, Lower middle income, High income                                                                            |
-| Region                                    | object      |               |                         7 | Middle East, North Africa, Afghanistan & Pakistan, Europe & Central Asia, Sub-Saharan Africa, Latin America & Caribbean, East Asia & Pacific |
+| Region                                    | object      |               |                         7 | Middle East, North Africa, Afghanistan & Pakistan, Europe & Central Asia, Sub-Saharan Africa |
 
  
 
@@ -87,42 +87,106 @@
 
 | Issue | Names of Columns affected | Description of the Issue | Action Taken |
 | :---- | :---- | :---- | :---- |
-| Inconsistent column labeling |   |   |   |
+| Inconsistent column labeling |  Income group  |  space  |  renamed to "Income_group"  |
 | Wrong data types |   |   |   |
-| Missing values |   |   |   |
+| Missing values |  Income_group, life_expectancy_at_birth  |  missing values  |  dropped missing values  |
 | Duplicates |   |   |   |
 | Inconsistent categories |   |   |   |
 | Other |  |  |  |
 
 4\. **Descriptive statistics**   
-Numeric columns
-
-|   | Column 1 | Column 2 | Column 3 |
-| :---- | :---- | :---- | :---- |
-| Count |   |   |   |
-| Mean |   |   |   |
-| Standard deviation |   |   |   |
-| Min |   |   |   |
-| 25% |   |   |   |
-| 50% |   |   |   |
-| 75% |   |   |   |
-| Max |   |   |   |
+|                                           |   count |             mean |              std |            min |              25% |              50% |              75% |             max |
+|:------------------------------------------|--------:|-----------------:|-----------------:|---------------:|-----------------:|-----------------:|-----------------:|----------------:|
+| agricultural_land%                        |   10872 |     36.86        |     22.43        |    0.26        |     17.77        |     37.65        |     54.71        |    93.44        |
+| forest_land%                              |    6171 |     32.02        |     24.66        |    0           |     10.88        |     30.27        |     50.85        |    98.57        |
+| land_area                                 |   11016 | 633316           |      1.70094e+06 |   10           |  14870           | 107400           | 472710           |     1.639e+07   |
+| avg_precipitation                         |    9587 |   1197.78        |    801.4         |   18.1         |    589           |   1083           |   1732           |  3240           |
+| trade_in_services%                        |    6669 |     23.64        |     25.05        |    0.62        |      9.82        |     16.2         |     27.78        |   327.17        |
+| control_of_corruption_estimate            |    4303 |     -0.02        |      1           |   -1.94        |     -0.8         |     -0.26        |      0.67        |     2.46        |
+| control_of_corruption_std                 |    4303 |      0.2         |      0.08        |    0.11        |      0.15        |      0.17        |      0.22        |     0.94        |
+| access_to_electricity%                    |    5676 |     80.97        |     29.64        |    0.53        |     70.46        |     99.09        |    100           |   100           |
+| renewvable_energy_consumption%            |    6147 |     30.65        |     30.38        |    0           |      3.72        |     19.78        |     53.02        |    98.34        |
+| electric_power_consumption                |    5628 |   3253.94        |   4510.36        |    5.55        |    442.24        |   1637.8         |   4399.79        | 54799.2         |
+| CO2_emisions                              |    5641 | 145020           | 670469           |    0           |   1568.5         |   9402.05        |  57681.2         |     1.09447e+07 |
+| other_greenhouse_emisions                 |    5641 | 200650           | 822148           |    7.62        |   6794.5         |  27683.9         |  89439.8         |     1.29429e+07 |
+| population_density                        |   11016 |    289.18        |   1358.2         |    0.14        |     18.66        |     63.87        |    157.23        | 21594.8         |
+| inflation_annual%                         |    8093 |     24.05        |    336.1         |  -17.64        |      2.09        |      4.7         |     10.02        | 23773.1         |
+| real_interest_rate                        |    4173 |      5.68        |     15.77        |  -97.69        |      1.89        |      5.68        |      9.84        |   628.32        |
+| risk_premium_on_lending                   |    2281 |      5.95        |      7.19        |  -31.5         |      2.6         |      4.62        |      7.25        |    67.84        |
+| research_and_development_expenditure%     |    2179 |      0.96        |      0.97        |    0.01        |      0.24        |      0.59        |      1.4         |     5.71        |
+| central_goverment_debt%                   |    1766 |     59.64        |     72.64        |   -1.17        |     30.76        |     49.63        |     74.55        |  2002.51        |
+| tax_revenue%                              |    4142 |     17.09        |      7.8         |    0.04        |     11.98        |     16.5         |     21.68        |   147.64        |
+| expense%                                  |    3952 |     26.87        |     12.75        |    2.81        |     17.21        |     25.51        |     34.5         |   210.21        |
+| goverment_effectiveness_estimate          |    4279 |     -0.02        |      0.99        |   -2.44        |     -0.76        |     -0.17        |      0.68        |     2.47        |
+| goverment_effectiveness_std               |    4279 |      0.24        |      0.07        |    0.16        |      0.2         |      0.22        |      0.25        |     0.88        |
+| human_capital_index                       |     580 |      0.57        |      0.15        |    0.29        |      0.44        |      0.57        |      0.69        |     0.89        |
+| doing_business                            |     179 |     94.45        |     54.56        |    1           |     47.5         |     95           |    140.5         |   189           |
+| time_to_get_operation_license             |     302 |     31.26        |     30.35        |    1.2         |     13.27        |     22.05        |     37.02        |   176.1         |
+| statistical_performance_indicators        |    1008 |     63.54        |     17.55        |   13.51        |     51.99        |     62.93        |     78.56        |    93.47        |
+| individuals_using_internet%               |    6077 |     24.81        |     30.32        |    0           |      0.2         |      7.94        |     46           |   100           |
+| logistic_performance_index                |     894 |      2.86        |      0.59        |    1.21        |      2.41        |      2.72        |      3.24        |     4.23        |
+| military_expenditure%                     |    7126 |      2.73        |      3.21        |    0           |      1.2         |      1.89        |      3.17        |   117.35        |
+| GDP_current_US                            |    9608 |      1.9504e+11  |      1.02821e+12 |    8.82474e+06 |      1.54897e+09 |      8.13377e+09 |      5.4234e+10  |     2.33151e+13 |
+| political_stability_estimate              |    4312 |     -0.02        |      0.98        |   -3.18        |     -0.65        |      0.06        |      0.81        |     1.96        |
+| political_stability_std                   |    4312 |      0.28        |      0.07        |    0.19        |      0.23        |      0.25        |      0.31        |     0.66        |
+| rule_of_law_estimate                      |    4356 |     -0.03        |      0.98        |   -2.1         |     -0.8         |     -0.18        |      0.75        |     2.12        |
+| rule_of_law_std                           |    4356 |      0.2         |      0.09        |    0.12        |      0.15        |      0.17        |      0.2         |     0.83        |
+| regulatory_quality_estimate               |    4281 |     -0.02        |      0.99        |   -2.53        |     -0.72        |     -0.14        |      0.71        |     2.25        |
+| regulatory_quality_std                    |    4281 |      0.23        |      0.07        |    0.15        |      0.19        |      0.21        |      0.25        |     0.89        |
+| government_expenditure_on_education%      |    4606 |      4.38        |      1.96        |    0.62        |      3.07        |      4.24        |      5.39        |    44.33        |
+| government_health_expenditure%            |    3722 |      3.29        |      2.35        |    0.06        |      1.53        |      2.67        |      4.57        |    22.25        |
+| multidimensional_poverty_headcount_ratio% |     433 |     26.86        |     10.71        |    2.37        |     18.5         |     24.8         |     32.6         |    74.2         |
+| gini_index                                |    2032 |     37.7         |      8.9         |   20.7         |     31.1         |     35.5         |     43           |    65.8         |
+| birth_rate                                |   12315 |     27.9         |     13.04        |    5           |     16           |     26.47        |     39.64        |    58.12        |
+| death_rate                                |   12320 |     10.36        |      5.55        |    0.8         |      6.8         |      9.07        |     12.24        |   103.53        |
+| life_expectancy_at_birth                  |   12337 |     64.84        |     11.26        |   12           |     57.95        |     67.66        |     73.08        |    85.5         |
+| population                                |   12337 |      2.57512e+07 |      1.07755e+08 | 2646           | 663653           |      4.4403e+06  |      1.34833e+07 |     1.41236e+09 |
+| rural_population                          |   12213 |      1.40525e+07 |      7.13072e+07 |    0           | 297354           |      1.97356e+06 |      7.28487e+06 |     9.09385e+08 |
+| voice_and_accountability_estimate         |    4338 |     -0.02        |      0.99        |   -2.31        |     -0.83        |      0.01        |      0.86        |     1.8         |
+| voice_and_accountability_std              |    4338 |      0.16        |      0.06        |    0.1         |      0.13        |      0.14        |      0.19        |     0.58        |
+| intentional_homicides                     |    3761 |      7.86        |     12.19        |    0           |      1.27        |      3.06        |      9.01        |   138.77        |
 
    
 Category columns
 
-|   | Column 1 | Column 2 | Column 3 |
-| :---- | :---- | :---- | :---- |
-| Count |   |   |   |
-| Number of unique values |   |   |   |
-| Most frequent value |   |   |   |
-| Most frequent value (frequency) |   |   |   |
-| Least frequent value |   |   |   |
-| Least frequent value (frequency) |   |   |   |
+|                                  | country        | Income_group   | Region                |
+|:---------------------------------|:---------------|:---------------|:----------------------|
+| Count                            | 12337          | 12337          | 12337                 |
+| Number of unique values          | 203            | 4              | 7                     |
+| Most frequent value              | Afghanistan    | High income    | Europe & Central Asia |
+| Most frequent value (frequency)  | 62             | 4679           | 3272                  |
+| Least frequent value             | Cayman Islands | Low income     | North America         |
+| Least frequent value (frequency) | 1              | 1488           | 186                   |
 
  
 
 **5\. Analysis \- Research question**
+
+This report investigates how countries across different income levels perform across key dimensions of sustainability, including governance, environmental sustainability, economic stability and prosperity, and human well-being. The analysis adopts a comparative approach, aiming to identify systematic differences between income groups through the application of relevant statistical methods.
+
+Human well-being and health
+
+To begin, we examine disparities in life expectancy at birth across income groups, providing insight into patterns of health and overall human well-being.
+![alt text](image-1.png)
+
+The plot shows how life expectancy at birth varies between different income levels.
+From the figure, we can identify a pattern: groups with a higher income tend to have higher life expectancy, while groups with lower-income have a lower life expectancy. The plot also highlights that there is some variation within each group.
+
+The statistical test (ANOVA) shows that differences in life expectancy between income groups are statistically significant. In other words, at least one income group has a different average life expectancy compared to the others. The result is not surprising given the boxplot: higher-income groups tend to have higher life expectancy, while lower-income groups tend to have lower life expectancy. A more detailed comparison using the Tukey test shows that all income groups differ significantly from one another. On average, the high-income group has a life expectancy about 23 years higher than the low-income group, and even differences between adjacent groups, like lower-middle versus upper-middle income, are statistically significant. These results highlight a consistent pattern: as income level increases, so does life expectancy. 
+
+The ANOVA tells us that about half of the differences in life expectancy across groups can be attributed to their income group. This means that income level is a strong factor influencing the health and longevity of its population, although other factors also play a role.
+
+
+
+Governance and institutional quality: 
+
+
+Environmental sustainability:
+
+
+Economic performance and poverty reduction:
+
+
 
 **6\. AI Disclaimer**
 
