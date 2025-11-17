@@ -5,7 +5,7 @@
 | Name | Contribution |
 | :---- | :---- |
 | Megan Kelly-Ortiz | Data Cleaning, Group Comparison (Life Expectancy), Report |
-| Ayush Singh | Data Cleaning, Group Comparision (GDP, Inflation, Tax revenue)  |
+| Ayush Singh | Data Cleaning, Group Comparision (GDP, Inflation, Tax revenue), Minor additions to report editing |
 |  |   |
 |  |   |
 |  |   |
@@ -95,11 +95,11 @@
 | Issue | Names of Columns affected | Description of the Issue | Action Taken |
 | :---- | :---- | :---- | :---- |
 | Inconsistent column labeling |  Income group  |  space  |  renamed to "Income_group"  |
-| Wrong data types |   |   |   |
+| Wrong data types | year, population, GDP_current_US, inflation_annual%  | Loaded as strings instead of numeric (due to commas, missing values, or formatting)  | Converted to numeric using pd.to_numeric(errors="coerce")  |
 | Missing values |  Income_group, life_expectancy_at_birth  |  missing values  |  dropped missing values  |
-| Duplicates |   |   |   |
-| Inconsistent categories |   |   |   |
-| Other |  |  |  |
+| Duplicates |  Entire Dataset | Some rows were duplicated across years/countries after concatenation  | Removed duplicates using drop_duplicates()  |
+| Inconsistent categories |  Region, Income_group |  Region labels and income groups had inconsistent formatting (spaces, mixed cases, long labels) | Standardized categories (trimmed spaces, applied title case, replaced long categories with consistent region names)  |
+
 
 ## 4. Descriptive statistics
 
