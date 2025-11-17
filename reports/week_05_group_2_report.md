@@ -79,7 +79,7 @@
 | voice_and_accountability_std              | float64     |               |                      2329 | 0.26, 0.26, 0.25, 0.19, 0.21                                                                                                                 |
 | intentional_homicides                     | float64     |               |                      3702 | 4.07, 3.49, 4.21, 6.39, 9.98                                                                                                                 |
 | Income_group                              | object      |               |                         4 | Low income, Upper middle income, Lower middle income, High income                                                                            |
-| Region                                    | object      |               |                         7 | Middle East, North Africa, Afghanistan & Pakistan, Europe & Central Asia, Sub-Saharan Africa |
+| Region                                    | object      |               |                         7 | Middle East, North Africa, Afghanistan & Pakistan, Europe & Central Asia, Sub-Saharan Africa, Latin America & Caribbean, East Asia & Pacific |
 
  
 
