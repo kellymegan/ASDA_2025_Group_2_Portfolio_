@@ -24,9 +24,12 @@
 
    
    
-2. **Dataset Structure**
+## 2. Dataset Structure
 
-<div style="overflow-x:auto; overflow-y:auto; max-height:500px; border:1px solid #ccc; padding:10px; font-size:14px;">
+<details open>
+  <summary><strong>Click to collapse/expand the full dataset structure</strong></summary>
+
+  <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
 
 | Feature/variable                          | Data type   | Description   | Number of Unique values | Example values                                                                                                                               |
 |:------------------------------------------|:------------|:--------------|------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -83,7 +86,9 @@
 | Income_group                              | object      |               | 4 | Low income, Upper middle income, Lower middle income, High income |
 | Region                                    | object      |               | 7 | Middle East, North Africa, Afghanistan & Pakistan, Europe & Central Asia, Sub-Saharan Africa, Latin America & Caribbean, East Asia & Pacific |
 
-</div>
+  </div>
+</details>
+
 
 3\. **Data cleaning** 
 
@@ -96,7 +101,13 @@
 | Inconsistent categories |   |   |   |
 | Other |  |  |  |
 
-4\. **Descriptive statistics**   
+## 4. Descriptive statistics
+
+<details open>
+  <summary><strong>Click to collapse/expand descriptive statistics</strong></summary>
+
+  <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
+
 |                                           |   count |             mean |              std |            min |              25% |              50% |              75% |             max |
 |:------------------------------------------|--------:|-----------------:|-----------------:|---------------:|-----------------:|-----------------:|-----------------:|----------------:|
 | agricultural_land%                        |   10872 |     36.86        |     22.43        |    0.26        |     17.77        |     37.65        |     54.71        |    93.44        |
@@ -148,8 +159,15 @@
 | voice_and_accountability_std              |    4338 |      0.16        |      0.06        |    0.1         |      0.13        |      0.14        |      0.19        |     0.58        |
 | intentional_homicides                     |    3761 |      7.86        |     12.19        |    0           |      1.27        |      3.06        |      9.01        |   138.77        |
 
-   
-Category columns
+  </div>
+</details>
+
+**Category columns**
+
+<details open>
+  <summary><strong>Click to collapse/expand category statistics</strong></summary>
+
+  <div style="max-height:250px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
 
 |                                  | country        | Income_group   | Region                |
 |:---------------------------------|:---------------|:---------------|:----------------------|
@@ -159,6 +177,10 @@ Category columns
 | Most frequent value (frequency)  | 62             | 4679           | 3272                  |
 | Least frequent value             | Cayman Islands | Low income     | North America         |
 | Least frequent value (frequency) | 1              | 1488           | 186                   |
+
+  </div>
+</details>
+
 
  
 
