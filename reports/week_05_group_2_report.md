@@ -167,7 +167,7 @@ This report investigates how countries across different income levels perform ac
 Human well-being and health
 
 To begin, we examine disparities in life expectancy at birth across income groups, providing insight into patterns of health and overall human well-being.
-![alt text](image-1.png)
+<img width="563" height="554" alt="image" src="https://github.com/user-attachments/assets/efcb336f-4482-4a5e-99cc-88a13363b43d" />
 
 The plot shows how life expectancy at birth varies between different income levels.
 From the figure, we can identify a pattern: groups with a higher income tend to have higher life expectancy, while groups with lower-income have a lower life expectancy. The plot also highlights that there is some variation within each group.
