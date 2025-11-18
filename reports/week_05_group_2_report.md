@@ -6,7 +6,7 @@
 | :---- | :---- |
 | Megan Kelly-Ortiz | Data Cleaning, Group Comparison (Life Expectancy), Report |
 | Ayush Singh | Data Cleaning, Group Comparision (GDP, Inflation, Tax revenue), Minor additions to report editing |
-|  |   |
+| Kush Shah | Data Cleaning, Group Comparison (Environmental Sustainability – CO₂ emissions analysis)  |
 |  |   |
 |  |   |
 
@@ -283,7 +283,22 @@ Environmental sustainability:
 - Angola’s early‑2000s inflation exceeds **300%**, driven by war‑related disruptions and currency instability.
 - Inflation stabilizes significantly post‑2005, aligning with oil‑sector recovery and political stabilization.
 
+### Environmental Sustainability – CO₂ emissions analysis
 
+---
+
+#### Why Are High-Income Countries the Biggest CO₂ Emitters?
+
+- **High-income countries** emit on average **227,273 kt** of CO₂ per year — **over 35 times more** than low-income countries (~6,586 kt).
+- **Upper-middle income** nations (China, India, Russia, Brazil) are the second-largest emitters at **~275,000 kt**, showing the cost of rapid industrialisation.
+- One-way ANOVA on log-transformed data confirms **highly significant differences** between all income groups (p < 0.001).
+- Tukey post-hoc test shows **every pair differs significantly** — even lower-middle vs upper-middle.
+
+**Insight:**  
+Economic growth currently comes with massive carbon emissions.  
+High-income countries have the resources to lead decarbonisation, while upper-middle income nations are now the fastest-growing source of global emissions and the most critical target for climate policy.
+
+---
 
 **6\. AI Disclaimer**
 Ai was used for the visualisations 
