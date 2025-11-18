@@ -293,6 +293,12 @@ The ANOVA tells us that about half of the differences in life expectancy across 
 Economic growth currently comes with massive carbon emissions.  
 High-income countries have the resources to lead decarbonisation, while upper-middle income nations are now the fastest-growing source of global emissions and the most critical target for climate policy.
 
+**Conclusion**
+
+This analysis shows that sustainability outcomes differ across income groups, with consistent patterns in human well-being, economic stability, and environmental impact. Higher-income countries experience longer life expectancy, more stable macroeconomic conditions, and stronger fiscal capacity, whereas lower-income and some emerging regions face volatility, resource constraints, and structural vulnerabilities. Economic indicators such as GDP and inflation reveal both persistent disparities and signs of gradual convergence, particularly in the 2010–2019 decade, though regional imbalances, like the dominance of the U.S. within North America, highlight the limitations of standard statistical approaches in uneven datasets.
+
+Environmental analysis further underscores the unequal dynamics of global development: high-income countries remain the largest CO₂ emitters, while upper-middle income nations have become the fastest growing contributors due to rapid industrialization. Overall, the findings demonstrate that income level remains a powerful determinant of national sustainability outcomes, and achieving global sustainability will require coordinated strategies that support equitable development while reducing the ecological costs of economic growth.
+
 ---
 
 **6\. AI Disclaimer**
