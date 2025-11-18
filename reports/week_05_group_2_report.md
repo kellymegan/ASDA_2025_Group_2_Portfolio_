@@ -5,10 +5,8 @@
 | Name | Contribution |
 | :---- | :---- |
 | Megan Kelly-Ortiz | Data Cleaning, Group Comparison (Life Expectancy), Report |
-|  |   |
-|  |   |
-|  |   |
-|  |   |
+| Ayush Singh | Data Cleaning, Group Comparision (GDP, Inflation, Tax revenue), Minor additions to report editing |
+| Kush Shah | Data Cleaning, Group Comparison (Environmental Sustainability – CO₂ emissions analysis)  |
 
 1\. **Dataset Overview** 
 
@@ -24,77 +22,94 @@
 
    
    
-2\. **Dataset Structure** 
 
-| Feature/variable                          | Data type   | Description   |   Number of Unique values | Example values                                                                                                                               |
-|:------------------------------------------|:------------|:--------------|--------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| country                                   | object      |               |                       203 | Afghanistan, Albania, Algeria, Angola, Antigua and Barbuda                                                                                   |
-| date                                      | object      |               |                        62 | 1960-01-01, 1961-01-01, 1962-01-01, 1963-01-01, 1964-01-01                                                                                   |
-| agricultural_land%                        | float64     |               |                      7634 | 57.88, 57.96, 58.03, 58.12, 58.12                                                                                                            |
-| forest_land%                              | float64     |               |                      4834 | 1.85, 28.79, 28.72, 28.65, 28.57                                                                                                             |
-| land_area                                 | float64     |               |                       724 | 652230.00, 27400.00, 2381740.00, 2381741.00, 1246700.00                                                                                      |
-| avg_precipitation                         | float64     |               |                       175 | 327.00, 1485.00, 89.00, 1010.00, 1030.00                                                                                                     |
-| trade_in_services%                        | float64     |               |                      6669 | 5.94, 4.93, 5.61, 20.21, 20.56                                                                                                               |
-| control_of_corruption_estimate            | float64     |               |                      4226 | -1.29, -1.18, -1.27, -1.25, -1.34                                                                                                            |
-| control_of_corruption_std                 | float64     |               |                      2436 | 0.34, 0.32, 0.35, 0.35, 0.27                                                                                                                 |
-| access_to_electricity%                    | float64     |               |                      3062 | 4.45, 9.29, 14.13, 18.97, 23.81                                                                                                              |
-| renewvable_energy_consumption%            | float64     |               |                      3824 | 23.00, 23.69, 27.38, 28.50, 30.14                                                                                                            |
-| electric_power_consumption                | float64     |               |                      5628 | 532.03, 568.40, 593.45, 591.03, 739.35                                                                                                       |
-| CO2_emisions                              | float64     |               |                      5535 | 2046.87, 1941.37, 1525.47, 1527.89, 1493.59                                                                                                  |
-| other_greenhouse_emisions                 | float64     |               |                      5641 | 11630.80, 11899.99, 11548.26, 11678.76, 11733.05                                                                                             |
-| population_density                        | float64     |               |                     11003 | 13.48, 13.75, 14.04, 14.34, 14.67                                                                                                            |
-| inflation_annual%                         | float64     |               |                      8093 | 12.69, 6.78, 8.68, 26.42, -6.81                                                                                                              |
-| real_interest_rate                        | float64     |               |                      4173 | 10.05, -3.59, 12.56, 17.54, 11.36                                                                                                            |
-| risk_premium_on_lending                   | float64     |               |                      2192 | 9.69, 6.18, 6.15, 0.11, 4.08                                                                                                                 |
-| research_and_development_expenditure%     | float64     |               |                      2162 | 0.09, 0.15, 0.23, 0.37, 0.20                                                                                                                 |
-| central_goverment_debt%                   | float64     |               |                      1766 | 35.76, 37.48, 53.11, 55.57, 69.64                                                                                                            |
-| tax_revenue%                              | float64     |               |                      4142 | 6.97, 5.28, 6.09, 8.48, 9.17                                                                                                                 |
-| expense%                                  | float64     |               |                      3952 | 20.58, 24.24, 50.72, 44.32, 50.86                                                                                                            |
-| goverment_effectiveness_estimate          | float64     |               |                      4109 | -2.18, -2.10, -2.17, -1.59, -1.18                                                                                                            |
-| goverment_effectiveness_std               | float64     |               |                      1606 | 0.19, 0.30, 0.33, 0.26, 0.30                                                                                                                 |
-| human_capital_index                       | float64     |               |                       559 | 0.39, 0.39, 0.40, 0.54, 0.62                                                                                                                 |
-| doing_business                            | float64     |               |                       179 | 173.00, 82.00, 157.00, 177.00, 113.00                                                                                                        |
-| time_to_get_operation_license             | float64     |               |                       232 | 13.80, 13.70, 21.20, 12.20, 10.90                                                                                                            |
-| statistical_performance_indicators        | float64     |               |                      1006 | 37.22, 42.58, 49.84, 49.76, 54.40                                                                                                            |
-| individuals_using_internet%               | float64     |               |                      4384 | 0.00, 0.00, 0.00, 0.09, 0.11                                                                                                                 |
-| logistic_performance_index                | float64     |               |                       507 | 1.21, 2.24, 2.30, 2.07, 2.14                                                                                                                 |
-| military_expenditure%                     | float64     |               |                      7125 | 1.63, 1.87, 1.61, 1.72, 2.05                                                                                                                 |
-| GDP_current_US                            | float64     |               |                      9602 | 537777811.11, 548888895.56, 546666677.78, 751111191.11, 800000044.44                                                                         |
-| political_stability_estimate              | float64     |               |                      4219 | -2.42, -2.43, -2.44, -2.04, -2.20                                                                                                            |
-| political_stability_std                   | float64     |               |                       555 | 0.47, 0.44, 0.45, 0.44, 0.35                                                                                                                 |
-| rule_of_law_estimate                      | float64     |               |                      4292 | -1.79, -1.73, -1.78, -1.67, -1.56                                                                                                            |
-| rule_of_law_std                           | float64     |               |                      2430 | 0.35, 0.33, 0.29, 0.30, 0.30                                                                                                                 |
-| regulatory_quality_estimate               | float64     |               |                      4212 | -2.09, -2.06, -2.08, -1.81, -1.46                                                                                                            |
-| regulatory_quality_std                    | float64     |               |                      1510 | 0.39, 0.44, 0.42, 0.30, 0.24                                                                                                                 |
-| government_expenditure_on_education%      | float64     |               |                      4592 | 1.16, 1.12, 1.43, 1.30, 1.74                                                                                                                 |
-| government_health_expenditure%            | float64     |               |                      3721 | 0.08, 0.65, 0.54, 0.53, 0.50                                                                                                                 |
-| multidimensional_poverty_headcount_ratio% | float64     |               |                       264 | 51.70, 49.40, 51.80, 49.00, 46.20                                                                                                            |
-| gini_index                                | float64     |               |                       369 | 27.00, 31.70, 30.60, 30.00, 29.00                                                                                                            |
-| birth_rate                                | float64     |               |                      8499 | 50.34, 50.44, 50.57, 50.70, 50.83                                                                                                            |
-| death_rate                                | float64     |               |                      7189 | 31.92, 31.35, 30.84, 30.36, 29.87                                                                                                            |
-| life_expectancy_at_birth                  | float64     |               |                     11081 | 32.53, 33.07, 33.55, 34.02, 34.49                                                                                                            |
-| population                                | float64     |               |                     12303 | 8622466.00, 8790140.00, 8969047.00, 9157465.00, 9355514.00                                                                                   |
-| rural_population                          | float64     |               |                     11792 | 7898093.00, 8026804.00, 8163985.00, 8308019.00, 8458694.00                                                                                   |
-| voice_and_accountability_estimate         | float64     |               |                      4313 | -1.91, -2.04, -2.03, -1.43, -1.18                                                                                                            |
-| voice_and_accountability_std              | float64     |               |                      2329 | 0.26, 0.26, 0.25, 0.19, 0.21                                                                                                                 |
-| intentional_homicides                     | float64     |               |                      3702 | 4.07, 3.49, 4.21, 6.39, 9.98                                                                                                                 |
-| Income_group                              | object      |               |                         4 | Low income, Upper middle income, Lower middle income, High income                                                                            |
-| Region                                    | object      |               |                         7 | Middle East, North Africa, Afghanistan & Pakistan, Europe & Central Asia, Sub-Saharan Africa |
+## 2. Dataset Structure
 
- 
+<details open>
+  <summary><strong>Click to collapse/expand the full dataset structure</strong></summary>
+
+  <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
+
+| Feature/variable                          | Data type   | Number of Unique values | Example values                                                                                                                               |
+|:------------------------------------------|:------------|------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| country                                   | object      | 203 | Afghanistan, Albania, Algeria, Angola, Antigua and Barbuda |
+| date                                      | object      | 62 | 1960-01-01, 1961-01-01, 1962-01-01, 1963-01-01, 1964-01-01 |
+| agricultural_land%                        | float64     | 7634 | 57.88, 57.96, 58.03, 58.12, 58.12 |
+| forest_land%                              | float64     | 4834 | 1.85, 28.79, 28.72, 28.65, 28.57 |
+| land_area                                 | float64     | 724 | 652230.00, 27400.00, 2381740.00, 2381741.00, 1246700.00 |
+| avg_precipitation                         | float64     | 175 | 327.00, 1485.00, 89.00, 1010.00, 1030.00 |
+| trade_in_services%                        | float64     | 6669 | 5.94, 4.93, 5.61, 20.21, 20.56 |
+| control_of_corruption_estimate            | float64     | 4226 | -1.29, -1.18, -1.27, -1.25, -1.34 |
+| control_of_corruption_std                 | float64     | 2436 | 0.34, 0.32, 0.35, 0.35, 0.27 |
+| access_to_electricity%                    | float64     | 3062 | 4.45, 9.29, 14.13, 18.97, 23.81 |
+| renewable_energy_consumption%             | float64     | 3824 | 23.00, 23.69, 27.38, 28.50, 30.14 |
+| electric_power_consumption                | float64     | 5628 | 532.03, 568.40, 593.45, 591.03, 739.35 |
+| CO2_emisions                              | float64     | 5535 | 2046.87, 1941.37, 1525.47, 1527.89, 1493.59 |
+| other_greenhouse_emisions                 | float64     | 5641 | 11630.80, 11899.99, 11548.26, 11678.76, 11733.05 |
+| population_density                        | float64     | 11003 | 13.48, 13.75, 14.04, 14.34, 14.67 |
+| inflation_annual%                         | float64     | 8093 | 12.69, 6.78, 8.68, 26.42, -6.81 |
+| real_interest_rate                        | float64     | 4173 | 10.05, -3.59, 12.56, 17.54, 11.36 |
+| risk_premium_on_lending                   | float64     | 2192 | 9.69, 6.18, 6.15, 0.11, 4.08 |
+| research_and_development_expenditure%     | float64     | 2162 | 0.09, 0.15, 0.23, 0.37, 0.20 |
+| central_goverment_debt%                   | float64     | 1766 | 35.76, 37.48, 53.11, 55.57, 69.64 |
+| tax_revenue%                              | float64     | 4142 | 6.97, 5.28, 6.09, 8.48, 9.17 |
+| expense%                                  | float64     | 3952 | 20.58, 24.24, 50.72, 44.32, 50.86 |
+| goverment_effectiveness_estimate          | float64     | 4109 | -2.18, -2.10, -2.17, -1.59, -1.18 |
+| goverment_effectiveness_std               | float64     | 1606 | 0.19, 0.30, 0.33, 0.26, 0.30 |
+| human_capital_index                       | float64     | 559 | 0.39, 0.39, 0.40, 0.54, 0.62 |
+| doing_business                            | float64     | 179 | 173.00, 82.00, 157.00, 177.00, 113.00 |
+| time_to_get_operation_license             | float64     | 232 | 13.80, 13.70, 21.20, 12.20, 10.90 |
+| statistical_performance_indicators        | float64     | 1006 | 37.22, 42.58, 49.84, 49.76, 54.40 |
+| individuals_using_internet%               | float64     | 4384 | 0.00, 0.00, 0.00, 0.09, 0.11 |
+| logistic_performance_index                | float64     | 507 | 1.21, 2.24, 2.30, 2.07, 2.14 |
+| military_expenditure%                     | float64     | 7125 | 1.63, 1.87, 1.61, 1.72, 2.05 |
+| GDP_current_US                            | float64     | 9602 | 537777811.11, 548888895.56, 546666677.78, 751111191.11, 800000044.44 |
+| political_stability_estimate              | float64     | 4219 | -2.42, -2.43, -2.44, -2.04, -2.20 |
+| political_stability_std                   | float64     | 555 | 0.47, 0.44, 0.45, 0.44, 0.35 |
+| rule_of_law_estimate                      | float64     | 4292 | -1.79, -1.73, -1.78, -1.67, -1.56 |
+| rule_of_law_std                           | float64     | 2430 | 0.35, 0.33, 0.29, 0.30, 0.30 |
+| regulatory_quality_estimate               | float64     | 4212 | -2.09, -2.06, -2.08, -1.81, -1.46 |
+| regulatory_quality_std                    | float64     | 1510 | 0.39, 0.44, 0.42, 0.30, 0.24 |
+| government_expenditure_on_education%      | float64     | 4592 | 1.16, 1.12, 1.43, 1.30, 1.74 |
+| government_health_expenditure%            | float64     | 3721 | 0.08, 0.65, 0.54, 0.53, 0.50 |
+| multidimensional_poverty_headcount_ratio% | float64     | 264 | 51.70, 49.40, 51.80, 49.00, 46.20 |
+| gini_index                                | float64     | 369 | 27.00, 31.70, 30.60, 30.00, 29.00 |
+| birth_rate                                | float64     | 8499 | 50.34, 50.44, 50.57, 50.70, 50.83 |
+| death_rate                                | float64     | 7189 | 31.92, 31.35, 30.84, 30.36, 29.87 |
+| life_expectancy_at_birth                  | float64     | 11081 | 32.53, 33.07, 33.55, 34.02, 34.49 |
+| population                                | float64     | 12303 | 8622466.00, 8790140.00, 8969047.00, 9157465.00, 9355514.00 |
+| rural_population                          | float64     | 11792 | 7898093.00, 8026804.00, 8163985.00, 8308019.00, 8458694.00 |
+| voice_and_accountability_estimate         | float64     | 4313 | -1.91, -2.04, -2.03, -1.43, -1.18 |
+| voice_and_accountability_std              | float64     | 2329 | 0.26, 0.26, 0.25, 0.19, 0.21 |
+| intentional_homicides                     | float64     | 3702 | 4.07, 3.49, 4.21, 6.39, 9.98 |
+| Income_group                              | object      | 4 | Low income, Upper middle income, Lower middle income, High income |
+| Region                                    | object      | 7 | Middle East, North Africa, Afghanistan & Pakistan, Europe & Central Asia, Sub-Saharan Africa, Latin America & Caribbean, East Asia & Pacific |
+
+  </div>
+</details>
+
+
 
 3\. **Data cleaning** 
 
 | Issue | Names of Columns affected | Description of the Issue | Action Taken |
 | :---- | :---- | :---- | :---- |
 | Inconsistent column labeling |  Income group  |  space  |  renamed to "Income_group"  |
-| Wrong data types |   |   |   |
+| Wrong data types | year, population, GDP_current_US, inflation_annual%  | Loaded as strings instead of numeric (due to commas, missing values, or formatting)  | Converted to numeric using pd.to_numeric(errors="coerce")  |
 | Missing values |  Income_group, life_expectancy_at_birth  |  missing values  |  dropped missing values  |
-| Duplicates |   |   |   |
-| Inconsistent categories |   |   |   |
-| Other |  |  |  |
+| Duplicates |  Entire Dataset | Some rows were duplicated across years/countries after concatenation  | Removed duplicates using drop_duplicates()  |
+| Inconsistent categories |  Region, Income_group |  Region labels and income groups had inconsistent formatting (spaces, mixed cases, long labels) | Standardized categories (trimmed spaces, applied title case, replaced long categories with consistent region names)  |
 
-4\. **Descriptive statistics**   
+
+## 4. Descriptive statistics
+
+**Numeric columns**
+
+<details open>
+  <summary><strong>Click to collapse/expand descriptive statistics</strong></summary>
+
+  <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
+
 |                                           |   count |             mean |              std |            min |              25% |              50% |              75% |             max |
 |:------------------------------------------|--------:|-----------------:|-----------------:|---------------:|-----------------:|-----------------:|-----------------:|----------------:|
 | agricultural_land%                        |   10872 |     36.86        |     22.43        |    0.26        |     17.77        |     37.65        |     54.71        |    93.44        |
@@ -146,8 +161,15 @@
 | voice_and_accountability_std              |    4338 |      0.16        |      0.06        |    0.1         |      0.13        |      0.14        |      0.19        |     0.58        |
 | intentional_homicides                     |    3761 |      7.86        |     12.19        |    0           |      1.27        |      3.06        |      9.01        |   138.77        |
 
-   
-Category columns
+  </div>
+</details>
+
+**Category columns**
+
+<details open>
+  <summary><strong>Click to collapse/expand category statistics</strong></summary>
+
+  <div style="max-height:250px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
 
 |                                  | country        | Income_group   | Region                |
 |:---------------------------------|:---------------|:---------------|:----------------------|
@@ -158,15 +180,20 @@ Category columns
 | Least frequent value             | Cayman Islands | Low income     | North America         |
 | Least frequent value (frequency) | 1              | 1488           | 186                   |
 
+  </div>
+</details>
+
+
  
 
 **5\. Analysis \- Research question**
 
-This report investigates how countries across different income levels perform across key dimensions of sustainability, including governance, environmental sustainability, economic stability and prosperity, and human well-being. The analysis adopts a comparative approach, aiming to identify systematic differences between income groups through the application of relevant statistical methods.
+This report investigates how countries across different income levels perform across key dimensions of sustainability, including environmental sustainability, economic stability and prosperity, and human well-being. The analysis adopts a comparative approach, aiming to identify systematic differences between income groups through the application of relevant statistical methods.
 
 Human well-being and health
 
 To begin, we examine disparities in life expectancy at birth across income groups, providing insight into patterns of health and overall human well-being.
+
 <img width="563" height="554" alt="image" src="https://github.com/user-attachments/assets/efcb336f-4482-4a5e-99cc-88a13363b43d" />
 
 The plot shows how life expectancy at birth varies between different income levels.
@@ -178,15 +205,95 @@ The ANOVA tells us that about half of the differences in life expectancy across 
 
 
 
-Governance and institutional quality: 
+
+### Global Inflation & GDP Analysis (2000–2019)
+
+---
+
+#### How Did GDP Differ Across Regions and Decades?
+<a href="https://postimg.cc/18rkW5N7" target="_blank"><img src="https://i.postimg.cc/7ZFqZ5P4/Screenshot-2025-11-17-at-9-34-49-PM.png" alt="Screenshot-2025-11-17-at-9-34-49-PM"></a><br><br>
+- The **2010–2019 decade shows higher median GDP** across most regions, suggesting broad global economic expansion.
+- **Emerging regions (South Asia, Sub-Saharan Africa)** show the strongest relative gains, while advanced economies show slower growth.
+
+---
+
+#### What Do the ANOVA Tests Tell Us? Is there a significant difference between the means of the regions?
+<a href="https://postimg.cc/mcZ0KfQJ" target="_blank"><img src="https://i.postimg.cc/8CLNJTsp/Screenshot-2025-11-17-at-9-39-33-PM.png" alt="Screenshot-2025-11-17-at-9-39-33-PM"></a><br><br>
+
+- **Region is a statistically significant factor** influencing GDP in both decades (p < 0.0001).
+- Regional income groups remain **highly stratified**, reflecting persistent structural differences.
+
+---
+
+#### Something really interesting about North America which might be deceptive:
+- In the box plot it may look like it would be wise to run Anova on North America to see if there is a significant difference between the means of the two time periods.
+[![Screenshot-2025-11-17-at-10-42-11-PM.png](https://i.postimg.cc/GtwLg9NF/Screenshot-2025-11-17-at-10-42-11-PM.png)](https://postimg.cc/WF8chpsz)
+
+- **However** Our residual plot tells us something else
+[![Screenshot-2025-11-17-at-10-37-22-PM.png](https://i.postimg.cc/3xgwsj7C/Screenshot-2025-11-17-at-10-37-22-PM.png)](https://postimg.cc/75ZD725f)
+
+#### So what exactly is wrong here?
+- The U.S. consistently remains **far above Canada** in GDP levels.
+<a href="https://postimg.cc/MnmCsKQJ" target="_blank"><img src="https://i.postimg.cc/wjC9j1xM/Screenshot-2025-11-17-at-9-40-47-PM.png" alt="Screenshot-2025-11-17-at-9-40-47-PM"></a><br><br>
+
+<a href="https://postimg.cc/QBNRvGQD" target="_blank"><img src="https://i.postimg.cc/Pq1TpdNC/Screenshot-2025-11-17-at-9-41-29-PM.png" alt="Screenshot-2025-11-17-at-9-41-29-PM"></a><br><br>
+ ####  Reasons for Anova not performing well here:
+- Canada has too few data points
+
+- USA dominates the region, breaking assumptions
+
+- Within-decade variance is imbalanced
+
+- Distributions are not comparable
 
 
-Environmental sustainability:
 
 
-Economic performance and poverty reduction:
+---
 
+#### How Did Inflation Change in South Asia?
+<a href="https://postimg.cc/Jy79SVNm" target="_blank"><img src="https://i.postimg.cc/bv1pDqdG/Screenshot-2025-11-17-at-9-42-13-PM.png" alt="Screenshot-2025-11-17-at-9-42-13-PM"></a><br><br>
+- Post‑2010, most countries show **greater inflation stability**, reflecting improved fiscal discipline.
+- Maldives and Bhutan show **early‑decade volatility spikes**, suggesting structural vulnerabilities.
 
+---
+
+#### Tax Revenue and Population Patterns
+<a href="https://postimg.cc/QBNRvGQX" target="_blank"><img src="https://i.postimg.cc/Pq1TpdN8/Screenshot-2025-11-17-at-9-42-27-PM.png" alt="Screenshot-2025-11-17-at-9-42-27-PM"></a><br><br>
+- Europe & Central Asia maintain **higher tax‑to‑GDP ratios**, enabling stronger public institutions.
+- South Asia’s **population boom** increases pressure on fiscal capacity despite economic gains.
+
+---
+
+#### Where Is Inflation Most Volatile Globally?
+<a href="https://postimg.cc/VSs32Qq6" target="_blank"><img src="https://i.postimg.cc/d0GwkJD8/Screenshot-2025-11-17-at-9-42-48-PM.png" alt="Screenshot-2025-11-17-at-9-42-48-PM"></a><br><br>
+<a href="https://postimg.cc/McshSP5K" target="_blank"><img src="https://i.postimg.cc/bJ88142b/Screenshot-2025-11-17-at-9-43-02-PM.png" alt="Screenshot-2025-11-17-at-9-43-02-PM"></a><br><br>
+- Sub‑Saharan Africa and MENA show the **highest inflation volatility**, driven by political and commodity‑price instability.
+- Advanced economies maintain **stable, predictable inflation**, reflecting strong monetary frameworks.
+
+---
+
+#### Why Is Angola an Outlier?
+<a href="https://postimg.cc/NyNWcJDG" target="_blank"><img src="https://i.postimg.cc/26mmngBW/Screenshot-2025-11-17-at-9-43-16-PM.png" alt="Screenshot-2025-11-17-at-9-43-16-PM"></a><br><br>
+- Angola’s early‑2000s inflation exceeds **300%**, driven by war‑related disruptions and currency instability.
+- Inflation stabilizes significantly post‑2005, aligning with oil‑sector recovery and political stabilization.
+
+### Environmental Sustainability – CO₂ emissions analysis
+
+---
+
+#### Why Are High-Income Countries the Biggest CO₂ Emitters?
+
+- **High-income countries** emit on average **227,273 kt** of CO₂ per year — **over 35 times more** than low-income countries (~6,586 kt).
+- **Upper-middle income** nations (China, India, Russia, Brazil) are the second-largest emitters at **~275,000 kt**, showing the cost of rapid industrialisation.
+- One-way ANOVA on log-transformed data confirms **highly significant differences** between all income groups (p < 0.001).
+- Tukey post-hoc test shows **every pair differs significantly** — even lower-middle vs upper-middle.
+
+**Insight:**  
+Economic growth currently comes with massive carbon emissions.  
+High-income countries have the resources to lead decarbonisation, while upper-middle income nations are now the fastest-growing source of global emissions and the most critical target for climate policy.
+
+---
 
 **6\. AI Disclaimer**
-
+Ai was used for the visualisations 
