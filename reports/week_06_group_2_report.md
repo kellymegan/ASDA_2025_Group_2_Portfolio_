@@ -1,6 +1,6 @@
 **World Bank Project Report**
 
-0\. **Authors of the report**
+**Authors of the report**
 
 | Name | Contribution |
 | :---- | :---- |
@@ -13,8 +13,9 @@
 
 
 
-1\. **Dataset Overview** 
-<details open>
+## 1. Detailed Overview
+
+<details>
   <summary><strong>Click to collapse/expand the full dataset structure</strong></summary>
 
   <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
@@ -99,7 +100,7 @@
 
 
 
-3\. **Data cleaning** 
+## 2. Data Cleaning
 
 <details open>
   <summary><strong>Click to collapse/expand the full dataset structure</strong></summary>
