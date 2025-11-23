@@ -4,12 +4,20 @@
 
 | Name | Contribution |
 | :---- | :---- |
-| Megan Kelly-Ortiz | Data Cleaning |
-| Ayush Singh | Data Cleaning |
-| Kush Shah | Data Cleaning  |
+| Megan Kelly-Ortiz | Report, Research Question 2 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
 
 
 1\. **Dataset Overview** 
+<details open>
+  <summary><strong>Click to collapse/expand the full dataset structure</strong></summary>
+
+  <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
 
 | Item | Description |
 | :---- | :---- |
@@ -21,8 +29,8 @@
 | Source (name) |  World Bank Group  |
 | Source (link) |  https://github.com/datagus/ASDA2025/tree/main/datasets/homework_week5 |
 
-   
-   
+   </div>
+</details>  
 
 ## 2. Dataset Structure
 
@@ -93,6 +101,12 @@
 
 3\. **Data cleaning** 
 
+<details open>
+  <summary><strong>Click to collapse/expand the full dataset structure</strong></summary>
+
+  <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
+
+
 | Issue | Names of Columns affected | Description of the Issue | Action Taken |
 | :---- | :---- | :---- | :---- |
 | Inconsistent column labeling |  Income group  |  space  |  renamed to "Income_group"  |
@@ -100,6 +114,9 @@
 | Missing values |  Income_group, life_expectancy_at_birth  |  missing values  |  dropped missing values  |
 | Duplicates |  Entire Dataset | Some rows were duplicated across years/countries after concatenation  | Removed duplicates using drop_duplicates()  |
 | Inconsistent categories |  Region, Income_group |  Region labels and income groups had inconsistent formatting (spaces, mixed cases, long labels) | Standardized categories (trimmed spaces, applied title case, replaced long categories with consistent region names)  |
+
+  </div>
+</details>
 
 
 ## 4. Descriptive statistics
