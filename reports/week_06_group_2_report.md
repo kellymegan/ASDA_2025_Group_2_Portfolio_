@@ -35,7 +35,7 @@
 
 ## 2. Dataset Structure
 
-<details open>
+<details>
   <summary><strong>Click to collapse/expand the full dataset structure</strong></summary>
 
   <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
@@ -102,7 +102,7 @@
 
 ## 2. Data Cleaning
 
-<details open>
+<details>
   <summary><strong>Click to collapse/expand the full dataset structure</strong></summary>
 
   <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
@@ -124,7 +124,7 @@
 
 **Numeric columns**
 
-<details open>
+<details>
   <summary><strong>Click to collapse/expand descriptive statistics</strong></summary>
 
   <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
@@ -185,7 +185,7 @@
 
 **Category columns**
 
-<details open>
+<details>
   <summary><strong>Click to collapse/expand category statistics</strong></summary>
 
   <div style="max-height:250px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
