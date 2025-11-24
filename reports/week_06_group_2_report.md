@@ -223,7 +223,7 @@ The MWU tests reject the null of identical distributions for both outcomes (p-va
 
 Life expectancy and the Human Capital Index rise together in both regions, but the link is tighter in East Asia & Pacific. There the Spearman correlation is about 0.89, meaning countries that live longer almost always score higher on HCI. In Europe & Central Asia the correlation is about 0.72, but there’s more scatter—some countries have long lives without equally high HCI, or the reverse. The non‑overlapping confidence intervals and small p‑values show this difference is statistically clear. This is an association, not proof of cause.
 
-### Can a Country Get Rich Without Choking the Planet?
+### Research question 3: Can a Country Get Rich Without Choking the Planet?
 
 <a href="https://i.postimg.cc/jdVdxLdk/image.png" target="_blank">
 <img src="https://i.postimg.cc/jdVdxLdk/image.png" alt="GDP vs CO₂ Emissions (2010–2019 average)"></a><br><br>
