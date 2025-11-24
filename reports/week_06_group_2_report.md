@@ -5,7 +5,7 @@
 | Name | Contribution |
 | :---- | :---- |
 | Megan Kelly-Ortiz | Report, Research Question 2 |
-|  |  |
+| Kush Shah | Relationship between GDP and CO2 emissions |
 |  |  |
 |  |  |
 |  |  |
@@ -223,6 +223,25 @@ The MWU tests reject the null of identical distributions for both outcomes (p-va
 
 Life expectancy and the Human Capital Index rise together in both regions, but the link is tighter in East Asia & Pacific. There the Spearman correlation is about 0.89, meaning countries that live longer almost always score higher on HCI. In Europe & Central Asia the correlation is about 0.72, but there’s more scatter—some countries have long lives without equally high HCI, or the reverse. The non‑overlapping confidence intervals and small p‑values show this difference is statistically clear. This is an association, not proof of cause.
 
+### Can a Country Get Rich Without Choking the Planet?
+
+<a href="https://i.postimg.cc/jdVdxLdk/image.png" target="_blank">
+<img src="https://i.postimg.cc/jdVdxLdk/image.png" alt="GDP vs CO₂ Emissions (2010–2019 average)"></a><br><br>
+
+One single graph tells the entire story of development and climate change.
+
+- **Overall**: Extremely strong relationship (r ≈ 0.78, p < 0.001) – richer countries emit exponentially more CO₂  
+- **Low-income** (red): Almost flat – growth without heavy emissions  
+- **Middle-income** (orange + green): The steepest, most dangerous phase – this is where the climate crisis is exploding right now  
+- **High-income** (blue + purple): The curve finally starts to bend – real-world proof that **decoupling GDP from emissions is possible**
+
+This is the most important pattern in global development.
+
+The climate battle will be won or lost in today’s **upper-middle income giants** (China, India, Indonesia, Brazil, Türkiye, Mexico).  
+If they follow the old carbon-intensive path → catastrophic warming.  
+If they leapfrog straight to the flatter zone using solar, wind, and efficiency → a prosperous, sustainable future is still within reach.
+
+**Key Insight**: Economic growth and environmental protection are not enemies — but only if we act decisively during the critical middle-income transition.
 
 
 
