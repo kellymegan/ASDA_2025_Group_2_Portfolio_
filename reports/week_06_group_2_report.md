@@ -6,7 +6,7 @@
 | :---- | :---- |
 | Megan Kelly-Ortiz | Report, Research Question 2 |
 | Kush Shah | Relationship between GDP and CO2 emissions |
-|  |  |
+| Ayush Singh | Relation between GDP and military expenditure (on Region and countries) |
 |  |  |
 |  |  |
 |  |  |
@@ -203,8 +203,40 @@
 </details>
 
 ## 5. Correlations
+### Research question 1: Is there a relation between GDP and how much a country spends on it's military?
 
-Research Question 2: Does life expectancy at birth relate to the Human Capital Index (HCI) in Europe & Central Asia and East Asia & Pacific?
+
+<a href="https://postimg.cc/Hc63kjm6" target="_blank"><img src="https://i.postimg.cc/ZnSQjyMz/Screenshot-2025-11-24-at-10-45-51-PM.png" alt="Screenshot-2025-11-24-at-10-45-51-PM"></a><br><br>
+- Military expenditure as a share of GDP is highly uneven globally, with the Middle East and North Africa showing the highest intensities. Countries such as Libya, Saudi Arabia, and Oman allocate a significantly larger proportion of their economic output to defense, reflecting geopolitical tensions and prolonged conflict exposure.
+<a href='https://postimg.cc/9DGf57Pv' target='_blank'><img src='https://i.postimg.cc/K8W3T71v/Screenshot-2025-11-24-at-11-07-28-PM.png' border='0' alt='Screenshot-2025-11-24-at-11-07-28-PM'></a>
+
+ - Most of Europe, South America, and parts of Asia display relatively low expenditure levels, typically below 3% of GDP. This pattern suggests a stronger emphasis on social and economic development areas, or reliance on collective security arrangements (e.g., NATO) instead of heavy national military spending.
+
+ - Large economies like the United States, China, and India appear moderate in percentage terms, despite substantial absolute military budgets. Their large GDP bases mean that even modest percentages translate into some of the highest real defense expenditures worldwide.
+
+---
+### Why checking this by region might not be the perfect estimate?
+ <a href="https://postimg.cc/H8jzcHWf" target="_blank"><img src="https://i.postimg.cc/QCJyzx2x/Screenshot-2025-11-24-at-10-47-04-PM.png" alt="Screenshot-2025-11-24-at-10-47-04-PM"></a><br><br>
+
+ <a href="https://postimg.cc/7Jb9GDPd" target="_blank"><img src="https://i.postimg.cc/XqkzP7Rj/Screenshot-2025-11-24-at-10-46-31-PM.png" alt="Screenshot-2025-11-24-at-10-46-31-PM"></a><br><br>
+
+  - Regional averages for GDP–military expenditure correlations are weak and inconsistent, indicating that GDP alone is not a reliable predictor of how much of a nation’s economy is spent on defense.
+
+- The large variance within regions shows that countries in the same geographical block behave very differently, often driven by local conflicts, political instability, or strategic priorities.
+
+- Because of this high intra-regional variability, regional aggregates can be misleading, and more meaningful insights emerge when military spending is analyzed at the country level rather than by broad regions.
+
+---
+<a href="https://postimg.cc/vxDhgM8S" target="_blank"><img src="https://i.postimg.cc/VvWVhLx1/Screenshot-2025-11-24-at-10-47-32-PM.png" alt="Screenshot-2025-11-24-at-10-47-32-PM"></a><br><br>
+<a href="https://postimg.cc/N2LD9YGC" target="_blank"><img src="https://i.postimg.cc/x834ZTwQ/Screenshot-2025-11-24-at-10-51-04-PM.png" alt="Screenshot-2025-11-24-at-10-51-04-PM"></a><br><br>
+
+- The country-level map reveals a mixed pattern of positive and negative correlations, indicating that the relationship between economic size and military spending intensity is highly context-specific rather than globally uniform.
+
+- Sub-Saharan Africa and Europe & Central Asia show the highest number of countries with strong positive correlations (≥0.5), suggesting localized drivers such as security instability or regional competition that link GDP growth to increased military investment.
+
+- In contrast, most regions have only a small number of strong positive cases, reinforcing that military expenditure decisions are driven by national conditions—not regional averages or shared economic trajectories.
+---
+### Research Question 2: Does life expectancy at birth relate to the Human Capital Index (HCI) in Europe & Central Asia and East Asia & Pacific?
 
 The data inspection revealed that even after various transformations, human capital index and life expectancy are not normally distributed, which was also confirmed by the normality tests that were performed. 
 
@@ -242,6 +274,9 @@ If they follow the old carbon-intensive path → catastrophic warming.
 If they leapfrog straight to the flatter zone using solar, wind, and efficiency → a prosperous, sustainable future is still within reach.
 
 **Key Insight**: Economic growth and environmental protection are not enemies — but only if we act decisively during the critical middle-income transition.
+
+
+## Use of AI: AI was used to generate the maps and plots
 
 
 
