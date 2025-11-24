@@ -7,7 +7,7 @@
 | Megan Kelly-Ortiz | Report, Research Question 2 |
 | Kush Shah | Relationship between GDP and CO2 emissions |
 | Ayush Singh | Relation between GDP and military expenditure (on Region and countries) |
-|  |  |
+| Anna Perkova | Relation between Gini Index and HCI on Regions |
 |  |  |
 |  |  |
 
@@ -275,10 +275,21 @@ If they leapfrog straight to the flatter zone using solar, wind, and efficiency 
 
 **Key Insight**: Economic growth and environmental protection are not enemies — but only if we act decisively during the critical middle-income transition.
 
-
 ## Use of AI: AI was used to generate the maps and plots
 
+### Research question 4: How does inequality (Gini Index) relate to Human Capital Development?
 
+As a preparation for analysis, missing values were dropped and data was log-transformed, but even after that it remained not normally distributed, as observed both through visualisations and tests. That is explainable given these are indices and not continuous data.
+
+![alt text](../additional_materials/log-hci-gini.png)
+
+Data was checked for outliers, with two values especially standing out: a minimum of HCI in Chad and a maximum of Gini Index in South Africa. However, as these outliers are not far away from the rest of variances, they could be meaningful and were not deleted.
+
+![alt text](../additional_materials/outliers-hci-gini.png)
+
+Since the data is not normally distributed, the Spearman test was used for correlation analysis. It is also likely to be less affected by outliers and catch non-linear relations. The correlation coefficient of approximately $-0.57$ suggests a moderate negative relationship between the Gini Index and the Human Capital Index (HCI): generally, as income inequality (Gini Index) increases within a region, the level of human capital development (HCI) tends to decrease. This trend is visible in the clustering of data points: for example, regions like Europe & Central Asia exhibit low inequality and high human capital, while Latin America & the Caribbean display higher inequality with moderate human capital. However, this does not explain the causes of correlation, especially since this is a relation between two indices which are calculated using multiple statistical variables.
+
+![alt text](../additional_materials/correlation-hci-gini.png)
 
 
 
