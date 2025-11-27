@@ -84,5 +84,11 @@ Category columns
 
 **5\. Analysis \- Research question**
 
+How can weight be estimated based on certain (relevant) parameters?
+Which parameters affect weight and which ones can be disregarded?
+How can weight be estimated based on simple measurements?
+
+
+
 **6\. AI Disclaimer**
 
