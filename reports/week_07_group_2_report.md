@@ -25,8 +25,10 @@ The report should be written for an audience of **managers in the fish industry*
 | Number of columns |  7  |
 | Format file (.csv, .txt, etc) |  .csv  |
 | Authors of the dataset |  unknown  |
-| Source (name) |  Github Datagus  |
-| Source (link) |  https://github.com/datagus/ASDA2025/blob/main/datasets/Fish.csv  |
+| Source (name) |  Kaggle  |
+| Source (link) |  https://www.kaggle.com/datasets/vipullrathod/fish-market/data  |
+| Date of Download |  27.11.2025  |
+
 
    
    
