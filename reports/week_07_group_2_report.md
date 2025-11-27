@@ -10,9 +10,9 @@ The report should be written for an audience of **managers in the fish industry*
 
 | Name | Contribution |
 | :---- | :---- |
-| Megan Kelly-Ortiz |  |
-|  |   |
-|  |   |
+| Megan Kelly-Ortiz | Data Cleaning, Model, Report |
+| Ayush Singh | Data Cleaning, Model, Report  |
+| Anna Perkova | Data Cleaning, Model, Report  |
 |  |   |
 |  |   |
 
@@ -87,6 +87,15 @@ Category columns
 How can weight be estimated based on certain (relevant) parameters?
 Which parameters affect weight and which ones can be disregarded?
 How can weight be estimated based on simple measurements?
+
+Looking at the data, Length 3 has the highest correlation with our target variable weight. Due to multicollinearity, we decided to drop Length 1, Length 2 and Height.
+Visual
+We converted the column Species to dummy variables because it impacts the weight differently. 
+Visual
+The regression model revealed that it does not fit very well for extreme values as shown in the plot
+Visual
+Therefore, we went with Random Forest Regressor. This model performs better in Mean Absolute Error, Mean Squared Error and R^2. 
+
 
 
 
