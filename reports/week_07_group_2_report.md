@@ -103,4 +103,4 @@ A Mixed Effect Model was also tried in two ways: a null model (with random inter
 ![alt text](../additional_materials/mixed-effect-model.png)
 
 **6\. AI Disclaimer**
-
+AI was used to fix the Mixed Effect Model code.
