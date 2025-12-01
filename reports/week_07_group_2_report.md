@@ -34,13 +34,13 @@ The report should be written for an audience of **managers in the fish industry*
 
 | Feature/variable   | Data type   | Description   |   Number of Unique values | Example values                         |
 |:-------------------|:------------|:--------------|--------------------------:|:---------------------------------------|
-| Species            | object      |               |                         7 | Bream, Roach, Whitefish, Parkki, Perch |
-| Weight             | float64     |               |                       101 | 242.00, 290.00, 340.00, 363.00, 430.00 |
-| Length1            | float64     |               |                       116 | 23.20, 24.00, 23.90, 26.30, 26.50      |
-| Length2            | float64     |               |                        93 | 25.40, 26.30, 26.50, 29.00, 29.70      |
-| Length3            | float64     |               |                       124 | 30.00, 31.20, 31.10, 33.50, 34.00      |
-| Height             | float64     |               |                       154 | 11.52, 12.48, 12.38, 12.73, 12.44      |
-| Width              | float64     |               |                       152 | 4.02, 4.31, 4.70, 4.46, 5.13           |
+| Species            | object      | Species of the fish |                         7 | Bream, Roach, Whitefish, Parkki, Perch |
+| Weight             | float64     | Weight of the fish in grams |                       101 | 242.00, 290.00, 340.00, 363.00, 430.00 |
+| Length1            | float64     | First measurement of the fish's length in cm |                       116 | 23.20, 24.00, 23.90, 26.30, 26.50      |
+| Length2            | float64     | Second measurement of the fish's length in cm |                        93 | 25.40, 26.30, 26.50, 29.00, 29.70      |
+| Length3            | float64     | Third measurement of the fish's length in cm |                       124 | 30.00, 31.20, 31.10, 33.50, 34.00      |
+| Height             | float64     | Height of the fish in cm |                       154 | 11.52, 12.48, 12.38, 12.73, 12.44      |
+| Width              | float64     | Width of the fish in cm |                       152 | 4.02, 4.31, 4.70, 4.46, 5.13           |
 
  
 
@@ -48,12 +48,12 @@ The report should be written for an audience of **managers in the fish industry*
 
 | Issue | Names of Columns affected | Description of the Issue | Action Taken |
 | :---- | :---- | :---- | :---- |
-| Inconsistent column labeling |   |   |   |
-| Wrong data types |   |   |   |
-| Missing values |   |   |   |
-| Duplicates |   |   |   |
-| Inconsistent categories |   |   |   |
-| Other |  |  |  |
+| Inconsistent column labeling | 0 |   |   |
+| Wrong data types | 0 |   |   |
+| Missing values | 0 |   |   |
+| Duplicates | 0 |   |   |
+| Inconsistent categories | 0 |   |   |
+| Other | 0 |  |  |
 
 4\. **Descriptive statistics** 
 
@@ -96,8 +96,11 @@ The regression model revealed that it does not fit very well for extreme values 
 Visual
 Therefore, we went with Random Forest Regressor. This model performs better in Mean Absolute Error, Mean Squared Error and R^2. 
 
+...
 
+A Mixed Effect Model was also tried in two ways: a null model (with random intercept) and with Species as random effect and Height as fixed effect. The second model performed better than the null model. However, the Mixed Effect Model performed worse than the regular Regression model. It has a much higher variance of predicted variables, probably because of overfitting, so in our case the Random Forest Regressor was the most efficient.
 
+![alt text](../additional_materials/mixed-effect-model.png)
 
 **6\. AI Disclaimer**
 
