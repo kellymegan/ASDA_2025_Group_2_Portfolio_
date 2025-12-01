@@ -48,12 +48,7 @@ The report should be written for an audience of **managers in the fish industry*
 
 | Issue | Names of Columns affected | Description of the Issue | Action Taken |
 | :---- | :---- | :---- | :---- |
-| Inconsistent column labeling | 0 |   |   |
-| Wrong data types | 0 |   |   |
-| Missing values | 0 |   |   |
-| Duplicates | 0 |   |   |
-| Inconsistent categories | 0 |   |   |
-| Other | 0 |  |  |
+| Object type data for Model | Species | The Species column had catgories which our model cannot factor since the data type has to be numeric | Used one-hot encoding on Species  |
 
 4\. **Descriptive statistics** 
 
