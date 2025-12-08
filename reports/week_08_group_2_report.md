@@ -154,6 +154,41 @@ Traffic volume shows extreme over-dispersion:
 → **OLS cannot capture time-dependent patterns**
 
 ---
+## Let's try GLM! (After some preprocessing)
+
+![holiday_cluster](../additional_materials/images/holiday_cluster.png)
+- segmentation of holiday effects reveals three distinct traffic regimes driven primarily by holiday type (major annual events vs minor civic dates), implying heterogeneous behavior that would be poorly captured by a binary “holiday/non-holiday” feature.
+
+- High-traffic cluster days (e.g., Independence Day, NYD) suggest systematic seasonal shifts in traffic demand that justify including holiday clusters as categorical predictors rather than a single holiday dummy.
+
+![weather](../additional_materials/images/weather.png)
+- Cross-weather mean differences are modest relative to within-weather dispersion, suggesting weather acts as a low-signal, high-variance predictor rather than a primary driver of traffic volume.
+
+- Boxplots show wide overlapping distributions, implying weak separability, consistent with weather being useful only as a secondary interaction feature rather than a standalone predictor.
+
+![weekend_weekday](../additional_materials/images/weekend_weekday.png)
+- Clear bimodal peaks (morning/evening) and weekday/weekend divergence confirm the cyclical and behavioral nature of urban traffic generation—supporting sinusoid-based temporal encoding.
+
+- The scale of diurnal variation dominates all other explanatory factors, establishing hourly periodicity as the primary determinant of traffic load in this dataset.
+
+### Can we produce same results with less features (deduced based on AIC)
+![all_vs_three](../additional_materials/images/all_vs_three.png)
+- The minimal 3-feature model (hour_cos, hour_sin, weekend) achieves nearly identical test performance to the full model, indicating that remaining predictors contribute marginal marginal explanatory power once temporal periodicity is captured.
+
+- This implies strong functional dominance of the daily periodic structure over weather and holiday effects in predicting traffic volume, consistent with a time-driven transportation demand process.
+
+![fit](../additional_materials/images/fit.png)
+
+- The model produces identical results even after removing majority of the features.
+
+### Can we Generalize?
+![dummy](../additional_materials/images/dummy.png)
+- Under synthetic scenarios, prediction spreads diverge substantially between full and reduced models, revealing that extra variables compensate mainly under atypical or extreme input configurations (not in standard test distributions).
+
+- This behavior suggests conditional model vulnerability—reduced models extrapolate more aggressively since omitted variables cannot absorb scenario variation, producing larger counterfactual deviations.
+
+
+---
 
 ## Conclusion
 
