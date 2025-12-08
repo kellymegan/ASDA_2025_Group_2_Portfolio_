@@ -6,7 +6,7 @@
 | :---- | :---- |
 | Megan Kelly-Ortiz | Report |
 | Kush Shah | OLS diagnostics and assumption checking. |
-|  |   |
+| Ayush | Data Preprocessing & Feature reduction, Model Selection(GLMs), Visualizations  |
 |  |   |
 |  |   |
 
@@ -171,6 +171,27 @@ Traffic volume shows extreme over-dispersion:
 
 - The scale of diurnal variation dominates all other explanatory factors, establishing hourly periodicity as the primary determinant of traffic load in this dataset.
 
+### Comparing Poisson vs Negative Binomial
+![poisson_vs_nb](../additional_materials/images/poisson_vs_nb.png)
+- Poisson systematically under-predicts high-traffic periods
+- Negative Binomial tracks the “shape” and “scale” more realistically
+- The misfit is visible exactly where traffic has the highest variance
+
+### Case where Poisson performs slightly better
+![weekend_poisson](../additional_materials/images/weekend_poisson.png)
+### Why Poisson actually looks good on weekends
+
+On weekends, the traffic curve is:
+- Lower overall
+
+- Smoother
+
+- With smaller variance
+
+- Fewer extreme rush-hour spikes
+
+So the variance ≈ mean much more closely
+
 ### Can we produce same results with less features (deduced based on AIC)
 ![all_vs_three](../additional_materials/images/all_vs_three.png)
 - The minimal 3-feature model (hour_cos, hour_sin, weekend) achieves nearly identical test performance to the full model, indicating that remaining predictors contribute marginal marginal explanatory power once temporal periodicity is captured.
@@ -204,17 +225,17 @@ Despite reasonable RMSE and MAE, OLS:
 
 **5\. Model Comparison Results**
 
-State your entire model with all predictors first, then compare your four models (GLM with Poisson & Neg.Binomial with their corresponding null models) with respect to:
+As shown above with the plots we can conclude(exact numbers can be found in the notebook) -
+Negative Binomial with predictors is superior because:
 
-- AIC  
-- Explained Variance/Deviance (McFadden’s R^2)  
-- Residuals  
-- Handling Over Dispersion  
-- …
+- Lowest AIC
+- Highest deviance explained
+- Residuals smaller
+- Handles overdispersion
+- Produces more realistic uncertainty estimates
+- More accurate peak prediction behavior
+- Poisson systematically underestimates high traffic periods and produces biased residuals due to severe overdispersion.
 
-Remark: Can you directly compare these criteria between models? How do you interpret them? Where should you be cautious? 
-
-Which model is superior?
 
 **6\. AI Disclaimer**
-
+AI was used for the plots and conceptual understanding of the various parameters of both models 
