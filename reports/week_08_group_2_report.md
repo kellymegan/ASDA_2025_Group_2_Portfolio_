@@ -15,8 +15,8 @@
 | Item | Description |
 | :---- | :---- |
 | Dataset name | Metro Interstate Traffic Volume |
-| Time Period |  |
-| Sampling Frequency |  |
+| Time Period | 2012 - 2018 |
+| Sampling Frequency | Hour wise data |
 | Number of rows | 48204 |
 | Number of columns | 9 |
 | Format file (.csv, .txt, etc) | .csv |
