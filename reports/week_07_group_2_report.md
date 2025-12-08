@@ -36,13 +36,13 @@ The report should be written for an audience of **managers in the fish industry*
 
 | Feature/variable   | Data type   | Description   |   Number of Unique values | Example values                         |
 |:-------------------|:------------|:--------------|--------------------------:|:---------------------------------------|
-| Species            | object      |               |                         7 | Bream, Roach, Whitefish, Parkki, Perch |
-| Weight             | float64     |               |                       101 | 242.00, 290.00, 340.00, 363.00, 430.00 |
-| Length1            | float64     |               |                       116 | 23.20, 24.00, 23.90, 26.30, 26.50      |
-| Length2            | float64     |               |                        93 | 25.40, 26.30, 26.50, 29.00, 29.70      |
-| Length3            | float64     |               |                       124 | 30.00, 31.20, 31.10, 33.50, 34.00      |
-| Height             | float64     |               |                       154 | 11.52, 12.48, 12.38, 12.73, 12.44      |
-| Width              | float64     |               |                       152 | 4.02, 4.31, 4.70, 4.46, 5.13           |
+| Species            | object      | Species of the fish |                         7 | Bream, Roach, Whitefish, Parkki, Perch |
+| Weight             | float64     | Weight of the fish in grams |                       101 | 242.00, 290.00, 340.00, 363.00, 430.00 |
+| Length1            | float64     | First measurement of the fish's length in cm |                       116 | 23.20, 24.00, 23.90, 26.30, 26.50      |
+| Length2            | float64     | Second measurement of the fish's length in cm |                        93 | 25.40, 26.30, 26.50, 29.00, 29.70      |
+| Length3            | float64     | Third measurement of the fish's length in cm |                       124 | 30.00, 31.20, 31.10, 33.50, 34.00      |
+| Height             | float64     | Height of the fish in cm |                       154 | 11.52, 12.48, 12.38, 12.73, 12.44      |
+| Width              | float64     | Width of the fish in cm |                       152 | 4.02, 4.31, 4.70, 4.46, 5.13           |
 
  
 
@@ -50,12 +50,7 @@ The report should be written for an audience of **managers in the fish industry*
 
 | Issue | Names of Columns affected | Description of the Issue | Action Taken |
 | :---- | :---- | :---- | :---- |
-| Inconsistent column labeling |   |   |   |
-| Wrong data types |   |   |   |
-| Missing values |   |   |   |
-| Duplicates |   |   |   |
-| Inconsistent categories |   |   |   |
-| Other |  |  |  |
+| Object type data for Model | Species | The Species column had catgories which our model cannot factor since the data type has to be numeric | Used one-hot encoding on Species  |
 
 4\. **Descriptive statistics** 
 
@@ -86,20 +81,58 @@ Category columns
 
 **5\. Analysis \- Research question**
 
-How can weight be estimated based on certain (relevant) parameters?
-Which parameters affect weight and which ones can be disregarded?
-How can weight be estimated based on simple measurements?
 
-Looking at the data, Length 3 has the highest correlation with our target variable weight. Due to multicollinearity, we decided to drop Length 1, Length 2 and Height.
-Visual
-We converted the column Species to dummy variables because it impacts the weight differently. 
-Visual
-The regression model revealed that it does not fit very well for extreme values as shown in the plot
-Visual
-Therefore, we went with Random Forest Regressor. This model performs better in Mean Absolute Error, Mean Squared Error and R^2. 
+## Approach 1 - Mixed Effect Models
+
+A Mixed Effect Model was also tried in two ways: a null model (with random intercept) and with Species as random effect and Height as fixed effect. The second model performed better than the null model. However, the Mixed Effect Model performed worse than the regular Regression model. It has a much higher variance of predicted variables, probably because of overfitting, so in our case the Random Forest Regressor was the most efficient.
+
+![alt text](../additional_materials/mixed-effect-model.png)
+
+## Approach 2 - To see if we can capture these features using a new variable (Volume = Length * Width * Height)
 
 
+### Model Comparison — MAE, RMSE and R² (Volume vs Without Volume)
+<a href="https://postimg.cc/xkwc3CHC" target="_blank"><img src="https://i.postimg.cc/pTTzx5LD/Screenshot-2025-12-01-at-8-56-40-PM.png" alt="Screenshot-2025-12-01-at-8-56-40-PM"></a><br><br>
 
+Including Volume + Species dummies drastically improves performance, reducing MAE and RMSE while slightly improving R².
+
+---
+### Linear Regression Fit — With Volume vs Without Volume
+<a href="https://postimg.cc/zbT3trSq" target="_blank"><img src="https://i.postimg.cc/V6VMNsJ0/Screenshot-2025-12-01-at-8-57-08-PM.png" alt="Screenshot-2025-12-01-at-8-57-08-PM"></a><br><br>
+
+The model using volume aligns much closer to the true 1:1 line, indicating better predictions across the full weight range.
+
+
+### Residual Distributions — Volume(Red) vs Without Volume(Blue)
+<a href="https://postimg.cc/ZB607SFT" target="_blank"><img src="https://i.postimg.cc/KzHLYc1g/Screenshot-2025-12-01-at-8-58-25-PM.png" alt="Screenshot-2025-12-01-at-8-58-25-PM"></a><br><br>
+Case 1 (Volume) residuals are tighter and more centered around zero, showing more stable error behavior.
+
+Case 2 has longer tails and more extreme errors, suggesting missing size-related features reduce predictability.
+
+---
+### Performing the same with Random Forest Regressor (with default parameters)
+<a href="https://postimg.cc/Z9GCxR3C" target="_blank"><img src="https://i.postimg.cc/yddcB38X/Screenshot-2025-12-01-at-8-57-39-PM.png" alt="Screenshot-2025-12-01-at-8-57-39-PM"></a><br><br>
+
+Even with a much complex model, the performace seems to be better with lesser features
+
+---
+### Which one can we choose between Random Forest and Linear Regression?
+<a href="https://postimg.cc/HJqV9x5c" target="_blank"><img src="https://i.postimg.cc/KzzBF38N/Screenshot-2025-12-01-at-8-58-50-PM.png" alt="Screenshot-2025-12-01-at-8-58-50-PM"></a><br><br>
+
+#### Random Forest shows a lower MAE, meaning it produces more accurate predictions on average than Linear Regression.
+#### Even though R² and RMSE are similar, RF better captures nonlinear relationships, reducing typical errors while still maintaining similar overall performance.
+#### This highlights that fish weight depends on nonlinear geometry, not just linear correlations. 
+--- 
+
+### Residual Distributions — Linear Regression vs Random Forest
+<a href="https://postimg.cc/YGQjnHfj" target="_blank"><img src="https://i.postimg.cc/Jn2Jh7s3/Screenshot-2025-12-01-at-8-59-08-PM.png" alt="Screenshot-2025-12-01-at-8-59-08-PM"></a><br><br>
+
+## To conclude the above statements, Across day-to-day predictions, Random Forest is more accurate than Linear Regression.
+--- 
+### Species-Level Stability — Average R² (Random Forest)
+<a href="https://postimg.cc/k6WD1mFG" target="_blank"><img src="https://i.postimg.cc/LXbfs4Jt/Screenshot-2025-12-01-at-8-59-20-PM.png" alt="Screenshot-2025-12-01-at-8-59-20-PM"></a><br><br>
+Random Forest generalizes well across species, achieving consistently high R² values.
+Perch and Whitefish stand out with the highest performance, while Roach and Smelt are slightly harder to predict.
 
 **6\. AI Disclaimer**
-
+AI was used to fix the Mixed Effect Model code and the plots.
