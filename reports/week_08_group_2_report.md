@@ -7,7 +7,7 @@
 | Megan Kelly-Ortiz | Report |
 | Kush Shah | OLS diagnostics and assumption checking. |
 | Ayush | Data Preprocessing & Feature reduction, Model Selection(GLMs), Visualizations, Report (3) |
-|  |   |
+| Onkar Mane | Data Processing & Visualizations   |
 |  |   |
 
 1\. **Dataset Overview** 
