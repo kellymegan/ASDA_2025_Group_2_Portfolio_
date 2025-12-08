@@ -5,7 +5,7 @@
 | Name | Contribution |
 | :---- | :---- |
 | Megan Kelly-Ortiz | Report |
-|  |   |
+| Kush Shah | OLS diagnostics and assumption checking. |
 |  |   |
 |  |   |
 |  |   |
@@ -72,6 +72,100 @@ Numeric columns
 
 → add a distribution plot of your target variable.  
  
+## OLS Diagnostic Results (Why OLS Is Not Appropriate)
+
+Before fitting GLM models, a baseline Ordinary Least Squares (OLS) regression was evaluated using the same predictors.
+
+### OLS Assumption Check Table
+
+| OLS Assumption              | Expected                         | Observed (This Dataset)                                                | Result    |
+|-----------------------------|----------------------------------|-------------------------------------------------------------------------|-----------|
+| Support of Y               | Continuous, can be negative      | Count data, 235 negative predictions (min = -583.3)                    | Violated  |
+| Variance (Homoskedasticity) | Var(errors) constant             | Dispersion index ≈ 1211.2, BP p-value = 0.00e+00                       | Violated  |
+| Normality of errors        | Residuals ≈ Normal               | Residuals skewed / heavy-tailed (see histogram)                        | Violated  |
+| Independence of errors     | No autocorrelation               | Durbin–Watson ≈ 0.49                                                   | Violated  |
+| Functional form            | Additive linear effects          | Traffic reacts multiplicatively (better with log-link GLM)             | Violated  |
+
+### Key Numbers (OLS)
+
+- **RMSE (OLS):** 1056.58  
+- **MAE (OLS):** 830.48  
+- **Negative predictions:** 235 (min = -583.29)  
+- **Mean(y):** 3259.62  
+- **Var(y):** 3,947,988.05  
+- **Var/Mean:** 1211.18  
+- **Breusch–Pagan p-value:** 0.000e+00  
+- **Durbin–Watson statistic:** 0.49  
+
+<a href="https://postimg.cc/DWMPQrJr" target="_blank">
+<img src="https://i.postimg.cc/W32YvSsH/image.png" alt="OLS Predicted vs Actual" width="600">
+</a><br><br>
+
+<a href="https://postimg.cc/3d1pCXzk" target="_blank">
+<img src="https://i.postimg.cc/L8KTSvT3/image.png" alt="OLS Residuals vs Fitted" width="600">
+</a><br><br>
+
+<a href="https://postimg.cc/B8r1QM1v" target="_blank">
+<img src="https://i.postimg.cc/mDD3jnL7/image.png" alt="OLS Residual Distribution" width="600">
+</a><br><br>
+
+### (1) Invalid Predictions for Count Data
+
+- Traffic volume is a non-negative count variable  
+- OLS produced 235 negative predictions  
+- Minimum predicted value: −583  
+- Count models (Poisson / NB) guarantee strictly positive predictions  
+
+→ **OLS cannot model count data correctly**
+
+---
+
+### (2) Variance Increases With the Mean (Heteroskedasticity)
+
+Traffic volume shows extreme over-dispersion:
+
+\[
+\frac{\mathrm{Var}(Y)}{\mathbb{E}(Y)} \approx 1211
+\]
+
+- Breusch–Pagan test (p-value ≈ 0) rejects homoskedasticity  
+- Residuals vs fitted plot shows a fan-shaped pattern  
+
+→ **OLS assumption “constant variance” is violated**
+
+---
+
+### (3) Non-Normal Error Distribution)
+
+- Residuals are skewed, heavy-tailed, and not Gaussian  
+- OLS requires residuals to be approximately normal  
+- Histogram clearly deviates from normality  
+
+→ **Inference from OLS becomes unreliable**
+
+---
+
+### (4) Autocorrelation in Residuals**
+
+- Durbin–Watson statistic ≈ 0.49  
+- Indicates strong positive autocorrelation  
+- Violates independence of errors  
+
+→ **OLS cannot capture time-dependent patterns**
+
+---
+
+## Conclusion
+
+Despite reasonable RMSE and MAE, OLS:
+
+- Produces impossible negative predictions  
+- Violates homoskedasticity & normality  
+- Shows autocorrelated errors  
+- Fails to model multiplicative relationships  
+- Ignores the count-based distribution of traffic  
+
+**Therefore, OLS is statistically inappropriate, and GLM models (Poisson / Negative Binomial) provide a more valid modeling framework.**
 
 **5\. Model Comparison Results**
 
