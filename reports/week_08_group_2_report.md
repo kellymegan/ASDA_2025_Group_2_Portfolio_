@@ -98,17 +98,6 @@ Before fitting GLM models, a baseline Ordinary Least Squares (OLS) regression wa
 - **Breusch–Pagan p-value:** 0.000e+00  
 - **Durbin–Watson statistic:** 0.49  
 
-<a href="https://postimg.cc/DWMPQrJr" target="_blank">
-<img src="https://i.postimg.cc/W32YvSsH/image.png" alt="OLS Predicted vs Actual" width="600">
-</a><br><br>
-
-<a href="https://postimg.cc/3d1pCXzk" target="_blank">
-<img src="https://i.postimg.cc/L8KTSvT3/image.png" alt="OLS Residuals vs Fitted" width="600">
-</a><br><br>
-
-<a href="https://postimg.cc/B8r1QM1v" target="_blank">
-<img src="https://i.postimg.cc/mDD3jnL7/image.png" alt="OLS Residual Distribution" width="600">
-</a><br><br>
 
 ### (1) Invalid Predictions for Count Data
 
@@ -119,22 +108,15 @@ Before fitting GLM models, a baseline Ordinary Least Squares (OLS) regression wa
 
 → **OLS cannot model count data correctly**
 
----
 
 ### (2) Variance Increases With the Mean (Heteroskedasticity)
 
 Traffic volume shows extreme over-dispersion:
 
-\[
-\frac{\mathrm{Var}(Y)}{\mathbb{E}(Y)} \approx 1211
-\]
-
 - Breusch–Pagan test (p-value ≈ 0) rejects homoskedasticity  
 - Residuals vs fitted plot shows a fan-shaped pattern  
 
 → **OLS assumption “constant variance” is violated**
-
----
 
 ### (3) Non-Normal Error Distribution)
 
@@ -144,7 +126,6 @@ Traffic volume shows extreme over-dispersion:
 
 → **Inference from OLS becomes unreliable**
 
----
 
 ### (4) Autocorrelation in Residuals**
 
