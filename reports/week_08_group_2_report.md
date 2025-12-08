@@ -6,7 +6,7 @@
 | :---- | :---- |
 | Megan Kelly-Ortiz | Report |
 | Kush Shah | OLS diagnostics and assumption checking. |
-| Ayush | Data Preprocessing & Feature reduction, Model Selection(GLMs), Visualizations  |
+| Ayush | Data Preprocessing & Feature reduction, Model Selection(GLMs), Visualizations, Report (3) |
 |  |   |
 |  |   |
 
@@ -46,12 +46,13 @@
 
 | Issue | Names of Columns affected | Description of the Issue | Action Taken |
 | :---- | :---- | :---- | :---- |
-| Inconsistent column labeling |   |   |   |
-| Wrong data types |   |   |   |
-| Time Gaps | date\_time |  |  |
-| Duplicates |   |   |   |
-| Inconsistent categories |   |   |   |
-| Other |  |  |  |
+| Inconsistent column labeling | weather_main, holiday | Raw category strings not standardized across observations | Mapped weather and holiday categories into consistent labels |
+| Wrong data types | date_time, is_weekend, holiday | Date stored as string; binary/categorical variables stored as object | Converted to datetime and numeric/categorical types |
+| Time Gaps | date_time | Missing hourly timestamps due to sensor recording gaps | Used chronological split and preserved natural temporal structure |
+| Duplicates | date_time, full rows | Duplicate rows present for identical timestamps | Removed duplicated records based on identical values |
+| Inconsistent categories | weather_main, holiday | Rare classes and uneven distribution (e.g., Squall, Smoke, holiday imbalance) | Grouped weather categories and applied holiday clustering |
+| Other | hour | Hour treated as linear despite being cyclical | Applied cyclic encoding using hour_sin and hour_cos |
+
 
 4\. **Descriptive statistics** 
 
