@@ -71,7 +71,7 @@ Numeric columns
 | Variance                           |   177.908 |  2006.066 |     0.000 |     1522.229 |      3947615.324 |
 | Dispersion index (Variance / Mean) |     0.633 |  6001.444 |     0.300 |       30.838 |         1210.992 |
 
-→ add a distribution plot of your target variable.  
+![alt text](image-5.png)
  
 ## OLS Diagnostic Results (Why OLS Is Not Appropriate)
 
