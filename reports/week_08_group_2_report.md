@@ -175,6 +175,9 @@ On weekends, the traffic curve is:
 So the variance ≈ mean much more closely
 
 ### Can we produce same results with less features (deduced based on AIC)
+![top3](../additional_materials/images/top3.png)
+- Here Z = Coefficient β​ / Standard Error(Coefficient β)
+
 ![all_vs_three](../additional_materials/images/all_vs_three.png)
 - The minimal 3-feature model (hour_cos, hour_sin, weekend) achieves nearly identical test performance to the full model, indicating that remaining predictors contribute marginal marginal explanatory power once temporal periodicity is captured.
 
