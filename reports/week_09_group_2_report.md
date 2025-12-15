@@ -107,12 +107,12 @@ Model 1:
 * Validation R²:0.89
 
 Model 2 (GLM): 
-* AIC (Akaike Information Criterion): 27619.86
-* Validation RMSE: 
-* Validation R²: 
+* AIC: 27619.86
+* Validation RMSE: 42935.4
+* Validation R²: 0.76
 
 Final Model (GLM):
-* AIC (Akaike Information Criterion): 24554.73
+* AIC: 24554.73
 * Validation RMSE: 37500.5
 * Validation R²: 0.82
 
