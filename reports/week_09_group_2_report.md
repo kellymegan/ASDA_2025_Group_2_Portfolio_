@@ -7,9 +7,6 @@
 | Megan Kelly-Ortiz | Data preprocessing, GLM, Visulatizations, Report |
 | Anna Perkova | Data preprocessing, GLM, Visulatizations, Report |
 | Ayush | Data preprocessing, Random Forest Model, Visulatizations|
-|  |   |
-|  |   |
-|  |   |
 
 1\. **Dataset Overview** 
 
