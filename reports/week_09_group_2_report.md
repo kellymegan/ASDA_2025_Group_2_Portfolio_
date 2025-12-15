@@ -16,13 +16,12 @@
 | Item | Description |
 | :---- | :---- |
 | Dataset name | Housing |
-| Time Period | N/A |
 | Number of rows | 1460 |
 | Number of columns | 81 |
 | Format file (.csv, .txt, etc) | .csv |
-| Creator of the dataset | N/A |
-| Source (name) | ASDA GitHub |
+| Source (name) | Kaggle |
 | Source (link) | N/A |
+| Date of Download | 11.12.2025 |
 
 2\. **Dataset Structure** 
 
