@@ -76,6 +76,92 @@ Categorical variables
 | Heating      |               6 | GasA            |     1428.00 |        97.81 |
 | CentralAir   |               2 | Y               |     1365.00 |        93.49 |
 
+5\. **What Makes a Home More Expensive in Ames? A Data-Driven Guide for Home Buyers** 
+
+This report presents a statistical analysis of the Ames housing dataset to identify the most significant predictors of home prices in Ames, Iowa. Using a minimum adequate model selection approach, we identify the key variables that drive property values, providing prospective buyers with data-driven insights into the factors that most strongly influence home prices. In the process of choosing the model, 3 different models were built independently and assessed based on statistical measures such as RMSE, R², and AIC(where applicable). 
+
+
+Methodology
+Data Preprocessing and Variable Selection
+The analysis began with an analysis of the 79 explanatory variables in the Ames housing dataset. Using domain knowledge and statistical diagnostics, we reduced the initial set to a manageable subset of potentially relevant predictors. Initially, the set of variables were reduced to 15, but the final model included:
+* Neighborhood: Categorical variable capturing location-based value differentials
+* Above-ground living area (GrLivArea): Continuous variable measuring total square footage of finished living space
+* Year built: Continuous variable indicating construction date
+* Full bathrooms: Continuous variable counting complete bathrooms
+* Half bathrooms: Continuous variable counting half bathrooms
+
+This selection was guided by several statistical criteria:
+1. Multicollinearity assessment: Variance Inflation Factors (VIF) were calculated to identify and remove highly correlated predictors.
+![alt text](../additional_materials/image-6.png)
+2. Chi-square tests: For categorical variables, we assessed associations between predictors to avoid redundancy.
+3. Model reduction: We prioritized a minimum adequate model that balances explanatory power with simplicity.
+
+Model Specification and Estimation
+We employed Generalized Linear Modeling (GLM) to estimate the relationship between predictors and log-transformed sale prices. 
+The log transformation was applied to address heteroscedasticity and improve model fit. 
+
+Model Evaluation
+The model's performance was evaluated using multiple metrics:
+Model 1:
+* Validation RMSE: 834463000.78
+* Validation R²:0.89
+
+Model 2 (GLM): 
+* AIC (Akaike Information Criterion): 27619.86
+* Validation RMSE: 
+* Validation R²: 
+
+Final Model (GLM):
+* AIC (Akaike Information Criterion): 24554.73
+* Validation RMSE: 37500.5
+* Validation R²: 0.82
+
+
+These metrics indicate strong predictive performance, with the model explaining approximately 82% of the variance in validation data. The plot reveals the model performs well for typical mid-range homes. It has larger errors for very high-priced homes, suggesting that extreme values are harder to predict accurately. Overall, the scatter plot confirms that the GLM captures the main trends in the data.
+
+![alt text](../additional_materials/image-7.png)
+
+
+The analysis shows that several key factors strongly influence house sale prices. Unsurprisingly, house size is one of the most important predictors—larger homes generally sell for much more, with a 1,000 square foot increase translating to roughly a 50% higher price. 
+![alt text](../additional_materials/image-8.png)
+Newer homes also command a premium, with each additional year of age associated with about a 4–5% increase in sale price. 
+![alt text](image-6.png)
+Neighborhood is another major factor: homes in highly desirable areas like NridgHt, StoneBr, and Veenker sell for significantly more, while homes in neighborhoods such as BrDale, MeadowV, and IDOTRR tend to sell for less, reflecting the impact of location, local amenities, and overall appeal. 
+![alt text](../additional_materials/image-9.png)
+
+
+
+The model itself performs very well. It explains around 97% of the variation in sale prices on the training data and nearly 99% on the test data, showing that it generalizes well to new observations. Key predictors like living area, house age, and lot size remain strong, while neighborhood effects are a little more variable but still consistent for the most high- and low-value areas. Overall, the results suggest that buyers place the most value on spacious, newer homes in desirable neighborhoods, with lot size and other features playing supporting roles.
+
+
+
+Model Limitations and Assumptions
+Statistical Assumptions
+
+Diagnostic plots revealed some violations of the statistical assumptions, particularly heteroscedasticity and non-normality of residuals, which may affect inference.
+
+Model Limitations
+1. Omitted variable bias: The model excludes many potentially relevant variables (e.g., school quality, proximity to amenities)
+2. Non-linear relationships: The linear model may not capture complex interactions between variables
+3. Temporal effects: The model does not account for market trends over time
+4. Outliers: Extreme values may disproportionately influence parameter estimates
+
+Model Reduction Approach
+Our model reduction approach followed a systematic process:
+1. Initial variable selection based on domain knowledge
+2. Multicollinearity assessment using VIF
+3. Chi-square testing for categorical variables
+4. Iterative refinement based on statistical significance and model fit
+This approach prioritized a minimum adequate model that balances explanatory power with simplicity, avoiding overfitting while maintaining predictive accuracy.
+
+Conclusion
+This analysis shows that home prices in Ames are largely driven by house size, age, and location. Larger homes with more living space sell for higher prices, and newer homes tend to have higher prices as well. Neighborhood remains an important factor, with homes in highly desirable areas like NridgHt, StoneBr, and Veenker selling for substantially more than similar homes in less sought-after neighborhoods such as BrDale, MeadowV, or IDOTRR. In comparison, features like the number of bathrooms have a smaller impact on price once other factors are considered.
+For prospective buyers, the findings suggest:
+1. Location matters: neighborhood choice can have a major influence on price.
+2. Size and age are key value drivers: larger and newer homes generally command higher prices.
+3. Other features, such as bathroom count, are secondary in determining value once size, age, and location are accounted for.
+
+While the model provides a strong indication of what drives sale prices, buyers should also consider additional factors not captured here, such as school quality, local amenities, and current market conditions. Overall, the model offers a useful, data-driven perspective for evaluating properties and understanding pricing trends in Ames.
 
 
 
