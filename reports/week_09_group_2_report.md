@@ -81,8 +81,7 @@ Categorical variables
 This report presents a statistical analysis of the Ames housing dataset to identify the most significant predictors of home prices in Ames, Iowa. Using a minimum adequate model selection approach, we identify the key variables that drive property values, providing prospective buyers with data-driven insights into the factors that most strongly influence home prices. In the process of choosing the final model, 3 different models were built independently and assessed based on statistical measures such as RMSE, R^2, and AIC(where applicable). 
 
 
-Methodology
-Data Preprocessing and Variable Selection
+**Methodology**
 The process began with an analysis of approximately 80 variables. Using domain knowledge and statistical methods, we reduced the initial set to 15 variables, and the final model included the following 5 variables:
 
 * Neighborhood: Categorical variable capturing location-based value differentials
@@ -97,11 +96,10 @@ This selection was guided by several statistical criteria:
 2. Chi-square tests: For categorical variables, we assessed associations between predictors to avoid redundancy.
 3. Model reduction: We prioritized a minimum adequate model that balances explanatory power with simplicity.
 
-Model Specification and Estimation
+**Model Specification and Estimation**
 We employed Generalized Linear Modeling (GLM) to estimate the relationship between predictors and log-transformed sale prices. 
 The log transformation was applied to address heteroscedasticity and improve model fit. 
 
-Model Evaluation and Comparison
 The model's performance was evaluated using multiple metrics:
 
 | Model                   |     AIC |   Validation RMSE |   Validation R² |
@@ -130,18 +128,17 @@ The model itself performs very well. It explains around 97% of the variation in 
 
 
 
-Model Limitations and Assumptions
-Statistical Assumptions
+**Model Limitations and Assumptions**
 
 Diagnostic plots revealed some violations of the statistical assumptions, particularly heteroscedasticity and non-normality of residuals, which may affect inference.
 
-Model Limitations
+**Model Limitations**
 1. Omitted variable bias: The model excludes many potentially relevant variables (e.g., school quality, proximity to amenities)
 2. Non-linear relationships: The linear model may not capture complex interactions between variables
 3. Temporal effects: The model does not account for market trends over time
 4. Outliers: Extreme values may disproportionately influence parameter estimates
 
-Model Reduction Approach
+**Model Reduction Approach**
 Our model reduction approach followed a systematic process:
 1. Initial variable selection based on domain knowledge
 2. Multicollinearity assessment using VIF
@@ -149,12 +146,8 @@ Our model reduction approach followed a systematic process:
 4. Iterative refinement based on statistical significance and model fit
 This approach prioritized a minimum adequate model that balances explanatory power with simplicity, avoiding overfitting while maintaining predictive accuracy.
 
-Conclusion
+**Conclusion**
 This analysis shows that home prices in Ames are largely driven by house size, age, and location. Larger homes with more living space sell for higher prices, and newer homes tend to have higher prices as well. Neighborhood remains an important factor, with homes in highly desirable areas like NridgHt, StoneBr, and Veenker selling for substantially more than similar homes in less sought-after neighborhoods such as BrDale, MeadowV, or IDOTRR. In comparison, features like the number of bathrooms have a smaller impact on price once other factors are considered.
-For prospective buyers, the findings suggest:
-1. Location matters: neighborhood choice can have a major influence on price.
-2. Size and age are key value drivers: larger and newer homes generally command higher prices.
-3. Other features, such as bathroom count, are secondary in determining value once size, age, and location are accounted for.
 
 While the model provides a strong indication of what drives sale prices, buyers should also consider additional factors not captured here, such as school quality, local amenities, and current market conditions. Overall, the model offers a useful, data-driven perspective for evaluating properties and understanding pricing trends in Ames.
 
