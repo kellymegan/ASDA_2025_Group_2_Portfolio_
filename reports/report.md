@@ -6,7 +6,7 @@
 | :---- | :---- |
 | Megan Kelly-Ortiz | Report, PCA, Visualizations |
 | Anna Perkova |  |
-| Ayush | |
+| Ayush | Visualize PCA with PLotly |
 
 1\. **Introduction** 
 
