@@ -97,3 +97,11 @@ Categorical variables
 
 The PCA revealed that PC1 (x-axis) explains 48.8% of the variance, while PC2 (y-axis) explains 23.2% of the variance. Together, the top 2 components explain 72.15% of the total variance in your data.
 
+### Interactive plots
+
+#### 3D PCA biplot segmented on countries
+[Open interactive 3D PCA biplot](https://htmlpreview.github.io/?https://github.com/kellymegan/ASDA_2025_Group_2_Portfolio_/blob/main/additional_materials/pca_3d_biplot.html)
+
+#### PC1 Across each country
+[Open interactive world map of the happiness gradient (PC1)](https://htmlpreview.github.io/?https://github.com/kellymegan/ASDA_2025_Group_2_Portfolio_/blob/main/additional_materials/pc1_world_map.html)
+
