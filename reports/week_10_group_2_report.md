@@ -95,7 +95,9 @@ Categorical variables
 
 ![alt text](../additional_materials/images/image-pcaa-scores.png)
 
-The PCA revealed that PC1 (x-axis) explains 48.8% of the variance, while PC2 (y-axis) explains 23.2% of the variance. Together, the top 2 components explain 72.15% of the total variance in your data.
+The PCA revealed that PC1 (x-axis) explains 48.8% of the variance, while PC2 (y-axis) explains 23.2% of the variance. Therefore, we may conclude that the "hard (tangible)" conditions (Social support, GDP per capita, Healthy life expectancy) explain twice as much variance as "soft (psychological)" conditions (Generosity, Perception of corruption, Freedom to make life choices). Together, the top 2 components explain 72.15% of the total variance in your data.
+
+It is worth noting that there are a few outliers with extremely high values across PC2 ("soft conditions"), which are all among the developing countries in Asia and Africa: Somalia, Rwanda and Myanmar. Moreover, countries that scored the lowest on "soft conditions", are mostly European (Greece, Hungary, Lithuania, with the exception of Venezuela).
 
 ### Interactive plots
 
@@ -114,3 +116,11 @@ Based on the PCA results, countries can be clustered as follows:
 Comparison of clusters shows that they tend to perform equally higher or lower consistently over most of the indicators:
 
 ![alt text](../additional_materials/images/radar.png)
+
+### Limitations
+
+The indicator of "Perception of corruption" is treated by the PCA in the same way as other indicators which are positive socio-economic characteristics. However, it is not clear if a higher value of this indicator means high corruption or, on the opposite, high performance (and, therefore, low corruption).
+
+### AI Disclaimer
+
+AI was used to generate plots.
