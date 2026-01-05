@@ -5,7 +5,7 @@
 | Name | Contribution |
 | :---- | :---- |
 | Megan Kelly-Ortiz | Report, PCA, Visualizations |
-| Anna Perkova |  |
+| Anna Perkova | PCA, Clusters |
 | Ayush | Visualize PCA with PLotly |
 
 1\. **Introduction** 
@@ -105,3 +105,12 @@ The PCA revealed that PC1 (x-axis) explains 48.8% of the variance, while PC2 (y-
 #### PC1 Across each country
 [Open interactive world map of the happiness gradient (PC1)](https://htmlpreview.github.io/?https://github.com/kellymegan/ASDA_2025_Group_2_Portfolio_/blob/main/additional_materials/pc1_world_map.html)
 
+### Country clusters
+
+Based on the PCA results, countries can be clustered as follows:
+
+![alt text](../additional_materials/images/clusters.png)
+
+Comparison of clusters shows that they tend to perform equally higher or lower consistently over most of the indicators:
+
+![alt text](../additional_materials/images/radar.png)
