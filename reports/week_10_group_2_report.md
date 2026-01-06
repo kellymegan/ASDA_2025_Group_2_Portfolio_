@@ -99,12 +99,12 @@ The PCA revealed that PC1 (x-axis) explains 48.8% of the variance, while PC2 (y-
 
 It is worth noting that there are a few outliers with extremely high values across PC2 ("soft conditions"), which are all among the developing countries in Asia and Africa: Somalia, Rwanda and Myanmar. Moreover, countries that scored the lowest on "soft conditions", are mostly European (Greece, Hungary, Lithuania, with the exception of Venezuela).
 
-### Interactive plots
+# Interactive plots
 
-#### 3D PCA biplot segmented on countries
+## 3D PCA biplot segmented on countries
 [Open interactive 3D PCA biplot](https://htmlpreview.github.io/?https://github.com/kellymegan/ASDA_2025_Group_2_Portfolio_/blob/main/additional_materials/pca_3d_biplot.html)
 
-#### PC1 Across each country
+## PC1 Across each country
 [Open interactive world map of the happiness gradient (PC1)](https://htmlpreview.github.io/?https://github.com/kellymegan/ASDA_2025_Group_2_Portfolio_/blob/main/additional_materials/pc1_world_map.html)
 
 ### Country clusters
