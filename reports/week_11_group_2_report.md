@@ -1,4 +1,4 @@
-# Spotify Songs Clustering – Project Report
+# Spotify Songs Clustering Report
 
 ---
 
@@ -134,3 +134,4 @@ To translate clustering results into an editorial context, each cluster was inte
 AI was used for the plots and conceptual understanding of the various parameters of both models
 
 ---
+
