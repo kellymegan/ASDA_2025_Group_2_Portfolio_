@@ -7,6 +7,8 @@
 | Name | Contribution |
 |------|-------------|
 | Kush Shah | Report |
+| Megan Kelly Ortiz | Clustering, PCA |
+| Anna Perkova | Visualization, Playlists |
 
 ---
 
@@ -33,8 +35,6 @@ The objective of this project is to cluster Spotify songs using their audio feat
 | Primary use | Song clustering and playlist design |
 | Date of Download | 08.01.2026|
 
-The dataset contains numerical audio features describing musical properties such as rhythm, intensity, and mood, along with basic metadata including song and artist names.
-
 ---
 
 ## 3. Dataset Structure
@@ -42,7 +42,7 @@ The dataset contains numerical audio features describing musical properties such
 Each row in the dataset represents a single song, while columns correspond to audio features and metadata.
 
 <details>
-<summary><strong>Click to view audio features used for clustering</strong></summary>
+<summary><strong>List of audio features used for clustering</strong></summary>
 
 | Feature | Description |
 |--------|-------------|
@@ -99,25 +99,34 @@ The descriptive statistics indicate substantial variability across audio feature
 Energy, acousticness, and instrumentalness span wide ranges, reflecting diverse musical styles within the dataset. 
 Such variability supports the application of dimensionality reduction and clustering techniques in subsequent analysis.
 
-
 </details>
 
+---
+
+## 6. Hierarchical clustering
+
+The song library was grouped using Hierarchical Clustering to identify natural distinct categories. The dendrogram displayed the Euclidean distances between songs based on their audio features. A cut point was selected where the tree branched into six primary vertical lines. This level was chosen because it represents a major, but still detailed enough structural division in the data before the groups fragment into smaller, less distinguishable sub-clusters.
+
+![alt text](../additional_materials/images/dendrogram.png)
 
 ---
 
-## 6. Principal Component Analysis (PCA)
+## 7. Principal Component Analysis (PCA)
+
+Principal Component Analysis (PCA) was used to visualize the variance within these groups. The initial biplot included the key feature, which created two parallel strips of data separated by a significant gap. This separation was artificial, as it segregated stylistically similar songs solely based on pitch class. 
+
+![alt text](../additional_materials/images/spotify1.png)
+
+Removing key eliminated the wide gap, though a diagonal separation remained due to the mode feature (Major VS Minor). This confirmed that harmonic variables were dominating the spatial distribution, potentially obscuring other relevant stylistic features like energy or valence.
+
+![alt text](../additional_materials/images/spotify2.png)
 
 
-Principal Component Analysis was applied to reduce the dimensionality of the standardized audio features while preserving most of the variance.
+## 7. Analysing Parallel Subframe Plots
 
+To verify if separate clustering models were needed for Major and Minor keys, we performed a stratified analysis. The side-by-side plots of the df_minor and df_major subsets allowed us to see the interrelation of other features and revealed that the distribution remains consistent across both modes. For example, high energy and loudness correlate negatively with acousticness in both subsets. Since the internal relationships between features are stable regardless of key, the original global clustering model is valid and separate models for each mode are unnecessary.
 
----
-
-## 7. Clustering Methodology & Results
-
-Hierarchical clustering was applied to the standardized audio features to group songs based on similarity. This method was selected due to its interpretability and its ability to reveal hierarchical relationships between observations.
-
-Based on dendrogram inspection and cluster validation techniques, four clusters were selected. Visualization in PCA space confirmed that these clusters are well separated and represent distinct musical profiles.
+![alt text](../additional_materials/images/spotify3.png)
 
 ---
 
@@ -125,7 +134,17 @@ Based on dendrogram inspection and cluster validation techniques, four clusters 
 
 To translate clustering results into an editorial context, each cluster was interpreted as a playlist representing a distinct listening experience. For each cluster, a small sample of representative songs was selected to illustrate the playlist concept.
 
-*(Detailed playlist descriptions and sample songs are added below.)*
+Metalhead: https://open.spotify.com/playlist/3Or9Vyh2ROdp0VeTyK9QHp 
+
+Pop beats: https://open.spotify.com/playlist/5pYjlksEzypQT0k0etmp6o 
+
+Golden classics: https://open.spotify.com/playlist/3CrfeMUi72egTcJchPmp21 
+
+Jazz for Two: https://open.spotify.com/playlist/4hOq83I5NGalxOeWjbVWtb 
+
+Clubbing hard: https://open.spotify.com/playlist/30kr6RA5LNr705N4fQF8BH 
+
+RnB Groove: https://open.spotify.com/playlist/6ykvEls1OEid43U4hBgqd3 
 
 ---
 
