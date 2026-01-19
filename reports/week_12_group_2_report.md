@@ -6,7 +6,7 @@
 | :---- | :---- |
 |  |  |
 | Anna Perkova | Report |
-| Ayush | Visualizations specefic to SVM |
+| Ayush | Visualizations specific to SVM |
 |  |  |
 |  |  |
 |  |  |
