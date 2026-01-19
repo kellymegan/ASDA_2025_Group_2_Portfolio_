@@ -19,7 +19,7 @@
 
 | Item | Description |
 | :---- | :---- |
-| Dataset name | Happiness Dataset |
+| Dataset name | Wine development |
 | Number of rows | 3751 |
 | Number of columns | 14 |
 | Format file (.csv, .txt, etc) | .csv |
@@ -60,22 +60,22 @@
 
   <div style="max-height:420px; overflow-y:auto; border:1px solid #ccc; border-radius:6px; padding:8px; background:#fff;">
 
-| Feature/variable     | Data type   | Description   |   Number of Unique values | Example values                              |
-|:---------------------|:------------|:--------------|--------------------------:|:--------------------------------------------|
-| fixed acidity        | float64     |               |                       103 | 5.80, 6.30, 8.20, 9.40, 5.30                |
-| volatile acidity     | float64     |               |                       170 | 0.31, 0.13, 0.30, 0.17, 0.24                |
-| citric acid          | float64     |               |                        87 | 0.32, 0.42, 0.44, 0.55, 0.16                |
-| residual sugar       | float64     |               |                       284 | 4.50, 1.10, 12.40, 1.60, 4.20               |
-| chlorides            | float64     |               |                       181 | 0.02, 0.04, 0.05, 0.03, 0.05                |
-| free sulfur dioxide  | float64     |               |                       117 | 28.00, 63.00, 52.00, 14.00, 37.00           |
-| total sulfur dioxide | float64     |               |                       257 | 94.00, 146.00, 154.00, 100.00, 174.00       |
-| density              | float64     |               |                       866 | 0.99, 0.99, 0.99, 0.99, 0.99                |
-| pH                   | float64     |               |                       100 | 3.25, 3.13, 3.04, 3.02, 3.30                |
-| sulphates            | float64     |               |                       100 | 0.52, 0.72, 0.33, 0.61, 0.36                |
-| alcohol              | float64     |               |                       100 | 13.70, 11.20, 12.00, 10.30, 11.80           |
-| quality              | int64       |               |                         7 | 7.00, 6.00, 8.00, 5.00, 4.00                |
-| color                | object      |               |                         2 | white, red                                  |
-| wine_id              | int64       |               |                      3948 | 1198.00, 3409.00, 4789.00, 3054.00, 2812.00 |
+| Feature/variable     | Data type   |   Number of Unique values | Example values                              |
+|:---------------------|:------------|--------------------------:|:--------------------------------------------|
+| fixed acidity        | float64     |                       102 | 5.80, 6.30, 8.20, 9.40, 5.30                |
+| volatile acidity     | float64     |                       167 | 0.31, 0.13, 0.30, 0.17, 0.24                |
+| citric acid          | float64     |                        87 | 0.32, 0.42, 0.44, 0.55, 0.16                |
+| residual sugar       | float64     |                       282 | 4.50, 1.10, 12.40, 1.60, 4.20               |
+| chlorides            | float64     |                       179 | 0.02, 0.04, 0.05, 0.03, 0.05                |
+| free sulfur dioxide  | float64     |                       117 | 28.00, 63.00, 52.00, 14.00, 37.00           |
+| total sulfur dioxide | float64     |                       256 | 94.00, 146.00, 154.00, 100.00, 174.00       |
+| density              | float64     |                       852 | 0.99, 0.99, 0.99, 0.99, 0.99                |
+| pH                   | float64     |                       100 | 3.25, 3.13, 3.04, 3.02, 3.30                |
+| sulphates            | float64     |                       100 | 0.52, 0.72, 0.33, 0.61, 0.36                |
+| alcohol              | float64     |                        99 | 13.70, 11.20, 12.00, 10.30, 11.80           |
+| quality              | int64       |                         7 | 7.00, 6.00, 8.00, 5.00, 4.00                |
+| color                | object      |                         2 | white, red                                  |
+| wine_id              | int64       |                      3751 | 1198.00, 3409.00, 4789.00, 3054.00, 2812.00 |
 
 </div>
 </details>
