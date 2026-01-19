@@ -114,6 +114,16 @@ All features were standardized before applying PCA, which is necessary for SVMs 
 
 The final SVM achieved a very high cross-validation score (≈0.995) and test accuracy (≈0.997), with near-perfect precision and recall for both classes, indicating excellent generalization. Based on the PCA structure and SVM weights, features related to *alcohol content, density, sulphates, and acidity* appear more influential than others, as they contribute most to the separation between wine colors.
 
+#### Impact of training points 
+![svm_1](../additional_materials/images/svm_1.png)
+
+
+#### Decision Boundary 
+![svm_decision_boundary](../additional_materials/images/svm_decision_boundary.png)
+
+
+#### Accuracy as the training and test data increases
+![svm_train_test](../additional_materials/images/svm_train_test.png)
 8\. **AI Disclaimer**
 
 AI was used to assist with conceptualizations and plots.
