@@ -8,7 +8,7 @@
 | Anna Perkova | Report |
 | Ayush | Visualizations specific to SVM |
 | Onkar  | Data Cleaning and Visuliyations |
-|  |  |
+| Kush Shah | Quality-Based Wine Classification |
 |  |  |
 
 1\. **Introduction** 
@@ -124,6 +124,19 @@ The final SVM achieved a very high cross-validation score (≈0.995) and test ac
 
 #### Accuracy as the training and test data increases
 ![svm_train_test](../additional_materials/images/svm_train_test.png)
-8\. **AI Disclaimer**
+
+8\. **Quality-Based Wine Classification (Excellent Wine)**
+
+In addition to wine color classification, an additional experiment was conducted to predict whether a wine can be considered excellent based on its chemical properties. The original quality score (3–9) was converted into a binary label, where wines with a score of 6 or higher were labeled as excellent.
+
+Only chemical features were used to avoid data leakage. A stratified train-test split and feature standardization were applied. An SVM with an RBF kernel was trained to capture non-linear relationships.
+
+The model achieved an accuracy of 76%, with a recall of 85% and an F1-score of 0.82 for excellent wines. Performance is lower than for color classification due to the subjective nature of wine quality. The model may still be useful as a preliminary screening tool to support expert evaluation.
+
+![Class Distribution](../additional_materials/images/excellent_class_distribution.png)  
+![Confusion Matrix](../additional_materials/images/excellent_confusion_matrix.png)  
+![Feature Importance](../additional_materials/images/excellent_feature_importance.png)
+
+9\. **AI Disclaimer**
 
 AI was used to assist with conceptualizations and plots.
