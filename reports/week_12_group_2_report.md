@@ -4,7 +4,7 @@
 
 | Name | Contribution |
 | :---- | :---- |
-|  |  |
+| Megan Kelly-Ortic | SVM |
 | Anna Perkova | Report |
 | Ayush | Visualizations specific to SVM |
 | Onkar  | Data Cleaning and Visuliyations |
