@@ -133,8 +133,15 @@ Only chemical features were used to avoid data leakage. A stratified train-test 
 
 The model achieved an accuracy of 76%, with a recall of 85% and an F1-score of 0.82 for excellent wines. Performance is lower than for color classification due to the subjective nature of wine quality. The model may still be useful as a preliminary screening tool to support expert evaluation.
 
-![Class Distribution](../additional_materials/images/excellent_class_distribution.png)  
+#### Class Distribution of Excellent vs Not Excellent Wines
+![Class Distribution](../additional_materials/images/excellent_class_distribution.png)
+
+
+#### Confusion Matrix – Excellent Wine Classification
 ![Confusion Matrix](../additional_materials/images/excellent_confusion_matrix.png)  
+
+
+#### Feature Importance for Excellent Wine Prediction
 ![Feature Importance](../additional_materials/images/excellent_feature_importance.png)
 
 9\. **AI Disclaimer**
