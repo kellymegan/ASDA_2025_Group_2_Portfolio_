@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-B2ootaw-.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-CxL0S8W7.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-D9fedIX3.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-BTCkDNvf.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-DU3aDxX5.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-CLVRCuM9.ttf" as="font" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>housing dashboard</title>
+    <script type="module" crossorigin src="./assets/index-DGasP9Lh.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-DItdS47A.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-D8GwTfvk.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-BKtXLv3a.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-LvLJmgfZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-BGmjiNul.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-DeeZ7FnK.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-ZmTK25f3.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-Ce8wRjuQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/hotkeys-BHHWjLlp.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-DIUKKfEy.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-YC1gW_kJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-C9fstfnp.js">
+    <link rel="modulepreload" crossorigin href="./assets/Combination-CMPwuAmi.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-CJhvWPOk.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-uzvC4uAK.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-CnW3RofX.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-DdfN0k2d.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-V5IdpNiR.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-CEc2ajau.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-rmUWldD_.js">
+    <link rel="modulepreload" crossorigin href="./assets/_Uint8Array-BGESiCQL.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseIsEqual-B9N9Mw_N.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-DO6uJBas.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-CAG_dYON.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseFor-Duhs3RiJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/merge-BBX6ug-N.js">
+    <link rel="modulepreload" crossorigin href="./assets/zod-Cg4WLWh2.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-DXvhzCGS.js">
+    <link rel="modulepreload" crossorigin href="./assets/constants-B6Cb__3x.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-CrO5-0RA.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-CIrPQIbt.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-DercMavo.js">
+    <link rel="modulepreload" crossorigin href="./assets/DeferredRequestRegistry-CO2AyNfd.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-BsVD4CdD.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-BGkTcW3U.js">
+    <link rel="modulepreload" crossorigin href="./assets/toString-DlRqgfqz.js">
+    <link rel="modulepreload" crossorigin href="./assets/_hasUnicode-CWqKLxBC.js">
+    <link rel="modulepreload" crossorigin href="./assets/assertNever-CBU83Y6o.js">
+    <link rel="modulepreload" crossorigin href="./assets/_arrayReduce-TT0iOGKY.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-D35CBukS.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNonce-_Aax6sXd.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-DUdVAZI8.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-Bul8mtFs.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-MM7JYRxj.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-Dnna-AUO.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DBwNzi3C.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-ChS0Dc_R.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CtsanegT.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BIKFl48f.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-B0VqT_4z.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-TiFCI16_.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Cayq-K1c.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BYyu59D8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Gqv0jSNr.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-CtmkcLz7.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-CgbKQM5E.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-CH5Rj0g8.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseProperty-NKyJO2oh.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-6sUe0ZdD.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-B3mjKxHe.js">
+    <link rel="modulepreload" crossorigin href="./assets/toInteger-CDcO32Gx.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-B9y7063w.js">
+    <link rel="modulepreload" crossorigin href="./assets/main-U5Goe76G.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-BpZ7g6ok.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-DaIKav-i.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-DwagBitu.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-B-6unW-7.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-C3JY7O_u.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-DEwfrKeS.js">
+    <link rel="modulepreload" crossorigin href="./assets/multi-map-C8GlnP-4.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-BrGyZf9c.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-DwQffb13.js">
+    <link rel="modulepreload" crossorigin href="./assets/dialog-CxGKN4C_.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CdxIjAOP.js">
+    <link rel="modulepreload" crossorigin href="./assets/label-Be1daUcS.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-D5NcotGm.js">
+    <link rel="modulepreload" crossorigin href="./assets/textarea-DBO30D7K.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-iQunIAXf.js">
+    <link rel="modulepreload" crossorigin href="./assets/SSRProvider-CEHRCdjA.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-JwD-oSsl.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-c6GXymzg.js">
+    <link rel="modulepreload" crossorigin href="./assets/usePress-Bup4EGrp.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-pAun1m1X.js">
+    <link rel="modulepreload" crossorigin href="./assets/links-DHZUhGz-.js">
+    <link rel="modulepreload" crossorigin href="./assets/popover-Gz-GJzym.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-8sn_4qbh.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-C8uQmBAN.js">
+    <link rel="modulepreload" crossorigin href="./assets/mode-DX8pdI-l.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-C4XRy1BE.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-2SszdW9t.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-DUzsIXtq.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-Bv2DBpIS.js">
+    <link rel="modulepreload" crossorigin href="./assets/memoize-BCOZVFBt.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-6uJrSKbw.js">
+    <link rel="modulepreload" crossorigin href="./assets/capitalize-CmNnkG9y.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-CQ15EONK.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-BD5o34_i.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-CQd-1kjx.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-CyqGun26.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-B65rDESJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/ai-model-dropdown-71lgLrLy.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-D_rSvXvJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-BMPhtTJQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-C92Rrpmf.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-CRZ52CKf.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-BGrCWNss.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-ChCiwl15.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-Bdnnp5fe.js">
+    <link rel="modulepreload" crossorigin href="./assets/ImperativeModal-CUbWEBci.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-Bw5bzt4a.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-B0OJBphG.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-BfXVTTtD.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-5rudBbo3.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-BhONVREY.js">
+    <link rel="modulepreload" crossorigin href="./assets/html-to-image-DjukyIj4.js">
+    <link rel="modulepreload" crossorigin href="./assets/focus-D51fcwZX.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-yzHjsVJt.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-5FQGJX7Z-CVUXBqX6.js">
+    <link rel="modulepreload" crossorigin href="./assets/katex-Dc8yG8NU.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-DhMlG2dP.js">
+    <link rel="modulepreload" crossorigin href="./assets/command-DhzFN2CJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-BhCZMKuQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-24p6hn99.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-DNVQZNFu.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-CQZqVk1Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-DuIDx9mD.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-W1SWxSE3.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-pRRbZZHE.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-DcYggVWP.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-Dhn1r-h6.js">
+    <link rel="modulepreload" crossorigin href="./assets/maps-t9yNKYA8.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-B2LJnKU3.js">
+    <link rel="modulepreload" crossorigin href="./assets/emotion-is-prop-valid.esm-DD4AwVTU.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-CS4kbWl2.js">
+    <link rel="modulepreload" crossorigin href="./assets/range-D2UKkEg-.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-DZR6ewbN.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-CknFTI_u.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-Cs1JbsV6.js">
+    <link rel="modulepreload" crossorigin href="./assets/play-BPIh-ZEU.js">
+    <link rel="modulepreload" crossorigin href="./assets/chat-components-CGlO4yUw.js">
+    <link rel="modulepreload" crossorigin href="./assets/isEmpty-CgX_-6Mt.js">
+    <link rel="modulepreload" crossorigin href="./assets/chat-display-B4mGvJ0X.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeleteCell-5uYlTcQZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-BhEXrzsb.js">
+    <link rel="modulepreload" crossorigin href="./assets/process-output-CagdHMzs.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-CuXvdYPX.js">
+    <link rel="modulepreload" crossorigin href="./assets/objectWithoutPropertiesLoose-DaPAPabU.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-DpMp6qko.js">
+    <link rel="modulepreload" crossorigin href="./assets/add-cell-with-ai-pVFp5LZG.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-W42b2ZIs.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-CqXXKtIq.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-D1kBp3jX.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-CxMrs0B_.js">
+    <link rel="modulepreload" crossorigin href="./assets/toggle-jWKnIArU.js">
+    <link rel="modulepreload" crossorigin href="./assets/globals-DKH14XH0.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-CbPtIlnM.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-5Rdwpmr3.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-Ctj_10o2.js">
+    <link rel="modulepreload" crossorigin href="./assets/utilities.esm-CIPARd6-.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-DcxjrFFt.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAddCell-BmeZUK02.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-BhExYOph.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-DyP9LVLc.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-video-camera-DW3v07j2.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-DuQOSW7G.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-ccw-DLEiQDS3.js">
+    <link rel="modulepreload" crossorigin href="./assets/form-DUA_Rz_a.js">
+    <link rel="modulepreload" crossorigin href="./assets/field-BEg1eC0P.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-B1Xeh6vA.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-ZPd9PxYl.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-CS34eOZi.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-BiQYf0aU.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-D8BOePqo.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-CycJImp8.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseFlatten-CUZNxU8H.js">
+    <link rel="modulepreload" crossorigin href="./assets/flatten-D-7VEN0q.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-B_6Qi5aM.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-XLwHyDBr.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-B9SUL40m.js">
+    <link rel="modulepreload" crossorigin href="./assets/house-DhFkiXz7.js">
+    <link rel="modulepreload" crossorigin href="./assets/settings-DOXWMfVd.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-C8Tw_XXG.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-2AjO7UK5.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-jmgGt1lS.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-DdDKmWlR.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-B7vuddcd.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-CikhHYAB.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    <marimo-code hidden="">%23%20%2F%2F%2F%20script%0A%23%20requires-python%20%3D%20%22%3E%3D3.13%22%0A%23%20dependencies%20%3D%20%5B%0A%23%20%20%20%20%20%22marimo%3E%3D0.19.7%22%2C%0A%23%20%5D%0A%23%20%2F%2F%2F%0A%0Aimport%20marimo%0A%0A__generated_with%20%3D%20%220.19.7%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20return%20mo%2C%20pd%0A%0A%0A%40app.cell%0Adef%20_(pd)%3A%0A%20%20%20%20DATA_PATH%20%3D%20%22%2FUsers%2Fmegankelly%2FASDA%2Fhousing.csv%22%0A%0A%20%20%20%20df%20%3D%20pd.read_csv(DATA_PATH)%0A%20%20%20%20return%20(df%2C)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20from%20sklearn.model_selection%20import%20train_test_split%0A%20%20%20%20from%20sklearn.pipeline%20import%20Pipeline%0A%20%20%20%20from%20sklearn.compose%20import%20ColumnTransformer%0A%20%20%20%20from%20sklearn.preprocessing%20import%20StandardScaler%2C%20OneHotEncoder%0A%20%20%20%20from%20sklearn.linear_model%20import%20Ridge%0A%20%20%20%20return%20ColumnTransformer%2C%20OneHotEncoder%2C%20Pipeline%2C%20Ridge%2C%20StandardScaler%0A%0A%0A%40app.cell%0Adef%20_(ColumnTransformer%2C%20OneHotEncoder%2C%20Pipeline%2C%20Ridge%2C%20StandardScaler%2C%20df)%3A%0A%20%20%20%20TARGET%20%3D%20%22SalePrice%22%0A%0A%20%20%20%20NUM_FEATURES%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%22GrLivArea%22%2C%0A%20%20%20%20%20%20%20%20%22OverallQual%22%2C%0A%20%20%20%20%20%20%20%20%22YearBuilt%22%2C%0A%20%20%20%20%20%20%20%20%22GarageCars%22%2C%0A%20%20%20%20%20%20%20%20%22TotalBsmtSF%22%2C%0A%20%20%20%20%5D%0A%0A%20%20%20%20CAT_FEATURES%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%22Neighborhood%22%2C%0A%20%20%20%20%20%20%20%20%22HouseStyle%22%2C%0A%20%20%20%20%20%20%20%20%22BldgType%22%2C%0A%20%20%20%20%5D%0A%0A%20%20%20%20FEATURES%20%3D%20NUM_FEATURES%20%2B%20CAT_FEATURES%0A%0A%20%20%20%20X%20%3D%20df%5BFEATURES%5D%0A%20%20%20%20y%20%3D%20df%5BTARGET%5D%0A%0A%20%20%20%20numeric_transformer%20%3D%20StandardScaler()%0A%20%20%20%20categorical_transformer%20%3D%20OneHotEncoder(handle_unknown%3D%22ignore%22)%0A%0A%20%20%20%20preprocessor%20%3D%20ColumnTransformer(%0A%20%20%20%20%20%20%20%20transformers%3D%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20(%22num%22%2C%20numeric_transformer%2C%20NUM_FEATURES)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20(%22cat%22%2C%20categorical_transformer%2C%20CAT_FEATURES)%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%0A%20%20%20%20model%20%3D%20Pipeline(%0A%20%20%20%20%20%20%20%20steps%3D%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20(%22preprocessor%22%2C%20preprocessor)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20(%22regressor%22%2C%20Ridge(alpha%3D1.0))%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%0A%20%20%20%20_%20%3D%20model.fit(X%2C%20y)%0A%20%20%20%20return%20NUM_FEATURES%2C%20model%0A%0A%0A%40app.cell%0Adef%20_(df)%3A%0A%20%20%20%20defaults%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%22GrLivArea%22%3A%20int(df%5B%22GrLivArea%22%5D.median())%2C%0A%20%20%20%20%20%20%20%20%22OverallQual%22%3A%20int(df%5B%22OverallQual%22%5D.median())%2C%0A%20%20%20%20%20%20%20%20%22YearBuilt%22%3A%20int(df%5B%22YearBuilt%22%5D.median())%2C%0A%20%20%20%20%20%20%20%20%22GarageCars%22%3A%20int(df%5B%22GarageCars%22%5D.median())%2C%0A%20%20%20%20%20%20%20%20%22TotalBsmtSF%22%3A%20int(df%5B%22TotalBsmtSF%22%5D.median())%2C%0A%20%20%20%20%20%20%20%20%22Neighborhood%22%3A%20df%5B%22Neighborhood%22%5D.mode()%5B0%5D%2C%0A%20%20%20%20%20%20%20%20%22HouseStyle%22%3A%20df%5B%22HouseStyle%22%5D.mode()%5B0%5D%2C%0A%20%20%20%20%20%20%20%20%22BldgType%22%3A%20df%5B%22BldgType%22%5D.mode()%5B0%5D%2C%0A%20%20%20%20%7D%0A%20%20%20%20return%20(defaults%2C)%0A%0A%0A%40app.cell%0Adef%20_(defaults%2C%20df%2C%20mo)%3A%0A%20%20%20%20gr_liv_area%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%20int(df%5B%22GrLivArea%22%5D.min())%2C%0A%20%20%20%20%20%20%20%20int(df%5B%22GrLivArea%22%5D.max())%2C%0A%20%20%20%20%20%20%20%20value%3Ddefaults%5B%22GrLivArea%22%5D%2C%0A%20%20%20%20%20%20%20%20step%3D50%2C%0A%20%20%20%20%20%20%20%20label%3D%22Living%20Area%20(sq%20ft)%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20overall_qual%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%201%2C%0A%20%20%20%20%20%20%20%2010%2C%0A%20%20%20%20%20%20%20%20value%3Ddefaults%5B%22OverallQual%22%5D%2C%0A%20%20%20%20%20%20%20%20label%3D%22Overall%20Quality%20(1%E2%80%9310)%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20year_built%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%20int(df%5B%22YearBuilt%22%5D.min())%2C%0A%20%20%20%20%20%20%20%20int(df%5B%22YearBuilt%22%5D.max())%2C%0A%20%20%20%20%20%20%20%20value%3Ddefaults%5B%22YearBuilt%22%5D%2C%0A%20%20%20%20%20%20%20%20label%3D%22Year%20Built%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20garage_cars%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%200%2C%0A%20%20%20%20%20%20%20%20int(df%5B%22GarageCars%22%5D.max())%2C%0A%20%20%20%20%20%20%20%20value%3Ddefaults%5B%22GarageCars%22%5D%2C%0A%20%20%20%20%20%20%20%20label%3D%22Garage%20Cars%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20total_bsmt_sf%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%200%2C%0A%20%20%20%20%20%20%20%20int(df%5B%22TotalBsmtSF%22%5D.max())%2C%0A%20%20%20%20%20%20%20%20value%3Ddefaults%5B%22TotalBsmtSF%22%5D%2C%0A%20%20%20%20%20%20%20%20step%3D50%2C%0A%20%20%20%20%20%20%20%20label%3D%22Basement%20Area%20(sq%20ft)%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20neighborhood%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3Dsorted(df%5B%22Neighborhood%22%5D.unique())%2C%0A%20%20%20%20%20%20%20%20value%3Ddefaults%5B%22Neighborhood%22%5D%2C%0A%20%20%20%20%20%20%20%20label%3D%22Neighborhood%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20house_style%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3Dsorted(df%5B%22HouseStyle%22%5D.unique())%2C%0A%20%20%20%20%20%20%20%20value%3Ddefaults%5B%22HouseStyle%22%5D%2C%0A%20%20%20%20%20%20%20%20label%3D%22House%20Style%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20bldg_type%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3Dsorted(df%5B%22BldgType%22%5D.unique())%2C%0A%20%20%20%20%20%20%20%20value%3Ddefaults%5B%22BldgType%22%5D%2C%0A%20%20%20%20%20%20%20%20label%3D%22Building%20Type%22%2C%0A%20%20%20%20)%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20bldg_type%2C%0A%20%20%20%20%20%20%20%20garage_cars%2C%0A%20%20%20%20%20%20%20%20gr_liv_area%2C%0A%20%20%20%20%20%20%20%20house_style%2C%0A%20%20%20%20%20%20%20%20neighborhood%2C%0A%20%20%20%20%20%20%20%20overall_qual%2C%0A%20%20%20%20%20%20%20%20total_bsmt_sf%2C%0A%20%20%20%20%20%20%20%20year_built%2C%0A%20%20%20%20)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20bldg_type%2C%0A%20%20%20%20garage_cars%2C%0A%20%20%20%20gr_liv_area%2C%0A%20%20%20%20house_style%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20neighborhood%2C%0A%20%20%20%20overall_qual%2C%0A%20%20%20%20total_bsmt_sf%2C%0A%20%20%20%20year_built%2C%0A)%3A%0A%20%20%20%20sidebar%20%3D%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%23%23%20%F0%9F%8F%A0%20House%20Configuration%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20gr_liv_area%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20overall_qual%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20year_built%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20garage_cars%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20total_bsmt_sf%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%23%23%23%20Location%20%26%20Type%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20neighborhood%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20house_style%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20bldg_type%2C%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20gap%3D1%2C%0A%20%20%20%20)%0A%20%20%20%20return%20(sidebar%2C)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20bldg_type%2C%0A%20%20%20%20df%2C%0A%20%20%20%20garage_cars%2C%0A%20%20%20%20gr_liv_area%2C%0A%20%20%20%20house_style%2C%0A%20%20%20%20model%2C%0A%20%20%20%20neighborhood%2C%0A%20%20%20%20overall_qual%2C%0A%20%20%20%20total_bsmt_sf%2C%0A%20%20%20%20year_built%2C%0A)%3A%0A%20%20%20%20def%20get_predicted_price_ui()%3A%0A%20%20%20%20%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20%20%20%20%20import%20marimo%20as%20mo%0A%0A%20%20%20%20%20%20%20%20%23%20Read%20current%20widget%20values%0A%20%20%20%20%20%20%20%20input_dict%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GrLivArea%22%3A%20gr_liv_area.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22OverallQual%22%3A%20overall_qual.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22YearBuilt%22%3A%20year_built.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GarageCars%22%3A%20garage_cars.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22TotalBsmtSF%22%3A%20total_bsmt_sf.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Neighborhood%22%3A%20neighborhood.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22HouseStyle%22%3A%20house_style.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22BldgType%22%3A%20bldg_type.value%2C%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20input_df%20%3D%20pd.DataFrame(%5Binput_dict%5D)%0A%20%20%20%20%20%20%20%20predicted_price%20%3D%20model.predict(input_df)%5B0%5D%0A%20%20%20%20%20%20%20%20median_price%20%3D%20df%5B%22SalePrice%22%5D.median()%0A%0A%20%20%20%20%20%20%20%20%23%20Short%20labels%0A%20%20%20%20%20%20%20%20predicted_label%20%3D%20%22%F0%9F%92%B0%20Predicted%20Price%22%0A%20%20%20%20%20%20%20%20median_label%20%3D%20%22%F0%9F%8F%A0%20Median%20Price%22%0A%0A%20%20%20%20%20%20%20%20%23%20Format%20values%20with%202%20decimal%20places%0A%20%20%20%20%20%20%20%20predicted_value%20%3D%20mo.ui.text(f%22%24%7Bpredicted_price%3A%2C.2f%7D%22)%0A%20%20%20%20%20%20%20%20median_value%20%3D%20mo.ui.text(f%22%24%7Bmedian_price%3A%2C.2f%7D%22)%0A%0A%20%20%20%20%20%20%20%20%23%20Stack%20label%20above%20value%0A%20%20%20%20%20%20%20%20predicted_kpi%20%3D%20mo.vstack(%5Bmo.ui.text(predicted_label)%2C%20predicted_value%5D%2C%20gap%3D0.5)%0A%20%20%20%20%20%20%20%20median_kpi%20%3D%20mo.vstack(%5Bmo.ui.text(median_label)%2C%20median_value%5D%2C%20gap%3D0.5)%0A%0A%20%20%20%20%20%20%20%20%23%20Place%20side%20by%20side%0A%20%20%20%20%20%20%20%20return%20mo.hstack(%5Bpredicted_kpi%2C%20median_kpi%5D%2C%20gap%3D2)%0A%20%20%20%20return%20(get_predicted_price_ui%2C)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20bldg_type%2C%0A%20%20%20%20df%2C%0A%20%20%20%20garage_cars%2C%0A%20%20%20%20gr_liv_area%2C%0A%20%20%20%20house_style%2C%0A%20%20%20%20model%2C%0A%20%20%20%20neighborhood%2C%0A%20%20%20%20overall_qual%2C%0A%20%20%20%20total_bsmt_sf%2C%0A%20%20%20%20year_built%2C%0A)%3A%0A%20%20%20%20import%20plotly.express%20as%20px%0A%0A%20%20%20%20def%20get_price_distribution()%3A%0A%20%20%20%20%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20%20%20%20%20import%20plotly.express%20as%20px%0A%0A%20%20%20%20%20%20%20%20%23%20predicted%20price%0A%20%20%20%20%20%20%20%20input_dict%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GrLivArea%22%3A%20gr_liv_area.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22OverallQual%22%3A%20overall_qual.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22YearBuilt%22%3A%20year_built.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GarageCars%22%3A%20garage_cars.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22TotalBsmtSF%22%3A%20total_bsmt_sf.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Neighborhood%22%3A%20neighborhood.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22HouseStyle%22%3A%20house_style.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22BldgType%22%3A%20bldg_type.value%2C%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20input_df%20%3D%20pd.DataFrame(%5Binput_dict%5D)%0A%20%20%20%20%20%20%20%20predicted_price%20%3D%20model.predict(input_df)%5B0%5D%0A%0A%20%20%20%20%20%20%20%20%23%20histogram%20of%20SalePrice%0A%20%20%20%20%20%20%20%20fig%20%3D%20px.histogram(%0A%20%20%20%20%20%20%20%20%20%20%20%20df%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20x%3D%22SalePrice%22%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20nbins%3D50%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20title%3D%22%F0%9F%8F%A0%20Sale%20Price%20Distribution%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20opacity%3D0.7%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20%20%20%20%20%23%20add%20predicted%20price%20vertical%20line%0A%20%20%20%20%20%20%20%20fig.add_vline(%0A%20%20%20%20%20%20%20%20%20%20%20%20x%3Dpredicted_price%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20line_color%3D%22red%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20line_dash%3D%22dash%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20annotation_text%3D%22Predicted%20Price%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20annotation_position%3D%22top%20right%22%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20%20%20%20%20%23%20use%20plotly%20in%20marimo%0A%20%20%20%20%20%20%20%20return%20mo.ui.plotly(fig)%0A%20%20%20%20return%20(get_price_distribution%2C)%0A%0A%0A%40app.cell%0Adef%20_(NUM_FEATURES%2C%20model)%3A%0A%20%20%20%20def%20feature_contribution()%3A%0A%20%20%20%20%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20%20%20%20%20import%20plotly.express%20as%20px%0A%0A%20%20%20%20%20%20%20%20%23%20Numeric%20features%20and%20their%20coefficients%0A%20%20%20%20%20%20%20%20coef_df%20%3D%20pd.DataFrame(%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Feature%22%3A%20NUM_FEATURES%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Coefficient%22%3A%20model.named_steps%5B'regressor'%5D.coef_%5B%3Alen(NUM_FEATURES)%5D%0A%20%20%20%20%20%20%20%20%7D)%0A%0A%20%20%20%20%20%20%20%20%23%20Round%20to%202%20decimals%0A%20%20%20%20%20%20%20%20coef_df%5B%22Coefficient%22%5D%20%3D%20coef_df%5B%22Coefficient%22%5D.round(2)%0A%0A%20%20%20%20%20%20%20%20%23%20Sort%20by%20absolute%20value%20and%20take%20top%205%0A%20%20%20%20%20%20%20%20coef_df%20%3D%20coef_df.sort_values(by%3D%22Coefficient%22%2C%20key%3Dabs%2C%20ascending%3DFalse).head(5)%0A%0A%20%20%20%20%20%20%20%20%23%20Plot%0A%20%20%20%20%20%20%20%20fig%20%3D%20px.bar(%0A%20%20%20%20%20%20%20%20%20%20%20%20coef_df%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20x%3D%22Feature%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20y%3D%22Coefficient%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20title%3D%22%F0%9F%93%8A%20Top%205%20Feature%20Contributions%20(Numeric)%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20text%3D%22Coefficient%22%2C%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20return%20mo.ui.plotly(fig)%0A%20%20%20%20return%20(feature_contribution%2C)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20bldg_type%2C%0A%20%20%20%20df%2C%0A%20%20%20%20garage_cars%2C%0A%20%20%20%20gr_liv_area%2C%0A%20%20%20%20house_style%2C%0A%20%20%20%20model%2C%0A%20%20%20%20neighborhood%2C%0A%20%20%20%20overall_qual%2C%0A%20%20%20%20total_bsmt_sf%2C%0A%20%20%20%20year_built%2C%0A)%3A%0A%20%20%20%20def%20neighborhood_distribution()%3A%0A%20%20%20%20%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20%20%20%20%20import%20plotly.express%20as%20px%0A%0A%20%20%20%20%20%20%20%20%23%20Filter%20by%20selected%20neighborhood%0A%20%20%20%20%20%20%20%20neighborhood_df%20%3D%20df%5Bdf%5B%22Neighborhood%22%5D%20%3D%3D%20neighborhood.value%5D%0A%0A%20%20%20%20%20%20%20%20%23%20predicted%20house%0A%20%20%20%20%20%20%20%20input_df%20%3D%20pd.DataFrame(%5B%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GrLivArea%22%3A%20gr_liv_area.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22OverallQual%22%3A%20overall_qual.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22YearBuilt%22%3A%20year_built.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GarageCars%22%3A%20garage_cars.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22TotalBsmtSF%22%3A%20total_bsmt_sf.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Neighborhood%22%3A%20neighborhood.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22HouseStyle%22%3A%20house_style.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22BldgType%22%3A%20bldg_type.value%2C%0A%20%20%20%20%20%20%20%20%7D%5D)%0A%20%20%20%20%20%20%20%20predicted_price%20%3D%20model.predict(input_df)%5B0%5D%0A%0A%20%20%20%20%20%20%20%20fig%20%3D%20px.histogram(%0A%20%20%20%20%20%20%20%20%20%20%20%20neighborhood_df%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20x%3D%22SalePrice%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20nbins%3D20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20title%3Df%22%F0%9F%8F%98%EF%B8%8F%20Sale%20Prices%20in%20%7Bneighborhood.value%7D%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20opacity%3D0.7%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20%20%20%20%20fig.add_vline(%0A%20%20%20%20%20%20%20%20%20%20%20%20x%3Dpredicted_price%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20line_color%3D%22red%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20line_dash%3D%22dash%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20annotation_text%3D%22Predicted%20Price%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20annotation_position%3D%22top%20right%22%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20%20%20%20%20return%20mo.ui.plotly(fig)%0A%20%20%20%20return%20(neighborhood_distribution%2C)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20bldg_type%2C%0A%20%20%20%20df%2C%0A%20%20%20%20garage_cars%2C%0A%20%20%20%20gr_liv_area%2C%0A%20%20%20%20house_style%2C%0A%20%20%20%20model%2C%0A%20%20%20%20neighborhood%2C%0A%20%20%20%20overall_qual%2C%0A%20%20%20%20total_bsmt_sf%2C%0A%20%20%20%20year_built%2C%0A)%3A%0A%20%20%20%20def%20living_area_vs_price_clean()%3A%0A%20%20%20%20%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20%20%20%20%20import%20plotly.graph_objects%20as%20go%0A%20%20%20%20%20%20%20%20import%20marimo%20as%20mo%0A%0A%20%20%20%20%20%20%20%20%23%20Predicted%20house%0A%20%20%20%20%20%20%20%20input_df%20%3D%20pd.DataFrame(%5B%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GrLivArea%22%3A%20gr_liv_area.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22OverallQual%22%3A%20overall_qual.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22YearBuilt%22%3A%20year_built.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GarageCars%22%3A%20garage_cars.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22TotalBsmtSF%22%3A%20total_bsmt_sf.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Neighborhood%22%3A%20neighborhood.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22HouseStyle%22%3A%20house_style.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22BldgType%22%3A%20bldg_type.value%2C%0A%20%20%20%20%20%20%20%20%7D%5D)%0A%20%20%20%20%20%20%20%20predicted_price%20%3D%20model.predict(input_df)%5B0%5D%0A%20%20%20%20%20%20%20%20predicted_gr%20%3D%20input_df%5B%22GrLivArea%22%5D.iloc%5B0%5D%0A%0A%20%20%20%20%20%20%20%20%23%20Base%20scatter%20(actual%20houses)%0A%20%20%20%20%20%20%20%20fig%20%3D%20go.Figure()%0A%20%20%20%20%20%20%20%20fig.add_trace(go.Scattergl(%0A%20%20%20%20%20%20%20%20%20%20%20%20x%3Ddf%5B%22GrLivArea%22%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20y%3Ddf%5B%22SalePrice%22%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mode%3D%22markers%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20opacity%3D0.6%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20marker%3Ddict(size%3D8%2C%20color%3D'blue')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20name%3D%22Actual%20Houses%22%0A%20%20%20%20%20%20%20%20))%0A%0A%20%20%20%20%20%20%20%20%23%20Predicted%20house%20as%20a%20red%20star%2C%20now%20visible%20in%20legend%0A%20%20%20%20%20%20%20%20fig.add_trace(go.Scattergl(%0A%20%20%20%20%20%20%20%20%20%20%20%20x%3D%5Bpredicted_gr%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20y%3D%5Bpredicted_price%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mode%3D%22markers%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20marker%3Ddict(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20color%3D%22red%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20size%3D16%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20symbol%3D%22star%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20line%3Ddict(width%3D2%2C%20color%3D'DarkRed')%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20hovertext%3D%5Bf%22Predicted%20Price%3A%20%24%7Bpredicted_price%3A%2C.0f%7D%22%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20hoverinfo%3D%22text%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20showlegend%3DTrue%2C%20%20%20%20%20%20%20%20%20%20%23%20show%20in%20legend%0A%20%20%20%20%20%20%20%20%20%20%20%20name%3D%22Predicted%20House%22%20%20%23%20add%20a%20star%20in%20the%20legend%20label%20if%20you%20like%0A%20%20%20%20%20%20%20%20))%0A%0A%20%20%20%20%20%20%20%20%23%20Adjust%20axes%0A%20%20%20%20%20%20%20%20x_min%20%3D%20min(df%5B%22GrLivArea%22%5D.min()%2C%20predicted_gr)%20-%205%0A%20%20%20%20%20%20%20%20x_max%20%3D%20max(df%5B%22GrLivArea%22%5D.max()%2C%20predicted_gr)%20%2B%205%0A%20%20%20%20%20%20%20%20y_min%20%3D%20min(df%5B%22SalePrice%22%5D.min()%2C%20predicted_price)%20*%200.95%0A%20%20%20%20%20%20%20%20y_max%20%3D%20max(df%5B%22SalePrice%22%5D.max()%2C%20predicted_price)%20*%201.05%0A%20%20%20%20%20%20%20%20fig.update_xaxes(range%3D%5Bx_min%2C%20x_max%5D)%0A%20%20%20%20%20%20%20%20fig.update_yaxes(range%3D%5By_min%2C%20y_max%5D)%0A%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20title%20with%20emoji%0A%20%20%20%20%20%20%20%20fig.update_layout(%0A%20%20%20%20%20%20%20%20%20%20%20%20title%3D%22%F0%9F%93%8F%20Living%20Area%20vs%20Sale%20Price%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20hovermode%3D%22closest%22%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20%20%20%20%20return%20mo.ui.plotly(fig)%0A%20%20%20%20return%20(living_area_vs_price_clean%2C)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20bldg_type%2C%0A%20%20%20%20df%2C%0A%20%20%20%20garage_cars%2C%0A%20%20%20%20gr_liv_area%2C%0A%20%20%20%20house_style%2C%0A%20%20%20%20model%2C%0A%20%20%20%20neighborhood%2C%0A%20%20%20%20overall_qual%2C%0A%20%20%20%20total_bsmt_sf%2C%0A%20%20%20%20year_built%2C%0A)%3A%0A%20%20%20%20def%20year_built_vs_price_clean()%3A%0A%20%20%20%20%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20%20%20%20%20import%20plotly.graph_objects%20as%20go%0A%20%20%20%20%20%20%20%20import%20marimo%20as%20mo%0A%0A%20%20%20%20%20%20%20%20%23%20Predicted%20house%0A%20%20%20%20%20%20%20%20input_df%20%3D%20pd.DataFrame(%5B%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GrLivArea%22%3A%20gr_liv_area.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22OverallQual%22%3A%20overall_qual.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22YearBuilt%22%3A%20year_built.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22GarageCars%22%3A%20garage_cars.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22TotalBsmtSF%22%3A%20total_bsmt_sf.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Neighborhood%22%3A%20neighborhood.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22HouseStyle%22%3A%20house_style.value%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22BldgType%22%3A%20bldg_type.value%2C%0A%20%20%20%20%20%20%20%20%7D%5D)%0A%20%20%20%20%20%20%20%20predicted_price%20%3D%20model.predict(input_df)%5B0%5D%0A%20%20%20%20%20%20%20%20predicted_year%20%3D%20input_df%5B%22YearBuilt%22%5D.iloc%5B0%5D%0A%0A%20%20%20%20%20%20%20%20%23%20Base%20scatter%20(actual%20houses)%0A%20%20%20%20%20%20%20%20fig%20%3D%20go.Figure()%0A%20%20%20%20%20%20%20%20fig.add_trace(go.Scattergl(%0A%20%20%20%20%20%20%20%20%20%20%20%20x%3Ddf%5B%22YearBuilt%22%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20y%3Ddf%5B%22SalePrice%22%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mode%3D%22markers%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20opacity%3D0.6%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20marker%3Ddict(size%3D8%2C%20color%3D'blue')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20name%3D%22Actual%20Houses%22%0A%20%20%20%20%20%20%20%20))%0A%0A%20%20%20%20%20%20%20%20%23%20Predicted%20house%20as%20a%20red%20star%2C%20on%20top%0A%20%20%20%20%20%20%20%20fig.add_trace(go.Scattergl(%0A%20%20%20%20%20%20%20%20%20%20%20%20x%3D%5Bpredicted_year%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20y%3D%5Bpredicted_price%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mode%3D%22markers%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20marker%3Ddict(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20color%3D%22red%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20size%3D16%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20symbol%3D%22star%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20line%3Ddict(width%3D2%2C%20color%3D'DarkRed')%20%20%23%20outline%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20hovertext%3D%5Bf%22Predicted%20Price%3A%20%24%7Bpredicted_price%3A%2C.0f%7D%22%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20hoverinfo%3D%22text%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20showlegend%3DTrue%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20name%3D%22Predicted%20House%22%0A%20%20%20%20%20%20%20%20))%0A%0A%20%20%20%20%20%20%20%20%23%20Adjust%20axes%0A%20%20%20%20%20%20%20%20x_min%20%3D%20min(df%5B%22YearBuilt%22%5D.min()%2C%20predicted_year)%20-%205%0A%20%20%20%20%20%20%20%20x_max%20%3D%20max(df%5B%22YearBuilt%22%5D.max()%2C%20predicted_year)%20%2B%205%0A%20%20%20%20%20%20%20%20y_min%20%3D%20min(df%5B%22SalePrice%22%5D.min()%2C%20predicted_price)%20*%200.95%0A%20%20%20%20%20%20%20%20y_max%20%3D%20max(df%5B%22SalePrice%22%5D.max()%2C%20predicted_price)%20*%201.05%0A%20%20%20%20%20%20%20%20fig.update_xaxes(range%3D%5Bx_min%2C%20x_max%5D)%0A%20%20%20%20%20%20%20%20fig.update_yaxes(range%3D%5By_min%2C%20y_max%5D)%0A%0A%20%20%20%20%20%20%20%20%23%20Add%20title%20with%20emoji%0A%20%20%20%20%20%20%20%20fig.update_layout(%0A%20%20%20%20%20%20%20%20%20%20%20%20title%3D%22%F0%9F%8F%97%EF%B8%8F%20Year%20Built%20vs%20Sale%20Price%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20hovermode%3D%22closest%22%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20%20%20%20%20return%20mo.ui.plotly(fig)%0A%20%20%20%20return%20(year_built_vs_price_clean%2C)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20feature_contribution%2C%0A%20%20%20%20get_predicted_price_ui%2C%0A%20%20%20%20get_price_distribution%2C%0A%20%20%20%20living_area_vs_price_clean%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20neighborhood_distribution%2C%0A%20%20%20%20sidebar%2C%0A%20%20%20%20year_built_vs_price_clean%2C%0A)%3A%0A%20%20%20%20def%20get_sidebar_ui()%3A%0A%20%20%20%20%20%20%20%20return%20sidebar%20%20%0A%0A%20%20%20%20def%20get_dashboard_full_ui()%3A%0A%20%20%20%20%20%20%20%20return%20mo.vstack(%0A%20%20%20%20%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Top%20row%3A%20sidebar%20%2B%20KPIs%20%2B%20histogram%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mo.hstack(%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20get_sidebar_ui()%2C%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20get_predicted_price_ui()%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20get_price_distribution()%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%2C%20gap%3D2)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%2C%20gap%3D3)%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Middle%20row%3A%20feature%20contribution%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20feature_contribution()%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Neighborhood%20distribution%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20neighborhood_distribution()%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Living%20area%20vs%20price%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20living_area_vs_price_clean()%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Year%20built%20vs%20price%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20year_built_vs_price_clean()%0A%20%20%20%20%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20gap%3D3%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20return%20(get_dashboard_full_ui%2C)%0A%0A%0A%40app.cell%0Adef%20_(get_dashboard_full_ui)%3A%0A%20%20%20%20get_dashboard_full_ui()%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <!-- This is a portal for the data editor to render in -->
+    <div id="portal" data-testid="glide-portal" style="position: fixed; left: 0; top: 0; z-index: 9999"></div>
+    <script data-marimo="true">
+      window.__MARIMO_MOUNT_CONFIG__ = {
+            "filename": "notebook.py",
+            "mode": "read",
+            "version": "0.19.7",
+            "serverToken": "unused",
+            "config": {"ai": {"custom_providers": {}, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "medium"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null,
+        };
+    </script>
+  </body>
+</html>
