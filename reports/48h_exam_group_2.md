@@ -153,53 +153,7 @@ Every additional stop adds a layer of risk.
 ---
 
 # 4. RQ3
-# Structural Differences in Delay Distributions and Cancellation Risk in German Railway Operations
 
-
-## 1. Introduction
-The average delay does not sufficiently represent railway reliability. Instead, structural characteristics such as variability and extreme delay behavior may be more informative. The purpose of this study is to assess differences between train types and stations regarding delay distributions, and to evaluate how these structural differences relate to cancellation rates.
-
-## 2. Train-Type Delay Structure
-Delay distributions vary across train types. Long-distance services (e.g., ICE, IC) show larger median delay and IQR values, indicating higher variability.
-
-The 90th percentile (p90) indicates significant tail behavior for certain train types. A large gap between median and p90 suggests strong right-skewness and frequent extreme delays in long-distance services.
-
-**Figure 1:** Train-type delay structure (Median + IQR + p90 tail)  
-![Figure 1: Train-type delay structure](figures/Fig1_train_type_delay_structure.png)
-
-## 3. Station-Level Delay Structure
-Major hub stations exhibit larger median delays and wider IQR ranges than smaller stations. High p90 values imply a higher occurrence of extreme delays at these stations.
-
-Overall, infrastructure complexity and traffic density appear to contribute to structural delay heterogeneity.
-
-**Figure 2:** Station delay structure (Median + IQR + p90 tail)  
-![Figure 2: Station delay structure](figures/Fig2_station_delay_structure.png)
-
-## 4. Tail Behavior Across Train Types
-ECDF curves highlight differences in distributional form. Train types with flatter curves indicate heavier tails and more extreme delays, exceeding the global p90 threshold. These findings show that differences are not limited to central tendency but also reflect changes in tail behavior.
-
-**Figure 3:** Delay tail behavior by train type (ECDF) + global p90  
-![Figure 3: ECDF tail behavior](figures/Fig3_ecdf_tail_behavior.png)
-
-## 5. Tail Risk and Cancellation Relationship
-There is a weak positive relationship between tail delays (p90) and cancellation rate. Although train types with heavier tail risk tend to show higher cancellation probability, the overall association is moderate (Spearman’s ρ ≈ 0.18). This suggests extreme delays contribute to cancellations but are not the only factor.
-
-**Figure 4:** Tail risk (p90) vs cancellation rate (train types)  
-![Figure 4: Tail vs cancellation](figures/Fig4_tail_vs_cancellation.png)
-
-## 6. Statistical Evidence
-- **Kruskal–Wallis Test:** Significant differences exist in delay distributions between train types (p < 0.05).
-- **Distributional Metrics:** Clear differences in median, IQR, and p90 values.
-- **Correlation Analysis:** Moderate positive correlation between tail delay and cancellation rate.
-
-## 7. Key Findings
-
-| Dimension | Result |
-|---|---|
-| Central Tendency | Median delay differs across train types and stations |
-| Variability | IQR shows strong dispersion differences |
-| Tail Behavior | ICE and major hubs exhibit heavier tails |
-| Cancellation Link | Tail delay positively but moderately associated with cancellations |
 
 
 # 5. RQ4 
