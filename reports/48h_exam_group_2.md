@@ -91,54 +91,40 @@ We examine how train categories, geography, and route progression impact service
 ## 3.1 Influence of Train Category
 
 Analysis shows that **Metronom (ME)** and **Intercity (IC)** services face the highest cancellation risks, peaking at **7.36%** and **6.75%** respectively.  
-
 Conversely, **Bus services** are the most reliable mode with a near-zero failure rate.
 
 [![Train-category.png](https://i.postimg.cc/65sj5YFk/Train-category.png)](https://postimg.cc/CdNHcHh7)
 
 *Figure 3.1: Comparison of cancellation rates across major train categories.*
 
----
-
 ## 3.2 Temporal & Geographical "Blackspots"
 
-### Geographical Hubs
-
+#### Geographical Hubs
 - **Hamburg Dammtor** is a significant outlier with a **27.56%** cancellation rate, identifying it as a critical infrastructure bottleneck.
-
-### The Wednesday Peak
-
+#### The Wednesday Peak
 - Service instability peaks on **Wednesdays (5.99%)**, suggesting mid-week operational strain.
 
 [![Station-wise-cancellation.png](https://i.postimg.cc/ydgj7Zjj/Station-wise-cancellation.png)](https://postimg.cc/5YJL3jZQ)
 
 *Figure 3.2: Mapping critical failure points across the German rail network.*
 
----
-
 ## 3.3 Operating Patterns & Rush Hour Collapse
 
 The network experiences systemic pressure during the **Evening Rush Hour (18:00)**.  
-
 While diversity in train types at hubs increases complexity, the inability to manage simultaneous peak-hour arrivals leads to localized collapses.
 
 [![peak-hours-train-chart.png](https://i.postimg.cc/MZB541v8/peak-hours-train-chart.png)](https://postimg.cc/4nJpH768)
 
 *Figure 3.3: Visualizing the performance dip of S-Bahn and ICE services during peak hours.*
 
----
-
 ## 3.4 Advanced Insight: The "Route Fatigue" Phenomenon
 
 Cancellations are cumulative. Logistic regression confirms that as a train progresses through its **Stop Sequence**, the probability of termination increases significantly.
-
 Every additional stop adds a layer of risk.
 
 [![route-fatigue.png](https://i.postimg.cc/SsM6BpQf/route-fatigue.png)](https://postimg.cc/S2mY93Mn)
 
 *Figure 3.4: Statistical proof of the correlation between stop number and cancellation risk.*
-
----
 
 ## 3.5 Key Findings Summary
 
@@ -150,7 +136,9 @@ Every additional stop adds a layer of risk.
 | **Location** | Hamburg Dammtor (27.56%) is the primary failure point. | Chi-Square p < 0.001 |
 | **Fatigue** | Risk increases as the Stop Sequence progresses. | Logistic Regression p < 0.001 |
 
----
+## Conclusion
+
+The data reveals that cancellations are not random but systemic. Metronom and IC trains, Hamburg Dammtor station, and Wednesday evenings consistently emerge as high-risk. Most tellingly, the Route Fatigue effect confirms that operational stress accumulates the further a train travels, the more likely it is to be cancelled. These patterns point to structural weaknesses that targeted scheduling and infrastructure investment could address.
 
 # 4. RQ3
 
