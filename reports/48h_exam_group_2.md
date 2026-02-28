@@ -177,7 +177,7 @@ Average delay was calculated across train categories to assess performance diffe
 
 To examine variability, a boxplot comparison was conducted for the top 10 most frequent train types.
 
-[![Delay-Distribution-(Top-10-Train-Types-by-Frequency.png](https://i.postimg.cc/9MmbsQgK/Delay-Distribution-(Top-10-Train-Types-by-Frequency.png)](https://postimg.cc/QBzcTh3J)
+[![Delay_Distribution.png](https://i.postimg.cc/9MmbsQgK/Delay_Distribution.png)](https://postimg.cc/QBzcTh3J)
 
 **The distribution analysis reveals:**
 
