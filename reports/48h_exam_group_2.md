@@ -154,6 +154,119 @@ Every additional stop adds a layer of risk.
 
 # 4. RQ3
 
+# **Train Reliability Analysis: Delay and Cancellation**
+
+## 4.1 Introduction**
+
+This report examines the relationship between train type, delay duration, and cancellation probability using a large-scale operational dataset. The objective is to evaluate whether train category influences service reliability and to determine whether delay severity increases cancellation risk.
+
+The analysis combines descriptive statistics, visualization, ANOVA testing, Chi-square testing, and effect size estimation to provide both statistical significance and practical interpretation.
+
+## 4.2. Does Train Type Influence Delay Duration?**
+
+To evaluate whether delay duration differs across train types, both descriptive and inferential methods were applied.
+
+### **Descriptive Evidence**
+
+Average delay was calculated across train categories to assess performance differences. The analysis reveals substantial variation between train types, with NJ (23.1 minutes) and NEX (21.8 minutes) recording the highest average delays in the network.
+
+[![Top_10_Train_Types_with_Highest_Average_Delay.png](https://i.postimg.cc/rmVj7wZv/Top_10_Train_Types_with_Highest_Average_Delay.png)](https://postimg.cc/cKzfn0Sm)
+
+
+### **Distribution Analysis**
+
+To examine variability, a boxplot comparison was conducted for the top 10 most frequent train types.
+
+[![Delay-Distribution-(Top-10-Train-Types-by-Frequency.png](https://i.postimg.cc/9MmbsQgK/Delay-Distribution-(Top-10-Train-Types-by-Frequency.png)](https://postimg.cc/QBzcTh3J)
+
+**The distribution analysis reveals:**
+
+• ICE and IC trains exhibit greater variability in delay duration.
+
+• Regional services show comparatively tighter distributions.
+
+• Some train types demonstrate extreme values, indicating unstable punctuality performance
+
+### **ANOVA Test**
+
+A one-way ANOVA was conducted to test whether mean delay differs significantly across train types.
+
+F(54, 1,989,070) \= 4638.44
+
+p \< 0.001
+
+The results indicate a statistically significant difference in mean delay between train types.
+
+### **Effect Size (Eta Squared)**
+
+Eta² \= 0.1118
+
+Approximately 11.18% of the total variance in delay duration is explained by train type.
+
+This represents a moderate practical effect, suggesting that the train category plays a meaningful role in punctuality outcomes.
+
+# 4.3. Is Delay Severity Associated with Cancellation?**
+
+To examine whether increased delay leads to higher cancellation risk, delay duration was categorized into three levels:
+
+• On-time/Early (≤5 minutes)
+
+• Minor Delay (6–15 minutes)
+
+• Severe Delay (\>15 minutes)
+
+### **Crosstab Results**
+
+| Delay Category | Not Canceled (%) | Canceled (%) |
+| ----- | ----- | ----- |
+| On-time/Early | 95.1% | 4.9% |
+| Minor Delay | 97.6% | 2.4% |
+| Severe Delay | 90.8% | 9.2% |
+
+The heatmap clearly shows that trains with severe delays (\>15 minutes) experience the highest cancellation rate (9.2%).
+
+### **Chi-Square Test**
+
+χ² \= 10152.4
+
+df \= 2
+
+p \< 0.001
+
+The Chi-square test confirms a statistically significant association between delay severity and cancellation.
+
+### **Effect Size (Cramér’s V)**
+
+Cramér’s V \= 0.0714
+
+This indicates a small but statistically reliable association. While the effect size is modest, the relationship is meaningful given the large sample size.
+
+# 4.4. Does Train Type Influence Cancellation Probability?**
+
+Cancellation rate was calculated across train types.
+
+Certain train types demonstrate higher cancellation risk, aligning partially with delay rankings.
+
+[![Cancellation_Rate.png](https://i.postimg.cc/0QknhyXh/Cancellation_Rate.png)](https://postimg.cc/5Hr8CbVm)
+
+This suggests that operational complexity linked to specific train categories contributes to reliability challenges.
+
+# 4.5. Key Findings Summary**
+
+| Factor | Key Finding | Statistical Support |
+| ----- | ----- | ----- |
+| Train Type → Delay | Significant difference in mean delay | ANOVA p \< 0.001 |
+| Delay → Cancellation | Severe delays increase cancellation risk | Chi-square p \< 0.001 |
+| Effect Strength | Moderate delay variance explained (11%) | Eta² \= 0.1118 |
+| Association Strength | Small but significant link | Cramér’s V \= 0.071 |
+
+# 4.6. Conclusion**
+
+This study confirms that train type plays a significant role in determining delay duration, and that increased delay severity elevates cancellation probability.
+
+While delay severity shows a strong statistical association with cancellation, the effect size suggests that additional operational factors likely contribute to service instability.
+
+Overall, the analysis highlights structural reliability differences across train categories and provides empirical evidence supporting targeted operational improvements.
 
 
 # 5. RQ4 
