@@ -297,6 +297,18 @@ The clustering results show three distinct types of train stations based on thei
 
 **Cluster 3** (39 stations): This group represents the major network hubs, accounting for around 40% of all stations. They handle almost three times the traffic volume of the other clusters at 31,120 trains on average, and they carry the highest average cancellation rate of 0.046. They are likely to have certain infrastructural challenges as well, since our analysis shows that traffic volume alone cannot explain high delays and cancellations.
 
+## Comparing stations across regions
+
+While our analysis is strictly limited to a sample of 107 monitored stations and does not represent the entirety of Germany's railway network, mapping these stations geographically reveals clear operational patterns. The standard stops in Cluster 1 and the major hubs in Cluster 3 closely follow the baseline distribution, with the highest station counts predictably located in heavily populated states like North Rhine-Westphalia, Bavaria, and Baden-Württemberg. 
+
+In contrast, the underperforming stations in Cluster 2 show a distinct regional anomaly, as they are disproportionately concentrated in Lower Saxony rather than following the expected nationwide baseline. In particular, while Lower Saxony accounts for only 8% of the total monitored network, it contains nearly 40% of the heavily delayed stations, including Lüneburg.
+
+![alt text](../additional_materials/images/exam_regions.png)
+
+## Conclusion
+
+Our analysis of 107 stations demonstrates that traffic volume is not the primary driver of delays, but rather specific operational profiles. Agglomerative clustering identified three distinct groups: low-delay stations (50%), underperforming stations (10%) and busy transport hubs (40%). A geographic mapping revealed a significant regional bottlenecks in Lower Saxony and North Rhine-Westphalia. These findings suggest that infrastructure investments should be prioritised in certain regions.
+
 # 6. RQ5
 
 # 7. RQ 6
