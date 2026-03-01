@@ -4,12 +4,12 @@ Railway reliability indicates how well a transport system works in practice. Whe
 
 Using a dataset of over 1.9 million Deutsche Bahn observations from October 2025, this report investigates reliability from multiple analytical perspectives. Specifically, we examine:
 - How much of delay duration can be predicted using observable operational variables.
-- Whether delay behavior differs structurally across train types.
+- Whether delay behavior differs across train types.
 - Whether delay severity escalates into cancellation risk.
-- Which systemic factors drive cancellations across time and geography.
-- How stations cluster based on performance profiles.
+- Which factors drive cancellations across time and geography.
+- How stations cluster based on available data.
 
-By combining regression modeling, distributional analysis, hypothesis testing, and clustering techniques, this report provides an assessment of operational instability in the German rail network. Reliability is mainly analyzed through delay duration and cancellation incidence.
+By combining regression modeling, distributional analysis, hypothesis testing, and clustering techniques, this report provides an assessment of reliability in the German rail network. Reliability is mainly analyzed through delay duration and cancellation incidence.
 
 # Authors
 Megan Kelly-Ortiz, Anna Perkova, Ayush Singh, Tusar , Kush Shah, Onkar Mane
@@ -431,23 +431,22 @@ In contrast, the underperforming stations in Cluster 2 show a distinct regional 
 
 Our analysis of 107 stations demonstrates that traffic volume is not the primary driver of delays, but rather specific operational profiles. Agglomerative clustering identified three distinct groups: low-delay stations (50%), underperforming stations (10%) and busy transport hubs (40%). A geographic mapping revealed regional bottlenecks in Lower Saxony and North Rhine-Westphalia. These findings suggest that infrastructure investments should be prioritised in certain regions. Station-level heterogeneity confirms that unreliability is not merely a function of traffic volume but of structural operational profiles embedded in specific regions and hubs.
 
-# 8. Disclaimer on Methodogical Limitations
+# 8. Overall Conclusion
+The analysis suggests that both delay length and cancellations are difficult to predict using the operational variables available in the dataset. Overall, the models were only able to explain about a quarter of the variation in delays. However, some clear patterns still emerged.
 
-This analysis is based on a subset of monitored stations and a single month (October 2025). As a result, findings may not generalize to underrepresented regions or to periods with unusual disruption. In addition, the dataset does not include exogenous drivers such as infrastructure failures or weather conditions, which likely contribute to extreme delays and cancellations. Therefore, the results should be interpreted as structural associations rather than causal effects.
+First, there are noticeable differences between train types, especially in terms of how variable their delays are and how severe those delays tend to be. Long-distance and more operationally complex services appear to be less stable and experience larger delays. Second, the likelihood of a cancellation increases significantly as delays become more severe, suggesting that delays can escalate into cancellations. That said, the size of the effects indicates that delays alone do not fully explain why cancellations happen. Broader systemic factors, such as congestion during peak hours, geographic bottlenecks, and operational strain along certain routes, seem to play an important role in increasing cancellation risk.
+Finally, the clustering at station level shows that unreliability is linked more to operational characteristics than simply to how busy a station is, with some regions consistently underperforming. 
 
-# 9. Overall Conclusion
-This study provides a multi-layered analysis of railway reliability in the German rail network.
-First, delay duration proves difficult to predict using observable operational variables, with models explaining only around one quarter of variance. Extreme delay events remain largely unexplained.
-Second, substantial structural differences exist across train types, particularly in variability and delay magnitude. Long-distance and operationally complex services exhibit greater instability.
-Third, delay severity significantly increases cancellation probability, revealing a clear escalation mechanism. However, effect sizes suggest that cancellations cannot be explained by delay alone.
-Fourth, systemic drivers, including peak-hour congestion, geographic bottlenecks, and route fatigue, play a decisive role in shaping cancellation risk.
-Finally, station-level clustering demonstrates that unreliability reflects distinct operational profiles rather than simple traffic volume. Certain regions and hubs exhibit persistent structural weaknesses.
-Overall, railway unreliability appears to be a layered phenomenon driven by interaction between structural heterogeneity, accumulated operational stress, and extreme disruption events that remain difficult to forecast using schedule-based variables alone.
+Overall, railway unreliability is complex and influenced by a combination of structural differences, accumulated operational pressure, and factors outside of the available data. These factors interact in ways that make reliability difficult to predict using schedule-based variables alone.
 
-# 9. AI Disclaimer
+# 9. Disclaimer on Methodogical Limitations
+
+This analysis is based on data from October 2025, some German train stations may be missing. Because of this, the findings may not apply to regions that were not well represented in the dataset. Additionally, the dataset does not include external factors such as infrastructure failures or weather conditions, which are likely to impact delays and cancellations.
+
+# 10. AI Disclaimer
 AI was used to create visualizations, resolve coding errors, and refine the text.
 
-# 10. Appendix
+# Appendix
 
 Table 1.1: 
 
