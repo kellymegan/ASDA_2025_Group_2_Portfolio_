@@ -257,7 +257,45 @@ While delay severity shows a strong statistical association with cancellation, t
 Overall, the analysis highlights structural reliability differences across train categories and provides empirical evidence supporting targeted operational improvements.
 
 
-# 5. RQ4 
+# 5. How do different station clusters perform based on delay and other factors? 
+
+We transformed the data on train rides into a set of profiles for each of the 107 traced stations, which includes average delay, cancellation rate, amount of trains passing through, and maximum delay for each station. 
+
+## Checking distribution of delays, cancellations and traffic volume
+
+The distribution plots show that the majority of stations handle standard train volumes and keep average delays between 2 and 6 minutes. However, a small number of extreme outliers exist with exceptionally high traffic and severe delays.
+
+![alt text](../additional_materials/images/exam_distributions.png)
+
+## Exploring correlation between delays and traffic volume
+
+ Our assumption that high traffic volume alone does not cause high delays was confirmed by a Pearson correlation test with coefficient = -0.018. This means operational problems are linked to specific local conditions at the stations, rather than just their size. Distribution plotting showed skewed distribution, so data was normalised and scaled for further clustering of stations.
+
+ ## Identifying clusters of stations
+
+To group the stations by their operational performance, we applied Agglomerative hierarchical clustering, which showed 3 distinct cluster of stations.
+
+![alt text](../additional_materials/images/exam_dendrogram.png)
+
+Based on this, we used Principal Component Analysis to chech how features contributed to clustering. We found that:
+- the PCA explains 71% of variance, which is a strong result that our analysis can explain tendencies reliably
+- cluster 1 tends to be the most efficient, having lower delay times, while clusters 2 and 3 have more delays and cancellations
+- cluster 2 tends to include busier stations with more traffic than cluster 3, while cluster 1 includes both quiet and busy stations. 
+This indicates an opportunity for comparing high-performing and low-performing stations of the same size and finding what is different between them.
+
+![alt text](../additional_materials/images/exam_pca.png)
+
+## Comparing profiles of station clusters
+
+The clustering results show three distinct types of train stations based on their daily operations. A silhouette score of 0.25 confirms that these three groups are clearly separated and represent actual operational patterns in the railway network.
+
+![alt text](../additional_materials/images/exam_clusters.png)
+
+**Cluster 1** (55 stations): These stations handle an average of 11,547 trains and maintain the lowest average delay across the network at 3.87 minutes. This is also the largest group, including almost 50% of all stations in the dataset, which points at a relative reliability of the railway service. These stations can serve as example of best practices for stations in other clusters.
+
+**Cluster 2** (13 stations): This small group (around 10% of all stations) represents severe outliers in punctuality. While they have the lowest average traffic volume of 10,798 trains, their average delay is the highest at 8.08 minutes. It is recommended to address this underperformance by investigating structural issues in the timetable or local infrastructure.
+
+**Cluster 3** (39 stations): This group represents the major network hubs, accounting for around 40% of all stations. They handle almost three times the traffic volume of the other clusters at 31,120 trains on average, and they carry the highest average cancellation rate of 0.046. They are likely to have certain infrastructural challenges as well, since our analysis shows that traffic volume alone cannot explain high delays and cancellations.
 
 # 6. RQ5
 
