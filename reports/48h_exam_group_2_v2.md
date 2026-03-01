@@ -1,7 +1,5 @@
 # Introduction
 
-Railway reliability indicates how well a transport system works in practice. When trains are delayed or cancelled, it affects passengers directly, and it can also point to deeper issues in how the network is managed, how capacity is allocated, and how daily operations are coordinated.
-
 Using a dataset of over 1.9 million Deutsche Bahn observations from October 2025, this report investigates reliability from multiple analytical perspectives. Specifically, we examine:
 - How much of delay duration can be predicted using observable operational variables.
 - Whether delay behavior differs across train types.
@@ -31,7 +29,7 @@ A detailed overview of the raw data can be found in the Appendix (Appendix: Tabl
 
 # 2. Predicting Train Delay Duration
 
-This section investigates how much of the variance in train delay duration can be explained by observable operational and structural factors, and what the limits of predictability are.
+This section investigates how much of the variance in train delay duration can be explained given the data, and what the limits of predictability are.
 
 Delay duration is defined as delay=max(delay_in_min,0) to exclude early arrivals from the reliability measure. (Appendix: Figure 2.1 - Delay Distribution)
 
@@ -61,11 +59,8 @@ Three models are estimated, where the variables dep_hour, dep_dow, dep_month, an
 - Model 2: + Train type → R² ≈ 0.16
     - Variables: Train line station number (train_line_station_num), Departure Hour (dep_hour), Departure Day of Week (dep_dow), Departure Month (dep_month), Departure is on Weekend (is_weekend), Train type (train_type)
 - Model 3: + Station identity → R² ≈ 0.21
-    - Variables: Train line station number (train_line_station_num), Departure Hour (dep_hour), Departure Day of Week (dep_dow), Departure Month (dep_month), Departure is on Weekend (is_weekend), Train type (train_type), Station Name (station_name).
+    - Variables: Train line station number (train_line_station_num), Departure Hour (dep_hour), Departure Day of Week (dep_dow), Departure Month (dep_month), Departure is on Weekend (is_weekend), Train type (train_type), Station Name (station_name). (Appendix: Figure 2.5: Model 3 )
 
-Model 3:
-
-![alt text](../additional_materials/images/ridge_model_fit.png)
 
 This suggests that operational timing alone explains little variation, and structural variables, especially train type and station, increase explanatory power. However, since the explained variance (0.21) is still quite low, we analyzed nonlinear effects using a Random Forest model. Here, the R² is approx. 0.26.
 
@@ -96,8 +91,6 @@ The permutation importance analysis shows three key findings:
 
 ![alt text](../additional_materials/images/rf_feature_importance.png)
 
-This suggests that duration is primarily structured by infrastructural and operational system characteristics rather than simple time-of-day effects.
-
 ## 2.5 Conclusion
 
 Although structural variables such as train type and station identity improve explanatory power, the models explain only around 20–26% of delay variation. We therefore next examine whether delay behavior differs systematically across train types.
@@ -108,7 +101,7 @@ To evaluate whether delay duration differs across train types, both descriptive 
 
 ## 3.1 Descriptive Evidence
 
-Average delay was calculated across train categories to assess performance differences. The analysis reveals substantial variation between train types, with NJ (23.1 minutes) and NEX (21.8 minutes) recording the highest average delays in the network.
+Average delay was calculated across train categories to assess performance differences. The analysis reveals substantial variation between train types, with NJ (23.1 minutes) and NEX (21.8 minutes) having the highest average delays in the network.
 
 [![Top_10_Train_Types_with_Highest_Average_Delay.png](https://i.postimg.cc/rmVj7wZv/Top_10_Train_Types_with_Highest_Average_Delay.png)](https://postimg.cc/cKzfn0Sm)
 
@@ -121,29 +114,23 @@ To examine variability, a boxplot comparison was conducted for the top 10 most f
 
 **The distribution analysis reveals:**
 
-• ICE and IC trains exhibit greater variability in delay duration.
+- ICE and IC trains exhibit greater variability in delay duration.
 
-• Regional services show comparatively tighter distributions.
+- Regional services show comparatively tighter distributions.
 
-• Some train types demonstrate extreme values, indicating unstable punctuality performance
+- Some train types demonstrate extreme values, indicating unstable punctuality performance
 
 ## 3.3 ANOVA Test
 
-A one-way ANOVA was conducted to test whether mean delay differs significantly across train types.
-
-F(54, 1,989,070) \= 4638.44
-
-p \< 0.001
+A one-way ANOVA was conducted to test whether mean delay differs significantly across train types. F(54, 1,989,070) \= 4638.44 | p \< 0.001
 
 The results indicate a statistically significant difference in mean delay between train types.
 
 ## 3.4 Effect Size (Eta Squared)
 
-Eta² \= 0.1118
+Eta² \= 0.1118: Approximately 11.18% of the total variance in delay duration is explained by train type.
 
-Approximately 11.18% of the total variance in delay duration is explained by train type.
-
-This represents a moderate practical effect, suggesting that the train category plays a meaningful role in punctuality outcomes.
+This represents a moderate practical effect, suggesting that the train category plays a meaningful role in delays.
 
 These differences suggest that train types vary in both typical delay levels and in extreme delay events. We next examine tail risk and full distributional differences across train types before testing whether delays escalate into cancellations.
 
@@ -155,20 +142,18 @@ While Section 3 focused on mean differences, this section examines the full dist
 Delay distributions vary across train types. Long-distance services (e.g., ICE, IC) show larger median delay and IQR values, indicating higher variability.
 
 The 90th percentile (p90) indicates significant tail behavior for certain train types. A large gap between median and p90 suggests strong right-skewness and frequent extreme delays in long-distance services.
-
-**Figure 1:** Train-type delay structure (Median + IQR + p90 tail)  
-![Figure 1: Train-type delay structure](../additional_materials/images/1.png)
+ 
+![Train-type delay structure](../additional_materials/images/1.png)
 
 ## 4.2 Tail Behavior (ECDF)
 ECDF curves highlight differences in distributional form. Train types with flatter curves indicate heavier tails and more extreme delays, exceeding the global p90 threshold. These findings show that differences are not limited to central tendency but also reflect changes in tail behavior.
 
-**Figure 3:** Delay tail behavior by train type (ECDF) + global p90  
+ 
 ![Figure 3: ECDF tail behavior](../additional_materials/images/3.png)
 
 ## 4.3 Tail Risk and Cancellation Relationship
 There is a weak positive relationship between tail delays (p90) and cancellation rate. Although train types with heavier tail risk tend to show higher cancellation probability, the overall association is moderate (Spearman’s ρ ≈ 0.18). This suggests extreme delays contribute to cancellations but are not the only factor.
 
-**Figure 4:** Tail risk (p90) vs cancellation rate (train types)  
 ![Figure 4: Tail vs cancellation](../additional_materials/images/4.png)
 
 ## 4.4 Statistical Evidence
@@ -191,13 +176,7 @@ These findings suggest that delay variability and tail risk differ substantially
 
 ## 5.1 Statistical Tests
 
-To examine whether increased delay leads to higher cancellation risk, delay duration was categorized into three levels:
-
-• On-time/Early (≤5 minutes)
-
-• Minor Delay (6–15 minutes)
-
-• Severe Delay (\>15 minutes)
+To examine whether increased delay leads to higher cancellation risk, delay duration was categorized into three levels: 1. On-time/Early (≤5 minutes), 2. Minor Delay (6–15 minutes), 3. Severe Delay (\>15 minutes)
 
 ### 5.1.1 Crosstab Results
 
@@ -211,11 +190,7 @@ The heatmap clearly shows that trains with severe delays (\>15 minutes) experien
 
 ### 5.1.2 Chi-Square Test
 
-χ² \= 10152.4
-
-df \= 2
-
-p \< 0.001
+χ² \= 10152.4 | df \= 2 | p \< 0.001
 
 The Chi-square test confirms a statistically significant association between delay severity and cancellation.
 
@@ -225,74 +200,32 @@ Cramér’s V \= 0.0714
 
 This indicates a small but statistically reliable association. While the effect size is modest, the relationship is meaningful given the large sample size.
 
-
 ## 5.2 How does operational stress escalate across delay levels, time-of-day, and station-level congestion?
 
 This section investigates whether operational instability in the German rail network follows an escalation pattern across delay magnitude, time-of-day, and station-level congestion. Specifically, we examine whether increasing delays systematically raise cancellation probability and whether peak-hour stress amplifies both delay volatility and spatial concentration of failures.
 
 ![alt text](../additional_materials/images/heatmap_station.png)
 
-**Key Observations:**
+**Key Observations and Interpretation:**
 
-- Clear peak cancellation zones during late afternoon and early evening (15:00–19:00).
-
-- Some stations consistently show higher cancellation intensity across most hours.
-
-- Major hubs (e.g., Berlin Südkreuz, Hamburg Hbf) display pronounced evening spikes.
-
-- Early morning hours generally show lower cancellation intensity.
-
-**Interpretation:**
-
-- Cancellations are not evenly distributed.
-
-- Instability concentrates in peak commuter periods.
-
-- Certain stations act as persistent high-risk nodes, independent of hour.
-
-- Suggests infrastructure saturation and network strain during high-demand windows.
+Cancellations are more common in the late afternoon and early evening (around 15:00–19:00). Some stations consistently show higher cancellation levels across most hours, and large hubs have especially noticeable evening spikes. In contrast, early mornings generally have fewer cancellations.
+Overall, cancellations are clearly not evenly spread across time or space. They cluster during peak commuter hours, which likely reflects higher traffic and capacity pressure. The fact that some stations stand out across almost all hours suggests that certain locations are structurally more prone to instability.
 
 ---
 ![alt text](../additional_materials/images/median.png)
 
-**Key Observations:**
+**Key Observations and Interpretation:**
 
-- Median delay remains relatively stable (around 0–2 minutes).
-
-- However, delay dispersion widens significantly during daytime and evening.
-
-- Early morning shows high variance, likely due to sparse traffic and occasional extreme events.
-
-- Evening volatility expands again, indicating peak-hour instability.
-
-**Interpretation:**
-
-- Reliability deterioration manifests more in variance expansion than median increase.
-
-- Even if central delay stays moderate, unpredictability grows during peak periods.
-
-- Increased volatility suggests a system operating near capacity limits.
+The median delay stays relatively low throughout the day (around 0–2 minutes), which might initially suggest stable performance. However, the variability of delays increases significantly during the daytime and evening. Early mornings also show higher variance, probably due to occasional extreme delays.
+This means reliability problems are less about the “typical” delay increasing and more about delays becoming less predictable. Even if the median remains small, passengers face greater uncertainty during peak hours.
 
 ---
 ![alt text](../additional_materials/images/bands.png)
 
-**Key Observations:**
+**Key Observations and Interpretation:**
 
-- Cancellation probability rises steadily as delay magnitude increases.
-
-- Beyond moderate delay thresholds (~60–90 minutes), cancellation risk increases sharply.
-
-- Extremely high delays (>120 min) show volatile but elevated cancellation probabilities.
-
-- Non-zero cancellation probability even at small delays suggests preemptive cancellations.
-
-**Interpretation:**
-
-- There appears to be a non-linear escalation pattern.
-
-- The system likely operates with implicit operational thresholds beyond which cancellation becomes more efficient than recovery.
-
-- Cancellation is not merely random but linked to accumulated operational stress.
+Cancellation probability increases steadily as delays get larger, and after roughly 60–90 minutes the increase becomes much steeper. There is also a small but noticeable cancellation probability even at low delay levels.
+This suggests that cancellations are not random. Instead, once delays reach a certain point, it may be operationally more efficient to cancel the train rather than continue trying to recover the schedule. In other words, cancellations seem to reflect accumulated operational strain.
 
 While delay severity clearly increases cancellation probability, cancellations may also reflect broader systemic stress patterns beyond immediate delay accumulation. We therefore analyze which structural and operational factors independently drive cancellation risk.
 
@@ -316,7 +249,7 @@ Conversely, **Bus services** are the most reliable mode with a near-zero failure
 
 [![Train-category.png](https://i.postimg.cc/65sj5YFk/Train-category.png)](https://postimg.cc/CdNHcHh7)
 
-*Figure 3.1: Comparison of cancellation rates across major train categories.*
+*Comparison of cancellation rates across major train categories.*
 
 To complement the category-level comparison, we also examine cancellation probability at the more granular train-type level.
 
@@ -333,7 +266,7 @@ Certain train types demonstrate higher cancellation risk, aligning partially wit
 
 [![Station-wise-cancellation.png](https://i.postimg.cc/ydgj7Zjj/Station-wise-cancellation.png)](https://postimg.cc/5YJL3jZQ)
 
-*Figure 3.2: Mapping critical failure points across the German rail network.*
+*Mapping critical failure points across the German rail network.*
 
 ## 6.3 Operating Patterns & Rush Hour Collapse
 
@@ -341,7 +274,7 @@ While diversity in train types at hubs increases complexity, the inability to ma
 
 [![peak-hours-train-chart.png](https://i.postimg.cc/MZB541v8/peak-hours-train-chart.png)](https://postimg.cc/4nJpH768)
 
-*Figure 3.3: Visualizing the performance dip of S-Bahn and ICE services during peak hours.*
+*Visualizing the performance dip of S-Bahn and ICE services during peak hours.*
 
 ## 6.4 Advanced Insight: The "Route Fatigue" Phenomenon
 
@@ -350,7 +283,7 @@ Every additional stop adds a layer of risk.
 
 [![route-fatigue.png](https://i.postimg.cc/SsM6BpQf/route-fatigue.png)](https://postimg.cc/S2mY93Mn)
 
-*Figure 3.4: Statistical proof of the correlation between stop number and cancellation risk.*
+*Statistical proof of the correlation between stop number and cancellation risk.*
 
 ## 6.5 Key Cancellation Drivers
 
@@ -364,20 +297,19 @@ Every additional stop adds a layer of risk.
 
 ## 6.6 Conclusion
 
-These findings indicate that cancellations arise from layered mechanisms: delay accumulation, peak-hour congestion, infrastructure bottlenecks, and route progression effects. Having examined train-level drivers of cancellations, we now shift perspective to stations as operational nodes within the network.
+These findings suggest that cancellations are not caused by a single factor, but instead result from a combination of overlapping issues. Delays can build up over time, peak-hour congestion adds pressure to the system, infrastructure bottlenecks restrict flow, and the progression of trains along a route can further increase disruption risk. Having explored the train-level factors that contribute to cancellations, the focus now shifts to stations.
 
 # 7. How Do Stations Differ Structurally?
 
 ## 7.1 Distributional Delay Structure Across Stations
 
-Major hub stations exhibit larger median delays and wider IQR ranges than smaller stations. High p90 values imply a higher occurrence of extreme delays at these stations.
-
-Overall, infrastructure complexity and traffic density appear to contribute to structural delay heterogeneity.
+Major hub stations tend to have higher median delays and a wider spread of delays compared to smaller stations. The high 90th percentile values also suggest that extreme delays occur more frequently at these larger hubs.
+Overall, this points to structural differences across stations. Larger hubs, with more complex infrastructure and heavier traffic, seem to be more prone to delays than smaller, less congested stations.
 
 **Figure 2:** Station delay structure (Median + IQR + p90 tail)  
-![Figure 2: Station delay structure](../additional_materials/images/2.png)
+![Station delay structure](../additional_materials/images/2.png)
 
-While distributional metrics highlight structural delay heterogeneity across stations, clustering techniques allow us to group stations into broader operational profiles.
+While looking at the distribution of delays shows that stations differ structurally, clustering helps us take this a step further by grouping stations into broader patterns. Instead of examining each station individually, we can identify similarities across the network.
 
 ## 7.2 How do different station clusters perform based on delay and other factors? 
 
@@ -391,13 +323,11 @@ The distribution plots show that the majority of stations handle standard train 
 
 ### 7.2.2 Exploring correlation between delays and traffic volume
 
- Our assumption that high traffic volume alone does not cause high delays was confirmed by a Pearson correlation test with coefficient = -0.018. This means operational problems are linked to specific local conditions at the stations, rather than just their size. Distribution plotting showed skewed distribution, so data was normalised and scaled for further clustering of stations.
+Our assumption that high traffic volume alone does not cause high delays was confirmed by a Pearson correlation test with coefficient = -0.018. This means operational problems are linked to specific local conditions at the stations, rather than just their size. Distribution plotting showed skewed distribution, so data was normalised and scaled for further clustering of stations.
 
- ### 7.2.3 Identifying clusters of stations
+### 7.2.3 Identifying clusters of stations
 
-To group the stations by their operational performance, we applied Agglomerative hierarchical clustering, which showed 3 distinct clusters of stations.
-
-![alt text](../additional_materials/images/exam_dendrogram.png)
+To group the stations by their operational performance, we applied Agglomerative hierarchical clustering, which showed 3 distinct clusters of stations. (Appendix: Figure 2.6: Dendrogram )
 
 Based on this, we used Principal Component Analysis to check how features contributed to clustering. We found that:
 - the PCA explains 71% of variance, which is a strong result that our analysis can explain tendencies reliably
@@ -432,16 +362,15 @@ In contrast, the underperforming stations in Cluster 2 show a distinct regional 
 Our analysis of 107 stations demonstrates that traffic volume is not the primary driver of delays, but rather specific operational profiles. Agglomerative clustering identified three distinct groups: low-delay stations (50%), underperforming stations (10%) and busy transport hubs (40%). A geographic mapping revealed regional bottlenecks in Lower Saxony and North Rhine-Westphalia. These findings suggest that infrastructure investments should be prioritised in certain regions. Station-level heterogeneity confirms that unreliability is not merely a function of traffic volume but of structural operational profiles embedded in specific regions and hubs.
 
 # 8. Overall Conclusion
-The analysis suggests that both delay length and cancellations are difficult to predict using the operational variables available in the dataset. Overall, the models were only able to explain about a quarter of the variation in delays. However, some clear patterns still emerged.
+The analysis shows that delay length and cancellations are difficult to predict using the available operational variables, with the models explaining only about a quarter of the variation in delays. Still, some clear patterns emerged.
 
-First, there are noticeable differences between train types, especially in terms of how variable their delays are and how severe those delays tend to be. Long-distance and more operationally complex services appear to be less stable and experience larger delays. Second, the likelihood of a cancellation increases significantly as delays become more severe, suggesting that delays can escalate into cancellations. That said, the size of the effects indicates that delays alone do not fully explain why cancellations happen. Broader systemic factors, such as congestion during peak hours, geographic bottlenecks, and operational strain along certain routes, seem to play an important role in increasing cancellation risk.
-Finally, the clustering at station level shows that unreliability is linked more to operational characteristics than simply to how busy a station is, with some regions consistently underperforming. 
+There are clear differences between train types, with long-distance and more complex services showing greater instability and longer delays. Cancellations become more likely as delays increase, suggesting an escalation effect, but delays alone do not fully explain cancellations. Broader factors, such as peak-hour congestion, geographic bottlenecks, and route-level strain, also play an important role. Station-level patterns also suggest that unreliability is linked to operational characteristics rather than just traffic volume, with some regions consistently underperforming.
 
-Overall, railway unreliability is complex and influenced by a combination of structural differences, accumulated operational pressure, and factors outside of the available data. These factors interact in ways that make reliability difficult to predict using schedule-based variables alone.
+Overall, railway unreliability is complex, shaped by structural differences, accumulated pressure, and likely other factors that are not captured in the dataset.
 
 # 9. Disclaimer on Methodogical Limitations
 
-This analysis is based on data from October 2025, some German train stations may be missing. Because of this, the findings may not apply to regions that were not well represented in the dataset. Additionally, the dataset does not include external factors such as infrastructure failures or weather conditions, which are likely to impact delays and cancellations.
+This analysis is based on data from October 2025 and some German train stations may be missing. Because of this, the findings may not apply to regions that were not well represented in the dataset. Additionally, the dataset does not include external factors such as infrastructure failures or weather conditions, which are likely to impact delays and cancellations.
 
 # 10. AI Disclaimer
 AI was used to create visualizations, resolve coding errors, and refine the text.
@@ -501,3 +430,10 @@ Figure 2.4: Q-Q Plot:
 ![alt text](../additional_materials/images/qqPlot.png)
 
 
+Figure 2.5: Model 3: 
+
+![alt text](../additional_materials/images/ridge_model_fit.png)
+
+Figure 2.6 : Dendrogram
+
+![alt text](../additional_materials/images/exam_dendrogram.png)
