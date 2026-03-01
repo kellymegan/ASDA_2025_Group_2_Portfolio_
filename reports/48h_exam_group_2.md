@@ -157,19 +157,19 @@ Delay distributions vary across train types. Long-distance services (e.g., ICE, 
 The 90th percentile (p90) indicates significant tail behavior for certain train types. A large gap between median and p90 suggests strong right-skewness and frequent extreme delays in long-distance services.
 
 **Figure 1:** Train-type delay structure (Median + IQR + p90 tail)  
-![Figure 1: Train-type delay structure](figures/Fig1_train_type_delay_structure.png)
+![Figure 1: Train-type delay structure](../additional_materials/images/1.png)
 
 ## 4.2 Tail Behavior (ECDF)
 ECDF curves highlight differences in distributional form. Train types with flatter curves indicate heavier tails and more extreme delays, exceeding the global p90 threshold. These findings show that differences are not limited to central tendency but also reflect changes in tail behavior.
 
 **Figure 3:** Delay tail behavior by train type (ECDF) + global p90  
-![Figure 3: ECDF tail behavior](figures/Fig3_ecdf_tail_behavior.png)
+![Figure 3: ECDF tail behavior](../additional_materials/images/3.png)
 
 ## 4.3 Tail Risk and Cancellation Relationship
 There is a weak positive relationship between tail delays (p90) and cancellation rate. Although train types with heavier tail risk tend to show higher cancellation probability, the overall association is moderate (Spearman’s ρ ≈ 0.18). This suggests extreme delays contribute to cancellations but are not the only factor.
 
 **Figure 4:** Tail risk (p90) vs cancellation rate (train types)  
-![Figure 4: Tail vs cancellation](figures/Fig4_tail_vs_cancellation.png)
+![Figure 4: Tail vs cancellation](../additional_materials/images/4.png)
 
 ## 4.4 Statistical Evidence
 - **Kruskal–Wallis Test:** Significant differences exist in delay distributions between train types (p < 0.05).
@@ -457,7 +457,7 @@ Major hub stations exhibit larger median delays and wider IQR ranges than smalle
 Overall, infrastructure complexity and traffic density appear to contribute to structural delay heterogeneity.
 
 **Figure 2:** Station delay structure (Median + IQR + p90 tail)  
-![Figure 2: Station delay structure](figures/Fig2_station_delay_structure.png)
+![Figure 2: Station delay structure](../additional_materials/images/2.png)
 
 While distributional metrics highlight structural delay heterogeneity across stations, clustering techniques allow us to group stations into broader operational profiles.
 
