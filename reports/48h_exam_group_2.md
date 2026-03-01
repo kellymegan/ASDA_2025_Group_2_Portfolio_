@@ -311,7 +311,72 @@ Our analysis of 107 stations demonstrates that traffic volume is not the primary
 
 # 6. RQ5
 
-# 7. RQ 6
+# RQ 6
+## How does operational stress escalate across delay levels, time-of-day, and station-level congestion?
+
+#### This section investigates whether operational instability in the German rail network follows an escalation pattern across delay magnitude, time-of-day, and station-level congestion. Specifically, we examine whether increasing delays systematically raise cancellation probability and whether peak-hour stress amplifies both delay volatility and spatial concentration of failures.
+---
+![alt text](../additional_materials/images/heatmap_station.png)
+Key Observations
+
+- Clear peak cancellation zones during late afternoon and early evening (15:00–19:00).
+
+- Some stations consistently show higher cancellation intensity across most hours.
+
+- Major hubs (e.g., Berlin Südkreuz, Hamburg Hbf) display pronounced evening spikes.
+
+- Early morning hours generally show lower cancellation intensity.
+
+Interpretation
+
+- Cancellations are not evenly distributed.
+
+- Instability concentrates in peak commuter periods.
+
+- Certain stations act as persistent high-risk nodes, independent of hour.
+
+- Suggests infrastructure saturation and network strain during high-demand windows.
+
+---
+![alt text](../additional_materials/images/median.png)
+Key Observations
+
+- Median delay remains relatively stable (around 0–2 minutes).
+
+- However, delay dispersion widens significantly during daytime and evening.
+
+- Early morning shows high variance, likely due to sparse traffic and occasional extreme events.
+
+- Evening volatility expands again, indicating peak-hour instability.
+
+Interpretation
+
+- Reliability deterioration manifests more in variance expansion than median increase.
+
+- Even if central delay stays moderate, unpredictability grows during peak periods.
+
+- Increased volatility suggests a system operating near capacity limits.
+
+---
+![alt text](../additional_materials/images/bands.png)
+Key Observations
+
+- Cancellation probability rises steadily as delay magnitude increases.
+
+- Beyond moderate delay thresholds (~60–90 minutes), cancellation risk increases sharply.
+
+- Extremely high delays (>120 min) show volatile but elevated cancellation probabilities.
+
+- Non-zero cancellation probability even at small delays suggests preemptive cancellations.
+
+Interpretation
+
+- There appears to be a non-linear escalation pattern.
+
+- The system likely operates with implicit operational thresholds beyond which cancellation becomes more efficient than recovery.
+
+- Cancellation is not merely random but linked to accumulated operational stress.
+
 
 # 8. Disclaimer on Methodogical Limitations
 
