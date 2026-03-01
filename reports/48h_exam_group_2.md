@@ -313,7 +313,11 @@ Our analysis of 107 stations demonstrates that traffic volume is not the primary
 
 # 7. RQ 6
 
-# 8. Appendix
+# 8. Disclaimer on Methodogical Limitations
+
+A disclaimer on methodogical limitations should be made, that since only a part of the total number of train stations in Germany is represented in the dataset, it is not possible to make conclusions for the rest of stations, especially for the regions underrepresented in the dataset.
+
+# 9. Appendix
 
 Figure 1: Residual distribution: ![alt text](../additional_materials/images/residualsRR.png).png)
 
